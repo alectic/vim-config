@@ -1,0 +1,38 @@
+snippet base "Insert the base" !b
+<!DOCTYPE html>
+
+<html lang="en">
+	<head>
+		<title>$1</title>
+		<meta charset="utf-8">
+		<meta name="description" content="$2">
+		<meta name="keywords" content="$3">
+	</head>
+
+	<body>
+		$0
+	</body>
+</html>
+endsnippet
+
+snippet doc "Insert the html doctype" b
+
+<!DOCTYPE html>
+endsnippet
+
+snippet com "Insert a comment"
+<!-- $1 -->
+endsnippet
+
+snippet html "Insert the html tags" b
+<html>$1
+</html>
+endsnippet
+
+snippet cset "Insert meta charset utf-8"
+<meta charset="utf-8"/>
+endsnippet
+
+snippet title "Insert title tags" !
+<title>${1:Title?}</title>
+endsnippet
