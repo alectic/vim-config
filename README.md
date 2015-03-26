@@ -2,7 +2,7 @@
 ```
 mv -v ~/.vim ~/.vim_backup
 mv -v ~/.vimrc ~/.gvimrc ~/.vim_backup/
-git clone https://github.com/alectic/vim-config.git ~/.vim
+git clone https://github.com/alectic/vim-config ~/.vim
 cd ~/.vim
 git submodule init
 git submodule update

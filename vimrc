@@ -72,6 +72,8 @@ set colorcolumn=80
 set completeopt-=preview
 set completeopt=longest,menuone
 set ballooneval
+set cryptmethod=blowfish2
+set guiheadroom=0
 
 " I got used to rangerfm
 inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
@@ -93,6 +95,10 @@ inoremap <silent> <expr> <C-Space> (pumvisible() ? (col('.') > 1 ? '<Esc>i<Right
             \ '<C-x><C-o><C-r>=pumvisible() ? "\<lt>C-n>\<lt>C-p>\<lt>Down>" : ""<CR>'
 
 inoremap <C-u> <C-g>u<C-u>
+
+if !has("gui_running")
+    inoremap <C-@> <C-x><C-o>
+endif
 
 noremap <MiddleMouse> <NOP>
 noremap <MouseUp> <NOP>
@@ -258,9 +264,12 @@ nnoremap <silent> <C-Space> :call NERDComment(0, "toggle") <CR>
 " Syntastic related
 let g:syntastic_check_on_open = 1
 let g:syntastic_enable_signs = 1
-if has('gui')
+if has('gui_running')
     let g:syntastic_error_symbol = '✗'
     let g:syntastic_warning_symbol = '⚠'
+else
+    let g:syntastic_error_symbol = 'X'
+    let g:syntastic_warning_symbol = '!'
 endif
 let g:syntastic_enable_balloons = 0
 "let g:syntastic_enable_highlighting = 0
@@ -367,32 +376,33 @@ filetype off
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
-Bundle 'gmarik/vundle'
-Bundle 'scrooloose/nerdtree'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'scrooloose/syntastic'
-Bundle 'kien/ctrlp.vim'
+Plugin 'gmarik/vundle'
+Plugin 'rust-lang/rust.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/syntastic'
+Plugin 'kien/ctrlp.vim'
 "if executable('git')
-"    Bundle 'tpope/vim-fugitive'
+"    Plugin 'tpope/vim-fugitive'
 "endif
-"Bundle 'sjl/gundo.vim'
-Bundle 'bling/vim-airline'
-Bundle 'SirVer/ultisnips'
+"Plugin 'sjl/gundo.vim'
+Plugin 'bling/vim-airline'
+Plugin 'SirVer/ultisnips'
 " possible to be removed due to slowness
-"Bundle 'chrisbra/color_highlight'
+"Plugin 'chrisbra/color_highlight'
 if executable('ctags')
-    Bundle 'majutsushi/tagbar'
-    Bundle 'vim-scripts/AutoTag'
+    Plugin 'majutsushi/tagbar'
+    Plugin 'vim-scripts/AutoTag'
 endif
 if executable('gocode')
-    Bundle 'Blackrush/vim-gocode'
+    Plugin 'Blackrush/vim-gocode'
 endif
-Bundle 'Rip-Rip/clang_complete'
+Plugin 'Rip-Rip/clang_complete'
 if executable('godef')
-    Bundle 'dgryski/vim-godef'
+    Plugin 'dgryski/vim-godef'
 endif
-Bundle 'Chiel92/vim-autoformat'
-Bundle 'davidhalter/jedi-vim'
-Bundle 'mkitt/tabline.vim'
+Plugin 'Chiel92/vim-autoformat'
+Plugin 'davidhalter/jedi-vim'
+Plugin 'mkitt/tabline.vim'
 filetype plugin indent on
 " ===== End Plugin Settings ===== "

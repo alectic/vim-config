@@ -4,7 +4,7 @@ endsnippet
 
 snippet im "Import packages"
 import (
-    "${1:package?}
+	"${1:package?}
 )
 endsnippet
 
@@ -14,19 +14,19 @@ endsnippet
 
 snippet main "Create the generic main function" b
 func main() {
-    $0
+	$0
 }
 endsnippet
 
 snippet f "Create a function" b
 func praf(${1:s} string) error {
-    fmt.Println($1)
+	fmt.Println($1)
 }
 endsnippet
 
 snippet met "Create a method" b
 func (self ${1:Type?}) ${2:Name?}(${3:args?}) ${4:returns?} {
-    ${5:body?}
+	${5:body?}
 }
 
 $0
@@ -38,15 +38,15 @@ endsnippet
 
 snippet err "Insert standard error checking condition" b
 if err != nil {
-    fmt.Fprintln(os.Stderr, err.Error())
-    os.Exit(1)
+	fmt.Fprintln(os.Stderr, err.Error())
+	os.Exit(1)
 }
 endsnippet
 
 snippet ierr "Insert if err := func style error checking" b
 if err := ${1:pkg.Func()}; err != nil {
-    fmt.Fprintf(os.Stderr, "error: %s\n", err)
-    os.Exit(1)
+	fmt.Fprintf(os.Stderr, "error: %s\n", err)
+	os.Exit(1)
 }
 
 $0
