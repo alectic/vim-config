@@ -19,19 +19,19 @@ hi clear MatchParen
 " ********** Color Definitions ********** "
 
 " ===== Vim Colors ===== "
-hi SpecialKey	gui=none	guibg=#121212		ctermbg=brown
+hi SpecialKey	gui=none	guibg=#1c1c1c		ctermbg=brown
 hi NonText      gui=none	guifg=lightgreen
-hi LineNr       gui=none	guifg=#4d4d4d		guibg=#090909   ctermfg=darkgrey
+hi LineNr       gui=none	guifg=#575757		guibg=#141414   ctermfg=darkgrey
 hi CursorLine   gui=none	guifg=white         guibg=#41324D   ctermfg=blue
 hi CursorColumn	gui=none	guifg=white         guibg=#330d0d
 hi CursorLineNr	gui=bold	guifg=yellow		guibg=#0f0f0f
 hi SignColumn	guibg=#090909
-hi Pmenu        gui=none	guifg=lightgrey     guibg=#0f0f0f   ctermfg=white   ctermbg=black
+hi Pmenu        gui=none	guifg=lightgrey     guibg=#1a1a1a   ctermfg=white   ctermbg=black
 hi PmenuSel     gui=italic	guifg=white			guibg=#41324D   ctermfg=white   ctermbg=darkblue
-hi PmenuSbar    gui=none	guibg=#333333       ctermbg=darkgrey
-hi PmenuThumb   gui=none	guibg=#151515       ctermbg=grey
-hi TabLineFill  gui=none	guibg=#151515       ctermfg=black
-hi TabLine      gui=none	guifg=lightgrey		guibg=#151515	ctermfg=grey   ctermbg=black
+hi PmenuSbar    gui=none	guibg=#1f1f1f       ctermbg=darkgrey
+hi PmenuThumb   gui=none	guibg=#333333       ctermbg=grey
+hi TabLineFill  gui=none	guibg=#1f1f1f       ctermfg=black
+hi TabLine      gui=none	guifg=lightgrey		guibg=#1f1f1f	ctermfg=grey   ctermbg=black
 hi TabLineSel   gui=italic	guifg=white			guibg=#4C3A59   ctermbg=darkblue
 hi Todo         gui=none	guifg=white         guibg=#721d1d   ctermfg=white   ctermbg=red
 hi Search       gui=italic	guifg=white         guibg=#721d1d   ctermfg=white   ctermbg=darkred
@@ -47,8 +47,8 @@ hi MatchParen	gui=underline	            guifg=white     guibg=#330d0d       cter
 " ===== End Vim Colors ===== "
 
 " ===== General Colors ===== "
-hi Normal		gui=none	guifg=#ffffff	guibg=#090909       ctermfg=white
-hi Comment      gui=italic	guifg=#737373   ctermfg=darkgrey
+hi Normal		gui=none	guifg=#ffffff	guibg=#141414       ctermfg=white
+hi Comment      gui=italic	guifg=#7d7d7d   ctermfg=darkgrey
 hi String       gui=italic	guifg=#bf6060   ctermfg=red
 hi Number       gui=none	guifg=#F2A055   ctermfg=lightyellow
 hi Character    gui=none	guifg=#BA73E6   ctermfg=darkcyan
