@@ -1,6 +1,4 @@
-" Languages:    Rust, C, C++, Arduino, Go, Python, JavaScript, HTML, CSS 
-" Author:       Alex Alectic <alecticwp@gmail.com>
-" Maintainer:   Alex Alectic <alecticwp@gmail.com>
+" Author:       Alectic <alecticwp@gmail.com>
 " URL:          https://github.com/alectic/vim-config/blob/master/colors/naquadria.vim
 " NOTE:         It needs https://github.com/alectic/vim-config/tree/master/after/syntax/
 
@@ -25,7 +23,7 @@ hi LineNr       gui=none	guifg=#575757		guibg=#141414   ctermfg=darkgrey
 hi CursorLine   gui=none	guifg=white         guibg=#41324D   ctermfg=blue
 hi CursorColumn	gui=none	guifg=white         guibg=#330d0d
 hi CursorLineNr	gui=bold	guifg=yellow		guibg=#0f0f0f
-hi SignColumn	guibg=#090909
+hi SignColumn	guibg=#141414
 hi Pmenu        gui=none	guifg=lightgrey     guibg=#1a1a1a   ctermfg=white   ctermbg=black
 hi PmenuSel     gui=italic	guifg=white			guibg=#41324D   ctermfg=white   ctermbg=darkblue
 hi PmenuSbar    gui=none	guibg=#1f1f1f       ctermbg=darkgrey
@@ -38,8 +36,8 @@ hi Search       gui=italic	guifg=white         guibg=#721d1d   ctermfg=white   c
 hi Visual       gui=none	guifg=white         guibg=#721d1d   ctermfg=white   ctermbg=red
 hi ErrorMsg		gui=none	guifg=white			guibg=#721d1d
 hi StatusLine   gui=none	guifg=white         guibg=#721d1d   ctermfg=white   ctermbg=red
-hi VertSplit	gui=none	guifg=#BBBBe6		guibg=#050505   ctermfg=grey    ctermbg=black   cterm=none
-hi ColorColumn	gui=none	guibg=#0f0f0f       ctermbg=black
+hi VertSplit	gui=none	guifg=#BBBBE6		guibg=#141414   ctermfg=grey    ctermbg=black   cterm=none
+hi ColorColumn	gui=none	guibg=#1a1a1a       ctermbg=black
 hi Cursor       gui=none	guifg=black         guibg=lightgreen    ctermfg=black   ctermbg=lightgreen
 hi iCursor      gui=none	guibg=yellow
 hi Directory	gui=none	guifg=lightblue		ctermfg=blue
@@ -70,7 +68,7 @@ hi varDef       gui=none    guifg=#BFAC7B   ctermfg=brown
 
 " ===== Rust Colors ===== "
 hi rustFormat           gui=italic	guifg=#B17DCC	ctermfg=darkmagenta
-hi rustCommentLineDoc   gui=italic	guifg=#666052   ctermfg=darkyellow
+hi rustCommentLineDoc   gui=italic	guifg=#706a5a   ctermfg=darkyellow
 hi rustModPath          gui=none	guifg=#999999   ctermfg=grey
 hi rustAttribute        gui=none    guifg=#99907a
 " customs - defined in $HOME/.vim/after/syntax/rust/highlight.vim
@@ -161,6 +159,25 @@ hi link cppKeyword2     rustKeyword5
 "hi link cppKeyword3     rustKeyword3
 " ===== End C++ Linking ===== "
 
+" ===== Java Linking ===== "
+hi link javaExternal    Conditional
+hi link javaSpecialChar rustSpecial
+hi link javaOps         rustOps
+hi link javaParen       rustOps2
+hi link javaParen1      rustOps2
+hi link javaParenT      rustOps
+" ===== End Java Linking ===== "
+
+" ===== Bash Linking ===== "
+hi link shRange         rustOps2
+hi link shCmdSubRegion  rustOps2
+hi link shVariable      VarDef
+hi link shDerefSimple   rustFormat
+hi link shCommandSub    Keyword
+hi link shLoop          Conditional
+hi link shTestOpr       rustOps
+" ===== End Bash Linking ===== "
+
 " ===== Arduino Linking ===== "
 hi link arduinoOps      rustOps
 hi link arduinoOps2     rustOps2
@@ -233,10 +250,10 @@ hi link jsKeyword1				rustKeyword6
 hi link jsShebang               Comment
 " ===== End JavaScript Linking ===== "
 
-" ====== Racket Linkin ===== "
-hi link Delimiter           rustOps2
-hi link racketSyntax        Keyword
-" ===== End Racket Linkin ===== "
+" ====== JSON Linkin ===== "
+hi link jsonQuote           rustOps
+hi link jsonBraces          rustOps2
+" ===== End JSON Linking ===== "
 
 " ===== HTML Linking ===== "
 hi link htmlTitle			htmlString

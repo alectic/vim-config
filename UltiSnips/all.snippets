@@ -1,11 +1,11 @@
 snippet "not?e?" "Insert a NOTE comment" r
-NOTE: $0 :: `echo $USER` :: `!v strftime("%d %b %Y")`
+NOTE: $0 - `echo $USER` (`!v strftime("%d %b %Y")`)
 endsnippet
 
 snippet todo "Insert a TODO comment"
-TODO: - $0 :: `echo $USER` :: `!v strftime("%d %b %Y")`
+TODO: - $0 - `echo $USER` (`!v strftime("%d %b %Y")`)
 endsnippet
 
 snippet "fix" "Insert a FIXME comment" r
-FIXME: $0 :: `echo $USER` :: `!v strftime("%d %b %Y")`
+FIXME: $0 - `echo $USER` (`!v strftime("%d %b %Y")`)
 endsnippet

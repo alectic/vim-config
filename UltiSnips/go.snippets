@@ -4,7 +4,7 @@ endsnippet
 
 snippet im "Import packages"
 import (
-	"${1:package?}
+	"${1:}
 )
 endsnippet
 
@@ -38,7 +38,7 @@ endsnippet
 
 snippet err "Insert standard error checking condition" b
 if err != nil {
-	fmt.Fprintln(os.Stderr, err.Error())
+	fmt.Fprintln(os.Stderr, err)
 	os.Exit(1)
 }
 endsnippet

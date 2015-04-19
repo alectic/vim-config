@@ -4,18 +4,18 @@ let g:airline#themes#naquadria#palette = {}
 
 let s:modified = '#ff3737'
 
-let s:n_guibg = '#111120'
+let s:n_guibg = '#17172b'
 let s:n_termbg = 17
 let s:n_termsep = 236
 let s:n_guisep = '#303030'
 
-let s:i_guibg = '#10200a'
+let s:i_guibg = '#162b0e'
 let s:i_termbg = 22
 
-let s:v_guibg = '#202000'
+let s:v_guibg = '#2b2b00'
 let s:v_termbg = 58
 
-let s:ia_guibg = '#171717'
+let s:ia_guibg = '#212121'
 let s:ia_termbg = 232
 
 let s:N1 = [ '#00dfff', s:n_guibg, 45, s:n_termbg ]
