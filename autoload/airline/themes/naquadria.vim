@@ -4,7 +4,7 @@ let g:airline#themes#naquadria#palette = {}
 
 let s:modified = '#ff3737'
 
-let s:n_guibg = '#17172b'
+let s:n_guibg = '#2e3233'
 let s:n_termbg = 17
 let s:n_termsep = 236
 let s:n_guisep = '#303030'
