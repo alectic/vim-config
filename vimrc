@@ -227,7 +227,7 @@ inoremap <silent> <C-t>n <Esc> :tabnew <CR>
 inoremap <silent> <C-t>d <Esc> :tabclose <CR>
 " ===== End Vim Shortcuts ===== "
 
-" ===== Plugin Settings ===== "
+" ----- <plugin> ----- "
 
 " Airline related
 let g:airline_theme = "naquadria"
@@ -406,4 +406,4 @@ Plugin 'davidhalter/jedi-vim'
 Plugin 'mkitt/tabline.vim'
 Plugin 'Raimondi/delimitMate'
 filetype plugin indent on
-" ===== End Plugin Settings ===== "
+" ----- </plugins> ----- "
