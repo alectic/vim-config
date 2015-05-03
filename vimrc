@@ -405,6 +405,5 @@ Plugin 'Chiel92/vim-autoformat'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'mkitt/tabline.vim'
 Plugin 'Raimondi/delimitMate'
-Plugin 'kchmck/vim-coffee-script'
 filetype plugin indent on
 " ===== End Plugin Settings ===== "
