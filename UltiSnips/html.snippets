@@ -16,8 +16,31 @@ snippet base "Insert the base" !b
 endsnippet
 
 snippet doc "Insert the html doctype" b
-
 <!DOCTYPE html>
+
+
+endsnippet
+
+snippet tags "Insert html, head and body tags" b
+<html>
+	<head>
+	</head>
+
+	<body>
+	</body>
+</html
+endsnippet
+
+snippet tit "Insert title" !
+<title>$1</title>$0
+endsnippet
+
+snippet desc "Insert description"
+<meta name="description" content="$1">$0
+endsnippet
+
+snippet char "Insert meta charset utf-8"
+<meta charset="utf-8">$0
 endsnippet
 
 snippet com "Insert a comment"
@@ -25,24 +48,29 @@ snippet com "Insert a comment"
 endsnippet
 
 snippet html "Insert the html tags" b
-<html>$1
+<html>
+	$0
 </html>
-endsnippet
-
-snippet cset "Insert meta charset utf-8"
-<meta charset="utf-8"/>
 endsnippet
 
 snippet title "Insert title tags" !
 <title>${1:Title?}</title>
 endsnippet
 
+snippet st "Insert head css style tags" b
+<link rel="stylesheet" href="$0">
+endsnippet
+
 snippet scr "Insert java script tags"
-<script type="text/javascript">
+<script>
 	$0
 </script>
 endsnippet
 
 snippet Scr "Insert script source"
 <script src="$0"></script>
+endsnippet
+
+snippet img "Insert image source"
+<img src="$1" alt="$0"</img>
 endsnippet

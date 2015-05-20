@@ -74,6 +74,7 @@ set completeopt=longest,menuone
 set ballooneval
 set cryptmethod=blowfish2
 set guiheadroom=0
+set omnifunc=javascriptcomplete#CompleteJS
 
 " I got used to rangerfm
 inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
@@ -99,6 +100,7 @@ inoremap <C-u> <C-g>u<C-u>
 if !has("gui_running")
     inoremap <C-@> <C-x><C-o>
 endif
+
 
 noremap <MiddleMouse> <NOP>
 noremap <MouseUp> <NOP>
@@ -225,7 +227,7 @@ inoremap <silent> <C-t>h <Esc> :tabprevious <CR>i
 inoremap <silent> <C-t>l <Esc> :tabnext <CR>i
 inoremap <silent> <C-t>n <Esc> :tabnew <CR>
 inoremap <silent> <C-t>d <Esc> :tabclose <CR>
-" ===== End Vim Shortcuts ===== "
+" ----- </shortcuts> ----- "
 
 " ----- <plugin> ----- "
 
@@ -388,8 +390,6 @@ Plugin 'kien/ctrlp.vim'
 "Plugin 'sjl/gundo.vim'
 Plugin 'bling/vim-airline'
 Plugin 'SirVer/ultisnips'
-" possible to be removed due to slowness
-"Plugin 'chrisbra/color_highlight'
 if executable('ctags')
     Plugin 'majutsushi/tagbar'
     Plugin 'vim-scripts/AutoTag'

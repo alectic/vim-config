@@ -88,7 +88,7 @@ hi link Label       Conditional
 
 " ----- <rust> ----- "
 hi rustFormat           gui=italic	guifg=#B17DCC	ctermfg=darkmagenta
-hi rustCommentLineDoc   gui=italic	guifg=#706a5a   ctermfg=darkyellow
+hi rustCommentLineDoc   gui=italic	guifg=#857E6B   ctermfg=darkyellow
 hi rustModPath          gui=none	guifg=#999999   ctermfg=grey
 hi rustAttribute        gui=none    guifg=#99907a
 " customs - defined in $HOME/.vim/after/syntax/rust/highlight.vim
