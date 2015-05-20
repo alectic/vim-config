@@ -1,6 +1,6 @@
 set guifont=Fira\ Mono\ Medium\ 10
 "set guifont=Source\ Code\ Pro\ Medium\ 11
-set linespace=-2
+set linespace=-1
 set antialias
 set guioptions=
 set guicursor=n:block-Cursor-blinkoff0
