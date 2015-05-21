@@ -15,24 +15,24 @@ hi clear MatchParen
 " ----- <vim> ----- "
 hi SpecialKey	gui=none	guibg=#2D2E28		ctermbg=brown
 hi NonText      gui=none	guifg=lightgreen
-hi LineNr       gui=none	guifg=#575757		guibg=#23241F   ctermfg=darkgrey
+hi LineNr       gui=none	guifg=#575757		guibg=#22241B   ctermfg=darkgrey
 hi CursorLine   gui=none	guifg=white         guibg=#41324D   ctermfg=blue
 hi CursorColumn	gui=none	guifg=white         guibg=#330d0d
 hi CursorLineNr	gui=bold	guifg=yellow		guibg=#0f0f0f
 hi SignColumn	guibg=#0D0D0D
-hi Pmenu        gui=none	guifg=lightgrey     guibg=#1a1c17   ctermfg=white   ctermbg=black
+hi Pmenu        gui=none	guifg=lightgrey     guibg=#1A1C15   ctermfg=white   ctermbg=black
 hi PmenuSel     gui=italic	guifg=white			guibg=#41324D   ctermfg=white   ctermbg=darkblue
 hi PmenuSbar    gui=none	guibg=#1f1f1f       ctermbg=darkgrey
 hi PmenuThumb   gui=none	guibg=#333333       ctermbg=grey
-hi TabLineFill  gui=none	guibg=#1f1f1f       ctermfg=black
-hi TabLine      gui=none	guifg=lightgrey		guibg=#1f1f1f	ctermfg=grey   ctermbg=black
+hi TabLineFill  gui=none	guibg=#2E3233       ctermfg=black
+hi TabLine      gui=none	guifg=lightgrey		guibg=#2E3233	ctermfg=grey   ctermbg=black
 hi TabLineSel   gui=italic	guifg=white			guibg=#4C3A59   ctermbg=darkblue
 hi Todo         gui=none	guifg=white         guibg=#721d1d   ctermfg=white   ctermbg=red
 hi Search       gui=italic	guifg=white         guibg=#721d1d   ctermfg=white   ctermbg=darkred
 hi Visual       gui=none	guifg=white         guibg=#721d1d   ctermfg=white   ctermbg=red
 hi ErrorMsg		gui=none	guifg=white			guibg=#721d1d
 hi StatusLine   gui=none	guifg=white         guibg=#721d1d   ctermfg=white   ctermbg=red
-hi VertSplit	gui=none	guifg=#BBBBE6		guibg=#23241F   ctermfg=grey    ctermbg=black   cterm=none
+hi VertSplit	gui=none	guifg=#BBBBE6		guibg=#22241B   ctermfg=grey    ctermbg=black   cterm=none
 hi ColorColumn	gui=none	guibg=#2D2E28       ctermbg=black
 hi Cursor       gui=none	guifg=black         guibg=lightgreen    ctermfg=black   ctermbg=lightgreen
 hi iCursor      gui=none	guibg=yellow
@@ -59,7 +59,7 @@ hi link vimGroupSpecial	rustModPath
 " ----- </vim> ----- "
 
 " ----- <general> ----- "
-hi Normal		    gui=none	guifg=#ffffff	guibg=#23241F       ctermfg=white
+hi Normal		    gui=none	guifg=#ffffff	guibg=#22241B       ctermfg=white
 hi Comment          gui=italic	guifg=#7d7d7d   ctermfg=darkgrey
 hi String           gui=italic	guifg=#bf6060   ctermfg=red
 hi Number           gui=none	guifg=#F2A055   ctermfg=lightyellow
