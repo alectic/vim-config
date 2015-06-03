@@ -1,1 +1,1 @@
-au BufNewFile,BufRead *.py2,*.py3 setlocal ft=python
+au BufNewFile,BufRead *.py2,*.py3 setf python

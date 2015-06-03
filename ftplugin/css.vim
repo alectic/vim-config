@@ -9,3 +9,4 @@ setl shiftwidth=2
 
 " Autoformat when :w
 autocmd BufWritePre <buffer> Autoformat
+

@@ -74,6 +74,7 @@ set completeopt=longest,menuone
 set ballooneval
 set cryptmethod=blowfish2
 set guiheadroom=0
+
 set omnifunc=javascriptcomplete#CompleteJS
 
 " I got used to rangerfm
@@ -217,24 +218,9 @@ if has("gui_running")
 endif
 
 nnoremap <silent> <C-w>d :bdel <CR>
-
-" Experimental tab navigation
-nnoremap <silent> <C-t>h :tabprevious <CR>
-nnoremap <silent> <C-t>l :tabnext <CR>
-nnoremap <silent> <C-t>n :tabnew <CR>
-nnoremap <silent> <C-t>d :tabclose <CR>
-inoremap <silent> <C-t>h <Esc> :tabprevious <CR>i
-inoremap <silent> <C-t>l <Esc> :tabnext <CR>i
-inoremap <silent> <C-t>n <Esc> :tabnew <CR>
-inoremap <silent> <C-t>d <Esc> :tabclose <CR>
 " ----- </shortcuts> ----- "
 
 " ----- <plugin> ----- "
-
-" Airline related
-let g:airline_theme = "naquadria"
-"let g:airline_powerline_fonts = 1
-"let g:airline_theme_patch_func = "AirlineThemePatch"
 
 " UltiSnips related
 let g:UltiSnipsEditSplit = "vertical"
@@ -248,12 +234,6 @@ let g:UltiSnipsJumpBackwardTrigger = "<C-p>"
 let g:html_indent_inctags = "html,body,head,tbody"
 let g:html_indent_script1 = "inc"
 let g:html_indent_style1 = "inc"
-
-" ColorHighlight related
-let g:colorizer_auto_filetype = 'css,html,vim'
-let g:colorizer_fgcontrast = 1
-let g:colorizer_colornames = 0
-let g:colorizer_x11_names = 1
 
 " NERDTree related
 let g:NERDTreeDirArrows = 1
@@ -280,6 +260,7 @@ let g:syntastic_enable_balloons = 0
 let g:syntastic_go_checkers = ['gofmt']
 "let g:syntastic_python_checkers=['pep8']
 let g:syntastic_java_checkers = ['']
+let g:syntastic_javascript_checkers = ['jshint']
 let g:syntastic_html_checkers = ['']
 let g:syntastic_css_checkers = ['prettycss --ignore suggest-relative-unit']
 let g:syntastic_c_checkers = ['clang_check']
@@ -287,7 +268,7 @@ let g:syntastic_c_compiler = 'clang'
 let g:syntastic_c_compiler_options = '-W -Wall -std=gnu11'
 let g:syntastic_c_check_header = 0 " normally should be set to 1
 let g:syntastic_c_auto_refresh_includes = 0 " the same
-let g:syntastic_c_remove_include_errors = 1 " I don't know why THE FUCK doesn't it work
+let g:syntastic_c_remove_include_errors = 1 " I don't know why THE FUCK it doesn't work
 let g:syntastic_c_include_dirs = [
             \ '/usr/i686-w64-mingw32/include/',
             \ '/usr/x86_64-w64-mingw32/include/',
@@ -345,7 +326,7 @@ nnoremap <silent> <C-t>c :CtrlPBufTag<CR>
 
 " Clang_Complete related
 let g:clang_snippets = 0
-let g:clang_snippets_engine = "ultisnips"
+let g:clang_snippets_engine = 'ultisnips'
 let g:clang_complete_auto = 0
 " to be set depending on the filetype in case of using c++ as well
 let g:clang_user_options = '-W -Wall -Wextra -std=gnu11
@@ -360,18 +341,12 @@ let g:clang_complete_patterns = 0
 " Autoformat related
 let g:formatprg_c = 'uncrustify'
 let g:formatprg_args_c = '-q -c $HOME./.config/uncrustify.cfg --no-backup'
-
-" jedi-vim related
-let g:jedi#show_call_signatures = 0
-let g:jedi#auto_vim_configuration = 0
-let g:jedi#popup_on_dot = 0
-let g:jedi#popup_select_first = 0
-let g:jedi#use_splits_not_buffers = "left"
-"let g:jedi#use_tabs_not_buffers = 0
-"let g:jedi#completions_enable = 0
-
-" vim-godef related
-let g:godef_split=3
+let g:formatprg_javascript = 'js-beautify'
+let g:formatprg_args_javascript = '-f - -q -s 2 -t false -p true -m 2 -P false -E false -a false -b colapse'
+let g:formatprg_html = 'html-beautify'
+let g:formatprg_args_html = '-f - -q -s 2 -p true -m 2'
+let g:formatprg_css = 'css-beautify'
+let g:formatprg_args_css = '-f - -q -s 2 -p true -m 2'
 
 " Vundle related
 filetype off
@@ -379,31 +354,19 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 Plugin 'gmarik/vundle'
-Plugin 'rust-lang/rust.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/syntastic'
 Plugin 'kien/ctrlp.vim'
-"if executable('git')
-"    Plugin 'tpope/vim-fugitive'
-"endif
-"Plugin 'sjl/gundo.vim'
-Plugin 'bling/vim-airline'
 Plugin 'SirVer/ultisnips'
 if executable('ctags')
     Plugin 'majutsushi/tagbar'
     Plugin 'vim-scripts/AutoTag'
 endif
-if executable('gocode')
-    Plugin 'Blackrush/vim-gocode'
-endif
+Plugin 'fatih/vim-go'
 Plugin 'Rip-Rip/clang_complete'
-if executable('godef')
-    Plugin 'dgryski/vim-godef'
-endif
 Plugin 'Chiel92/vim-autoformat'
-Plugin 'davidhalter/jedi-vim'
 Plugin 'mkitt/tabline.vim'
-Plugin 'Raimondi/delimitMate'
+Plugin 'hail2u/vim-css3-syntax'
+Plugin 'cohama/lexima.vim'
 filetype plugin indent on
-" ----- </plugins> ----- "

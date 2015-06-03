@@ -3,34 +3,26 @@ if exists("b:did_ftplugin")
 endif
 let b:did_ftplugin = 1
 
-" use tabs instead of spaces
-setl noexpandtab
-
+setl noexpandtab " use tabs instead of spaces
 setl omnifunc=go#complete#Complete
 
-if executable('goimports')
-    let g:gofmt_command = "goimports"
-endif
-
-" auto lint when :w
-" autocmd BufWritePost,FileWritePost *.go execute 'Lint' | cwindow
-
-" auto gofmt when :w
-autocmd BufWritePre <buffer> Fmt
-
-" ===== Functions ===== "
-" ???
-" ===== End Functions ===== "
-
-" ===== Command Abbreviations ===== "
-ca im Import
-ca dr Drop
-" ===== End Command Abbreviations ===== "
-"
-" ===== Shortcuts ===== "
 " setting gocode activation (omnifunc) to ctrl+space
 inoremap <C-Space> <C-x><C-o>
 inoremap <C-@> <C-Space>
 
-nnoremap <C-x> :Godoc <CR>
-" ===== End Shortcuts ===== "
+" vim-go
+au FileType go nmap <Leader>ds <Plug>(go-def-split)
+au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
+au FileType go nmap <Leader>dt <Plug>(go-def-tab)
+au FileType go nmap <leader>r <Plug>(go-run)
+au FileType go nmap <leader>b <Plug>(go-build)
+au FileType go nmap <leader>t <Plug>(go-test)
+au FileType go nmap <leader>c <Plug>(go-coverage)
+au FileType go nmap <Leader>gd <Plug>(go-doc)
+au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
+"au FileType go nmap <Leader>s <Plug>(go-implements)
+au FileType go nmap <Leader>i <Plug>(go-info)
+au FileType go nmap <Leader>e <Plug>(go-rename)
+
+let g:go_fmt_command = "goimports"
+let g:go_fmt_fail_silently = 1

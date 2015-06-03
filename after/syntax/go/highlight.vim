@@ -1,6 +1,6 @@
-syn keyword     goKeyword   var
-syn keyword     goKeyword2  interface
-syn keyword     goTodo      NOTE
+syn keyword     goKeyword       var
+syn keyword     goInterface     interface
+syn keyword     goTodo          NOTE
 
 syn match   goFormat        display "%\(\d\+\$\)\=[-+' #0*]*\(\d*\|\*\|\*\d\+\$\)\(\.\(\d*\|\*\|\*\d\+\$\)\)\=\([hlLjzt]\|ll\|hh\)\=\([vTtbcdoqxXUeEfgGsp]\|\[\^\=.[^]]*\]\)" containedin=goString,goRawString
 

@@ -1,9 +1,12 @@
 snippet base "Insert the base" !b
-<!DOCTYPE html>
-<html>
+<!doctype html>
+
+<html lang="en">
 	<head>
+		<meta charset="utf-8">
 		<title>$1</title>
 	</head>
+
 	<body>
 		$0
 	</body>
@@ -11,14 +14,15 @@ snippet base "Insert the base" !b
 endsnippet
 
 snippet doc "Insert the html doctype" b
-<!DOCTYPE html>
+<!doctype html>
 $0
 endsnippet
 
 snippet tags "Insert html, head and body tags" b
-<html>
+<html lang="en">
 	<head>
 	</head>
+
 	<body>
 	</body>
 </html
@@ -46,11 +50,11 @@ snippet html "Insert the html tags" b
 </html>
 endsnippet
 
-snippet title "Insert title tags" !
-<title>${1:Title?}</title>
+snippet st "Insert style tags"
+<style>$0</style>
 endsnippet
 
-snippet st "Insert head css style tags" b
+snippet St "Source css file" b
 <link rel="stylesheet" href="$0">
 endsnippet
 
@@ -66,4 +70,24 @@ endsnippet
 
 snippet img "Insert image source"
 <img src="$1" alt="$0"</img>
+endsnippet
+
+snippet div
+<div class="$1">$0</div>
+endsnippet
+
+snippet ul
+<ul>
+	$0
+</ul>
+endsnippet
+
+snippet ol
+<ol>
+	$0
+</ol>
+
+endsnippet
+snippet li
+<li>$0</li>
 endsnippet

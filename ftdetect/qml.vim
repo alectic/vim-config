@@ -1,1 +1,1 @@
-autocmd BufRead,BufNewFile *.qml setfiletype qml
+autocmd BufRead,BufNewFile *.qml setf qml

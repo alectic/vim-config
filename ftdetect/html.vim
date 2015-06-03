@@ -1,1 +1,1 @@
-au BufNewFile,BufRead *.tmpl setlocal ft=html
+au BufNewFile,BufRead *.tmpl setf html
