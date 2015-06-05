@@ -7,6 +7,4 @@ syn keyword     rustKeyword6        mod impl trait
 
 syn region      rustBrackets        start=/{/ end=/}/ containedin=rustString contained
 
-syn match   rustOps         display '[@!?&%$|<>^~;:,.=*+-]'
-syn match   rustOps2        display '[][(){}]'
 syn match   rustSpecial     display "\\\(x\x\+\|\o\{1,3}\|.\|$\)" containedin=rustString

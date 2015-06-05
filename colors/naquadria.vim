@@ -37,7 +37,7 @@ hi ColorColumn	    gui=none	                        guibg=#1F1F18               
 hi Cursor           gui=none	    guifg=black         guibg=lightgreen    ctermfg=black       ctermbg=lightgreen
 hi iCursor          gui=none	    guibg=yellow
 hi Directory	    gui=none	    guifg=lightblue		                    ctermfg=blue
-hi MatchParen	    gui=underline	guifg=white         guibg=#333328       ctermfg=white       ctermbg=darkred
+hi MatchParen	    gui=underline	guifg=white         guibg=#4D4D3A       ctermfg=white       ctermbg=darkred
 hi StatusLine       gui=none        guifg=#cccccc       guibg=#1f1f18       ctermfg=white       ctermbg=black
 hi StatuslineNC     gui=none        guifg=#858585       guibg=#141410       ctermfg=white       ctermbg=darkgray
 
@@ -62,11 +62,10 @@ hi link vimGroupSpecial	    rustModPath
 " General
 hi Normal		    gui=none	guifg=#ffffff	guibg=#171712       ctermfg=white
 hi Comment          gui=italic	guifg=#858585   ctermfg=darkgrey
-hi String           gui=italic	guifg=#bf6060   ctermfg=red
+hi String           gui=italic	guifg=#BF7C7C   ctermfg=red
 hi Number           gui=none	guifg=#F2A055   ctermfg=lightyellow
 hi Character        gui=none	guifg=#BA73E6   ctermfg=darkcyan
 hi Constant         gui=none	guifg=#7390E6   ctermfg=blue
-hi Operator		    gui=none	guifg=#BFBF60   ctermfg=yellow
 hi Type             gui=none	guifg=#9090D9   ctermfg=blue
 hi Statement        gui=none	guifg=#BFAC7B    ctermfg=brown
 hi Conditional      gui=none	guifg=#98B9D9   ctermfg=blue
@@ -82,6 +81,7 @@ hi link Macro       PreProc
 hi link Repeat      Conditional
 hi link Statement	rustKeyword2
 hi link Label       Conditional
+hi link Operator    Keyword
 
 " Rust
 hi rustFormat           gui=italic	guifg=#B17DCC	ctermfg=darkmagenta
@@ -89,8 +89,6 @@ hi rustCommentLineDoc   gui=italic	guifg=#857E6B   ctermfg=darkyellow
 hi rustModPath          gui=none	guifg=#999999   ctermfg=grey
 hi rustAttribute        gui=none    guifg=#99907a
 " customs - defined in $HOME/.vim/after/syntax/rust/highlight.vim
-hi rustOps              gui=none	guifg=#D9D96D   ctermfg=yellow  ctermfg=lightcyan
-hi rustOps2             gui=none	guifg=#C0F0FF   ctermfg=grey    ctermfg=lightcyan
 hi rustKeyword3         gui=none	guifg=#63B36A   ctermfg=darkgreen
 hi rustKeyword6         gui=none    guifg=#62B38D   ctermfg=darkgreen
 hi rustSpecial          gui=none	guifg=#80BBFF   ctermfg=lightblue
@@ -124,12 +122,8 @@ hi link cUserLabel      rustKeyword4
 " customs - defined in $HOME/.vim/after/syntax/c/highlight.vim
 hi link cStatement      rustKeyword2
 hi link cStatement2     Type
-hi link cOps            rustOps
-hi link cOps2           rustOps2
 
 " C++
-hi link cppOps          rustOps
-hi link cppOps2         rustOps2
 hi link cppStructure    rustKeyword3
 
 " customs - defined in $HOME/.vim/after/syntax/cpp/highlight.vim
@@ -140,23 +134,15 @@ hi link cppKeyword2     rustKeyword5
 " Java
 hi link javaExternal    Conditional
 hi link javaSpecialChar rustSpecial
-hi link javaOps         rustOps
-hi link javaParen       rustOps2
-hi link javaParen1      rustOps2
-hi link javaParenT      rustOps
 
 " Bash
-hi link shRange         rustOps2
-hi link shCmdSubRegion  rustOps2
+"hi link shRange         rustOps2
+"hi link shCmdSubRegion  rustOps2
 hi link shVariable      Statement
 hi link shDerefSimple   rustFormat
 hi link shCommandSub    Keyword
 hi link shLoop          Conditional
 hi link shTestOpr       rustOps
-
-" Arduino
-hi link arduinoOps      rustOps
-hi link arduinoOps2     rustOps2
 
 " Go
 hi link goDirective		goConditional
@@ -177,8 +163,6 @@ hi link goFunction      Function
 "hi link goPackage       rustModPath
 hi link goFuncDec       Keyword
 hi link goFormat        rustFormat
-hi link goOps           rustOps
-hi link goOps2          rustOps2
 
 " Python
 hi link pythonInclude       Conditional
@@ -197,49 +181,41 @@ hi link pythonSelf          rustKeyword6
 hi link pythonDatatype      Type
 hi link pythonClass         rustKeyword3
 hi link pythonDef           Keyword
-hi link pythonOps           rustOps
-hi link pythonOps2          rustOps2
 hi link pythonConstant      Constant
 hi link pythonVar           Statement
 
 " JavaScript
 hi javaScript                   guifg=white
 
+hi link javaScriptBraces        clear
 hi link javaScriptSpecial		rustSpecial
 hi link javaScriptNumber		Number
 hi link javaScriptIdentifier	rustKeyword4
 hi link javaScriptGlobal		rustKeyword6
 hi link javaScriptFunction		Keyword
-hi link javaScriptOperator		rustOps
 hi link javaScriptBranch		Statement
 hi link javaScriptNull			Constant
 hi link javaScriptReserved      rustKeyword3
-hi link javaScriptParens	    jsOps2
+hi link javaScriptGlobal        Type
 
 " customs - defined in $HOME/.vim/after/syntax/javascript/highlight.vim
 hi link jsCustomFunc			Function
 hi link jsFormat                rustFormat
 hi link javaScriptStringS       String
 hi link javaScriptStringD       String
-hi link jsOps					rustOps
-hi link jsOps2					rustOps2
 hi link jsKeyword1				rustKeyword6
 hi link jsShebang               Comment
 
-" JSON
-hi link jsonQuote           rustOps
-hi link jsonBraces          rustOps2
-
 " HTML
-hi link htmlTitle			clear
-hi link htmlHead            clear
 hi link htmlTagName			Type
 hi link htmlSpecialTagName  Type
 hi link htmlArg				Statement
-hi link htmlTag				Statement
-hi link htmlEndTag			rustOps2
 hi link htmlH1              String
-hi link htmlScriptTag       rustOps2
+hi link htmlSpecialChar     Statement
+hi link htmlTitle			clear
+hi link htmlHead            clear
+hi link htmlScriptTag       clear
+hi link htmlTag             clear
 
 " customs - defined in $HOME/.vim/after/syntax/html/highlight.vim
 "hi link HTMLjsOps           jsOps
@@ -249,12 +225,10 @@ hi link htmlScriptTag       rustOps2
 hi link cssTagName              htmlTagName
 hi link cssClassName            rustKeyword3
 hi link cssKeyFrameSelector     Repeat
-hi link cssBraces               rustOps2
 hi link cssFontAttr             Constant
 hi link cssAttrComma            rustOps
 hi link cssFunctionComma        cssAttrComma
-hi link cssClassNameDot         rustOps
-hi link cssNoise                rustOps
+"hi link cssNoise                rustOps
 hi link cssIdentifier           Statement
 hi link cssIncludeKeyword       rustModPath
 hi link cssColor                Constant
@@ -269,7 +243,6 @@ hi link lessVariable            Statement
 
 " YAML
 hi link yamlBlockMappingKey     Keyword
-hi link yamlKeyValueDelimiter   rustOps
 
 " Markdown
 hi link markdownH1	Function

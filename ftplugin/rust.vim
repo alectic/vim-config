@@ -3,5 +3,5 @@ if exists("b:did_ftplugin")
 endif
 let b:did_ftplugin = 1
 
-setl colorcolumn=100
+setl colorcolumn=80
 

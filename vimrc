@@ -230,11 +230,6 @@ let g:UltiSnipsEditSplit = "vertical"
 let g:UltiSnipsJumpForwardTrigger = "<C-n>"
 let g:UltiSnipsJumpBackwardTrigger = "<C-p>"
 
-" HTML related
-let g:html_indent_inctags = "html,body,head,tbody"
-let g:html_indent_script1 = "inc"
-let g:html_indent_style1 = "inc"
-
 " NERDTree related
 let g:NERDTreeDirArrows = 1
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
@@ -342,7 +337,7 @@ let g:clang_complete_patterns = 0
 let g:formatprg_c = 'uncrustify'
 let g:formatprg_args_c = '-q -c $HOME./.config/uncrustify.cfg --no-backup'
 let g:formatprg_javascript = 'js-beautify'
-let g:formatprg_args_javascript = '-f - -q -s 2 -t false -p true -m 2 -P false -E false -a false -b colapse'
+let g:formatprg_args_javascript = '-f - -q -s 2 -t false -p true -m 2 -P false -E false -a false -b collapse'
 let g:formatprg_html = 'html-beautify'
 let g:formatprg_args_html = '-f - -q -s 2 -p true -m 2'
 let g:formatprg_css = 'css-beautify'
