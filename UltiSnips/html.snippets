@@ -3,8 +3,8 @@ snippet base "Insert the base" !b
 
 <html lang="en">
 	<head>
-		<meta charset="utf-8">
 		<title>$1</title>
+		<meta charset="utf-8">
 	</head>
 
 	<body>
@@ -51,7 +51,9 @@ snippet html "Insert the html tags" b
 endsnippet
 
 snippet st "Insert style tags"
-<style>$0</style>
+<style>
+	$0
+</style>
 endsnippet
 
 snippet St "Source css file" b
@@ -68,12 +70,18 @@ snippet Scr "Insert script source"
 <script src="$0"></script>
 endsnippet
 
+snippet nos
+<noscript>$0</noscript>
+endsnippet
+
 snippet img "Insert image source"
 <img src="$1" alt="$0"</img>
 endsnippet
 
 snippet div
-<div class="$1">$0</div>
+<div class="$1">
+	$0
+</div>
 endsnippet
 
 snippet ul

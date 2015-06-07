@@ -13,33 +13,32 @@ let colors_name = "naquadria"
 hi clear MatchParen
 
 " Vim
-hi SpecialKey	    gui=none	    guibg=#1F1F18		                                        ctermbg=brown
+hi SpecialKey	    gui=none	    guibg=#2b2b21		                                        ctermbg=brown
 hi NonText          gui=none	    guifg=lightgreen
 hi LineNr           gui=none	    guifg=#858585 		guibg=#171712       ctermfg=darkgrey
-hi CursorLine       gui=none	    guifg=white         guibg=#333328       ctermfg=blue
-hi CursorColumn	    gui=none	    guifg=white         guibg=#330d0d
-hi CursorLineNr	    gui=bold	    guifg=yellow		guibg=#0f0f0f
-hi SignColumn	                                        guibg=#0D0D0D
+hi CursorLine       gui=none	    guifg=white         guibg=#4d4d3a       ctermfg=blue
+hi CursorColumn	    gui=none	    guifg=white         guibg=#2b2b21
+hi CursorLineNr	    gui=none	    guifg=yellow		guibg=#171712
+hi SignColumn	                                        guibg=#171712
 hi Pmenu            gui=none	    guifg=lightgrey     guibg=#1F1F18       ctermfg=white       ctermbg=black
-hi PmenuSel         gui=italic	    guifg=white			guibg=#333328       ctermfg=white       ctermbg=darkblue
+hi PmenuSel         gui=italic	    guifg=white			guibg=#4d4d3a       ctermfg=white       ctermbg=darkblue
 hi PmenuSbar        gui=none	                        guibg=#26261E                           ctermbg=lightgrey
 hi PmenuThumb       gui=none	                        guibg=#333333                           ctermbg=grey
-hi TabLineFill      gui=none	                        guibg=#1f1f18       ctermfg=black
-hi TabLine          gui=none	    guifg=lightgrey		guibg=#1f1f18	    ctermfg=grey        ctermbg=black
-hi TabLineSel       gui=italic	    guifg=white			guibg=#333328                           ctermbg=darkblue
+hi TabLineFill      gui=none	                        guibg=#2B2B21       ctermfg=black
+hi TabLine          gui=none	    guifg=lightgrey		guibg=#2B2B21	    ctermfg=grey        ctermbg=black
+hi TabLineSel       gui=italic	    guifg=white			guibg=#4d4d3a                           ctermbg=darkblue
 hi Todo             gui=none	    guifg=white         guibg=#721d1d       ctermfg=white       ctermbg=red
 hi Search           gui=italic	    guifg=white         guibg=#721d1d       ctermfg=white       ctermbg=darkred
 hi Visual           gui=none	    guifg=white         guibg=#4D4D3A       ctermfg=white       ctermbg=red
 hi ErrorMsg		    gui=none	    guifg=white			guibg=#721d1d
-hi StatusLine       gui=none	    guifg=white         guibg=#171712       ctermfg=white       ctermbg=red
 hi VertSplit	    gui=none	    guifg=#BBBBE6		guibg=#161710       ctermfg=grey        ctermbg=black       cterm=none
-hi ColorColumn	    gui=none	                        guibg=#1F1F18                           ctermbg=black
+hi ColorColumn	    gui=none	                        guibg=#2B2B21                           ctermbg=black
 hi Cursor           gui=none	    guifg=black         guibg=lightgreen    ctermfg=black       ctermbg=lightgreen
 hi iCursor          gui=none	    guibg=yellow
 hi Directory	    gui=none	    guifg=lightblue		                    ctermfg=blue
 hi MatchParen	    gui=underline	guifg=white         guibg=#4D4D3A       ctermfg=white       ctermbg=darkred
-hi StatusLine       gui=none        guifg=#cccccc       guibg=#1f1f18       ctermfg=white       ctermbg=black
-hi StatuslineNC     gui=none        guifg=#858585       guibg=#141410       ctermfg=white       ctermbg=darkgray
+hi StatusLine       gui=none        guifg=#cccccc       guibg=#2B2B21       ctermfg=white       ctermbg=black
+hi StatuslineNC     gui=none        guifg=#858585       guibg=#1f1f18       ctermfg=white       ctermbg=darkgray
 
 hi link vimHighlight	    rustKeyword4
 hi link vimCommand		    rustKeyword4
@@ -212,6 +211,7 @@ hi link htmlSpecialTagName  Type
 hi link htmlArg				Statement
 hi link htmlH1              String
 hi link htmlSpecialChar     Statement
+hi link htmlCommentError    SpecialKey
 hi link htmlTitle			clear
 hi link htmlHead            clear
 hi link htmlScriptTag       clear
@@ -225,18 +225,21 @@ hi link htmlTag             clear
 hi link cssTagName              htmlTagName
 hi link cssClassName            rustKeyword3
 hi link cssKeyFrameSelector     Repeat
-hi link cssFontAttr             Constant
-hi link cssAttrComma            rustOps
+hi link cssFontAttr             Number
 hi link cssFunctionComma        cssAttrComma
-"hi link cssNoise                rustOps
 hi link cssIdentifier           Statement
 hi link cssIncludeKeyword       rustModPath
-hi link cssColor                Constant
+hi link cssColor                Number
 hi link cssUnitDecorators       cssColor
 hi link cssValueLength          Number
 hi link cssTextProp             clear
 hi link cssFontProp             clear
 hi link cssBackgroundProp       clear
+hi link cssBraces               clear
+hi link cssClassNameDot         clear
+hi link cssAttrComma            clear
+hi link cssColorProp            clear
+hi link cssBoxProp              clear
 
 " LESS
 hi link lessVariable            Statement
