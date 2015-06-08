@@ -354,6 +354,7 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/syntastic'
 Plugin 'kien/ctrlp.vim'
 Plugin 'myusuf3/numbers.vim'
+Plugin 'tpope/vim-surround'
 Plugin 'SirVer/ultisnips'
 if executable('ctags')
     Plugin 'majutsushi/tagbar'
