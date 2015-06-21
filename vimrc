@@ -3,7 +3,12 @@
 if exists("colors_name")
 	finish
 endif
-colorscheme naquadria
+
+if has("gui_running")
+    colorscheme naquadria
+else
+    colorscheme pablo
+endif
 
 scriptencoding utf-8
 set backspace=2
@@ -36,9 +41,9 @@ set shell=/bin/bash
 silent execute '!mkdir -p $HOME/.vim/tmp/{backup,swap,view,undo}'
 set backupdir=$HOME/.vim/tmp/backup/
 if has("vms")
-	set nobackup    " do not keep a backup file, use versions instead
+    set nobackup    " do not keep a backup file, use versions instead
 else
-	set backup      " keep a backup file
+    set backup      " keep a backup file
 endif
 set wildignore+=*.so,*.zip,*.rar,*.tgz,*.tar,*.pyc,*~
 set directory=$HOME/.vim/tmp/swap/
@@ -74,6 +79,7 @@ set completeopt=longest,menuone
 set ballooneval
 set cryptmethod=blowfish2
 set guiheadroom=0
+set report=99999 " temporarily till I know what to do about it
 
 set omnifunc=javascriptcomplete#CompleteJS
 
@@ -106,24 +112,24 @@ endif
 noremap <MiddleMouse> <NOP>
 noremap <MouseUp> <NOP>
 noremap <MouseDown> <NOP>
-"nnoremap <PageUp> <NOP>
-"nnoremap <PageDown> <NOP>
-"inoremap <PageUp> <NOP>
-"inoremap <PageDown> <NOP>
-"vnoremap <PageUp> <NOP>
-"vnoremap <PageDown> <NOP>
-"nnoremap <UP> <NOP>
-"nnoremap <DOWN> <NOP>
-"nnoremap <LEFT> <NOP>
-"nnoremap <RIGHT> <NOP>
-"inoremap <UP> <NOP>
-"inoremap <DOWN> <NOP>
-"inoremap <LEFT> <NOP>
-"inoremap <RIGHT> <NOP>
-"vnoremap <UP> <NOP>
-"vnoremap <DOWN> <NOP>
-"vnoremap <LEFT> <NOP>
-"vnoremap <RIGHT> <NOP>
+nnoremap <PageUp> <NOP>
+nnoremap <PageDown> <NOP>
+inoremap <PageUp> <NOP>
+inoremap <PageDown> <NOP>
+vnoremap <PageUp> <NOP>
+vnoremap <PageDown> <NOP>
+nnoremap <UP> <NOP>
+nnoremap <DOWN> <NOP>
+nnoremap <LEFT> <NOP>
+nnoremap <RIGHT> <NOP>
+inoremap <UP> <NOP>
+inoremap <DOWN> <NOP>
+inoremap <LEFT> <NOP>
+inoremap <RIGHT> <NOP>
+vnoremap <UP> <NOP>
+vnoremap <DOWN> <NOP>
+vnoremap <LEFT> <NOP>
+vnoremap <RIGHT> <NOP>
 
 if &t_Co > 2 || has("gui_running")
     syntax on
@@ -139,7 +145,7 @@ if !exists("autocommands_loaded")
     if has("autocmd")
         filetype plugin indent on
         augroup vimrcEx
-            "au!
+            au!
             autocmd FileType text setl textwidth=79
             autocmd BufReadPost *
                         \ if line("'\"") > 1 && line("'\"") <= line("$") |
@@ -211,13 +217,16 @@ if !exists("*ReloadConfigs")
     endfunction
     command! Recfg call ReloadConfigs()
 endif
-nnoremap <F11> :Recfg<CR>
+nnoremap <silent> <F11> :Recfg<CR>
 
 if has("gui_running")
     nnoremap <silent> <F10> :set guifont=* <CR>
 endif
 
 nnoremap <silent> <C-w>d :bdel <CR>
+
+nnoremap <silent> g<S-l> :tabm +1 <CR>
+nnoremap <silent> g<S-h> :tabm -1 <CR>
 " ----- </shortcuts> ----- "
 
 " ----- <plugin> ----- "

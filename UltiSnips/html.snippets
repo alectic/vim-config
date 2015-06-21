@@ -2,14 +2,14 @@ snippet base "Insert the base" !b
 <!doctype html>
 
 <html lang="en">
-	<head>
-		<title>$1</title>
-		<meta charset="utf-8">
-	</head>
+<head>
+	<title>$1</title>
+	<meta charset="utf-8">
+</head>
 
-	<body>
-		$0
-	</body>
+<body>
+	${0:body?}
+</body>
 </html>
 endsnippet
 
@@ -20,11 +20,13 @@ endsnippet
 
 snippet tags "Insert html, head and body tags" b
 <html lang="en">
-	<head>
-	</head>
+<head>
+	$1
+</head>
 
-	<body>
-	</body>
+<body>
+	$0
+</body>
 </html
 endsnippet
 
@@ -57,49 +59,86 @@ snippet st "Insert style tags"
 endsnippet
 
 snippet St "Source css file" b
-<link rel="stylesheet" href="$0">
+<link rel="stylesheet" href="${0:path?}">
 endsnippet
 
-snippet scr "Insert java script tags"
+snippet scr
 <script>
-	$0
+	${0:code?}
 </script>
 endsnippet
 
-snippet Scr "Insert script source"
-<script src="$0"></script>
+snippet Scr
+<script src="${0:source?}"></script>
 endsnippet
 
 snippet nos
 <noscript>$0</noscript>
 endsnippet
 
-snippet img "Insert image source"
-<img src="$1" alt="$0"</img>
+snippet img
+<img src="${1:source?}" alt="${0:alt?}">
 endsnippet
 
 snippet div
-<div class="$1">
-	$0
+<div class="${1:name?}">
+	${0:code?}
 </div>
+endsnippet
+
+snippet cl
+class="${0:name?}"
 endsnippet
 
 snippet ul
 <ul>
-	$0
+	${0:list?}
 </ul>
 endsnippet
 
 snippet ol
 <ol>
-	$0
+	${0:list?}
 </ol>
 
 endsnippet
 snippet li
-<li>$0</li>
+<li>${0:item?}</li>
 endsnippet
 
 snippet p
-<p>$0</p>
+<p>${0:paragraph?}</p>
+endsnippet
+
+snippet str
+<strong>${1:text?}</strong> $0
+endsnippet
+
+snippet cod
+<code>
+	${0:code?}
+</code>
+endsnippet
+
+snippet precod
+<pre><code>
+	${0:code?}
+</code></pre>
+endsnippet
+
+snippet lab
+<label>${0:label?}</label>
+endsnippet
+
+snippet imp
+<link rel="import" href="${0:path?}">
+endsnippet
+
+# CSS
+snippet col
+color: $0;
+endsnippet
+
+snippet bgc
+background-color: $0;
 endsnippet
