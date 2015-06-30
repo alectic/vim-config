@@ -46,12 +46,13 @@ else
     set backup      " keep a backup file
 endif
 set wildignore+=*.so,*.zip,*.rar,*.tgz,*.tar,*.pyc,*~
+set noswapfile " disabled due to hight disk activity when updatetime is set to a low value
 set directory=$HOME/.vim/tmp/swap/
 set viewdir=$HOME/.vim/tmp/view/
 set undodir=$HOME/.vim/tmp/undo/
 set undofile
 set viminfo='50,n$HOME/.vim/tmp/viminfo
-set updatetime=10000
+set updatetime=2000 " this in combination with 'set noswapfile'
 set fileencodings=utf-8
 set noshowmode
 set title
@@ -79,6 +80,7 @@ set completeopt=longest,menuone
 set ballooneval
 set cryptmethod=blowfish2
 set guiheadroom=0
+set autoread
 set report=99999 " temporarily till I know what to do about it
 
 set omnifunc=javascriptcomplete#CompleteJS
@@ -185,6 +187,8 @@ augroup END
 "    endif
 "endfunction
 "au FocusLost * call AutoLeaveInsertMode()
+
+au CursorHold * silent checktime " this in combination with 'set autoread' and 'set updatetime=2000'
 
 " ===== Vim Shortcuts ===== "
 " Show syntax highlighting groups for word under cursor
@@ -346,11 +350,15 @@ let g:clang_complete_patterns = 0
 let g:formatprg_c = 'uncrustify'
 let g:formatprg_args_c = '-q -c $HOME./.config/uncrustify.cfg --no-backup'
 let g:formatprg_javascript = 'js-beautify'
+"let g:formatprg_javascript = '' " deactivated temporary until ES6 support is sorted out or possibility to ignore portion of code is added
 let g:formatprg_args_javascript = '-f - -q -s 2 -t false -p true -m 2 -P false -E false -a false -b collapse'
 let g:formatprg_html = 'html-beautify'
-let g:formatprg_args_html = '-f - -q -s 2 -p true -m 2'
+let g:formatprg_args_html = '-f - -q -s 2 -p true -m 1'
 let g:formatprg_css = 'css-beautify'
-let g:formatprg_args_css = '-f - -q -s 2 -p true -m 2'
+let g:formatprg_args_css = '-f - -q -s 2 -p true -m 1'
+
+" TSuquyomi related
+let g:tsuquyomi_disable_quickfix = 1
 
 " Vundle related
 filetype off
@@ -373,6 +381,15 @@ Plugin 'fatih/vim-go'
 Plugin 'Rip-Rip/clang_complete'
 Plugin 'Chiel92/vim-autoformat'
 Plugin 'mkitt/tabline.vim'
+Plugin 'Shougo/vimproc.vim' " needs 'make' executed in its directory after install
+Plugin 'pangloss/vim-javascript'
+Plugin 'marijnh/tern_for_vim' " needs 'npm install' executed in its directory after install
+if executable('tsc')
+    Plugin 'leafgarland/typescript-vim'
+endif
+if executable('tsserver')
+    Plugin 'Quramy/tsuquyomi'
+endif
 Plugin 'othree/html5.vim'
 Plugin 'hail2u/vim-css3-syntax'
 Plugin 'cohama/lexima.vim'

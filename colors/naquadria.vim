@@ -19,25 +19,25 @@ let s:string_color = {"attr": "italic", "fg": "#bf7c7c"}
 let s:number_color = {"attr": "none", "fg": "#ffba5a"}
 let s:char_color = {"attr": "none", "fg": "#ba73e6"}
 let s:const_color = {"attr": "none", "fg": "#7390e6"}
-"let s:const_color = {"attr": "none", "fg": "#9FCC66"} " TODO: to be removed
-"let s:const_color = {"attr": "none", "fg": "#7ACCA3"} " TODO: to be removed
 let s:type_color = {"attr": "none", "fg": "#9090d9"}
 let s:statement_color = {"attr": "none", "fg": "#bfac78"}
 let s:cond_color = {"attr": "none", "fg": "#98b9d9"}
 let s:ident_color = {"attr": "none", "fg": "white"}
-"let s:func_color = {"attr": "none", "fg": "#bbbbe6"}
-let s:func_color = {"attr": "none", "fg": "#B6CC99"}
+let s:func_color = {"attr": "none", "fg": "#bbbbe6"}
+"let s:func_color = {"attr": "none", "fg": "#B6CC99"}
 let s:include_color = {"attr": "none", "fg": "#98b3a1"}
-"let s:keyword_color = {"attr": "none", "fg": "#9999ff"} " TODO: to be removed
 let s:keyword_color = {"attr": "none", "fg": "#B399FF"}
 let s:loop_color = copy(s:cond_color)
 let s:format_color = {"attr": "italic", "fg": "#b17dcc"}
-let s:mod_color = {"attr": "none", "fg": "#999999"}
+"let s:module_color = {"attr": "none", "fg": "#999999"} " TODO: to be removed
+let s:module_color = {"attr": "none", "fg": "#B6CC99"}
 "let s:attr_color = {"attr": "none", "fg": "#99907a"}
 let s:class_color = {"attr": "none", "fg": "#71cc79"}
 let s:private_color = {"attr": "none", "fg": "#62b38d"}
 let s:special_color = {"attr": "none", "fg": "#80bbff"}
 let s:cssclass_color = {"attr": "none", "fg": "#9FCC66"}
+let s:operator_color = {"attr": "none", "fg": "#D9D96D"}
+"let s:object_color = {"attr": "none", "fg": "#B6CC99"} " experimental
 
 " Editor
 let s:tabline_color = {"attr": "none", "fg": "lightgray", "bg": "#2b2b21"}
@@ -46,22 +46,22 @@ let s:nontext_color = {"attr": "none", "fg": "lightgreen"}
 let s:linenr_color = {"attr": "none", "fg": s:comment_color.fg, "bg": s:normal_color.bg}
 let s:cursorline_color = {"attr": "none", "fg": "white", "bg": "#4d4d3a"}
 let s:cursorcolumn_color = {"attr": "none", "fg": "white", "bg": s:tabline_color.bg}
-let s:cursorlinenr_color = {"attr": "none", "fg": s:func_color.fg, "bg": s:normal_color.bg}
+let s:cursorlinenr_color = {"attr": "none", "fg": "#BFBF8F", "bg": s:normal_color.bg}
 let s:signcolumn_color = {"bg": s:normal_color.bg}
 let s:pmenu_color = {"attr": "none", "fg": "lightgray", "bg": "#1f1f18"}
 let s:pmenusel_color = {"attr": "italic", "fg": "white", "bg": s:cursorline_color.bg}
 let s:pmenuselbar_color = {"attr": "none", "bg": "#26261e"}
 let s:pmenuthumb_color = {"attr": "none", "bg": "#333333"}
 let s:tablinefill_color = {"attr": "none", "bg": s:tabline_color.bg}
-let s:tablinesel_color = {"attr": "underline", "fg": "white", "bg": s:pmenusel_color.bg}
+let s:tablinesel_color = {"attr": "none", "fg": "white", "bg": s:pmenusel_color.bg}
 let s:todo_color = {"attr": "none", "fg": "white", "bg": "#721d1d"}
-let s:search_color = {"attr": "italic", "fg": "white", "bg": s:todo_color.bg}
+let s:search_color = {"attr": "none", "fg": "white", "bg": s:todo_color.bg}
 let s:visual_color = {"attr": "none", "fg": "white", "bg": s:cursorline_color.bg}
 let s:errormsg_color = {"attr": "none", "fg": "white", "bg": s:todo_color.bg}
 let s:vertsplit_color = {"attr": "none", "fg": s:func_color.fg, "bg": "#161710"}
 let s:column_color = {"attr": "none", "bg": s:tabline_color.bg}
-let s:cursor_color = {"attr": "none", "fg": "black", "bg": "lightgreen"}
-let s:icursor_color = {"attr": "none", "bg": "yellow"}
+let s:cursor_color = {"attr": "none", "fg": "white", "bg": "#999954"}
+let s:icursor_color = {"attr": "none", "bg": s:cursor_color.bg}
 let s:dir_color = {"attr": "none", "fg": "lightblue"}
 let s:matchparen_color = {"attr": "underline", "fg": "white", "bg": s:cursorline_color.bg}
 let s:statusline_color = {"attr": "none", "fg": "#cccccc", "bg": s:tabline_color.bg}
@@ -138,11 +138,13 @@ exe "hi PreProc" "gui=".s:include_color.attr "guifg=".s:include_color.fg
 exe "hi Keyword" "gui=".s:keyword_color.attr "guifg=".s:keyword_color.fg
 exe "hi Error" "gui=".s:error_color.attr "guifg=".s:error_color.fg "guibg=".s:error_color.bg
 exe "hi DiffRemoved" "gui=".s:diffremoved_color.attr "guifg=".s:diffremoved_color.fg
-exe "hi Module" "gui=".s:mod_color.attr "guifg=".s:mod_color.fg
+exe "hi Module" "gui=".s:module_color.attr "guifg=".s:module_color.fg
 "exe "hi Attribute" "gui=".s:attr_color.attr "guifg=".s:attr_color.fg " TODO: to be removed
 exe "hi Class" "gui=".s:class_color.attr "guifg=".s:class_color.fg
 exe "hi Private" "gui=".s:private_color.attr "guifg=".s:private_color.fg
 exe "hi Special" "gui=".s:special_color.attr "guifg=".s:special_color.fg
+"exe "hi Object" "gui=".s:object_color.attr "guifg=".s:object_color.fg
+exe "hi Operator" "gui=".s:operator_color.attr "guifg=".s:operator_color.fg
 
 hi link Float	    Number
 hi link Macro       PreProc
@@ -154,7 +156,7 @@ hi link cInclude		PreProc
 hi link cIncluded		Module
 hi link cPreCondit      cInclude
 hi link cFormat         Format
-hi link cStorageClass	Private
+hi link cStorageClass	Class
 hi link cSpecial		Special
 hi link cStructure      Class
 hi link cOperator       Constant
@@ -162,6 +164,8 @@ hi link cUserLabel      Statement
 " customs - defined in $HOME/.vim/after/syntax/c/highlight.vim
 hi link cStatement      Statement
 hi link cStatement2     Type
+
+"hi link cParenError     none
 
 " C++
 hi link cppStructure    Class
@@ -224,23 +228,39 @@ hi link pythonVar           Statement
 " JavaScript
 hi javaScript                   guifg=white
 
-hi link javaScriptBraces        clear
-hi link javaScriptSpecial		Special
-hi link javaScriptNumber		Number
-hi link javaScriptIdentifier	Keyword
-hi link javaScriptGlobal		Private
-hi link javaScriptFunction		Keyword
-hi link javaScriptBranch		Statement
-hi link javaScriptNull			Constant
-hi link javaScriptReserved      Class
-hi link javaScriptGlobal        Type
-hi link javaScriptStringS       String
-hi link javaScriptStringD       String
+hi link jsFuncCall              Function
+hi link jsFunction              Keyword
+hi link jsArrowFunction         Operator
+hi link jsStorageClass          Keyword
+hi link jsGlobalObjects         Module
+hi link jsClass                 Class
+hi link jsOperator              Operator
+hi link jsNoise                 Operator
+hi link jsTernaryIfOperator     Operator
+hi link jsGenerator             Operator
+hi link jsTemplateVar           Format
+hi link jsSuper                 Keyword
+hi link jsThis                  Keyword
+hi link jsStatic                Class
+hi link jsPrototype             Keyword
+hi link jsHtmlEvents            Keyword
+hi link jsNan                   Constant
+hi link jsFuncParens            none
+hi link jsFuncBraces            none
+hi link jsParensError           none " ???
+hi link jsFuncArgRest           none
 " customs - defined in $HOME/.vim/after/syntax/javascript/highlight.vim
-hi link jsCustomFunc			Function
+"hi link jsCustomFunc			Function
 hi link jsFormat                Format
 hi link jsKeyword               Keyword
 hi link jsShebang               Comment
+
+" TypeScript
+hi link typescriptIdentifier    javaScriptIdentifier
+hi link typescriptParens        none
+hi link typescriptbraces        none
+hi link typescriptEndColons     none
+hi link typescriptOpSymbols     none
 
 " JSON
 hi link jsonKeyword         Keyword
@@ -268,16 +288,17 @@ hi link cssTagName              htmlTagName
 hi link cssKeyFrameSelector     Repeat
 hi link cssFontAttr             Number
 hi link cssFunctionComma        cssAttrComma
-hi link cssIdentifier           cssClassName
+hi link cssIdentifier           Statement
 hi link cssIncludeKeyword       Module
 hi link cssColor                Number
 hi link cssUnitDecorators       cssColor
 hi link cssValueLength          Number
+hi link cssClassNameDot         Operator
+hi link cssNoise                Operator
 hi link cssTextProp             none
 hi link cssFontProp             none
 hi link cssBackgroundProp       none
 hi link cssBraces               none
-hi link cssClassNameDot         none
 hi link cssAttrComma            none
 hi link cssColorProp            none
 hi link cssBoxProp              none
@@ -303,7 +324,7 @@ hi link markdownH6	Function
 "hi SyntasticWarningLine guifg=white guibg=#330d0d
 hi SyntasticWarningSign guifg=yellow    ctermfg=yellow
 hi SyntasticErrorSign	guifg=red   ctermfg=red
-hi SyntasticWarning gui=undercurl guisp=red
+hi SyntasticWarning gui=undercurl guisp=#ff6666
 hi SyntasticError guisp=red
 "hi link SyntasticErrorLine SyntasticWarningLine
 

@@ -26,3 +26,4 @@ au FileType go nmap <Leader>e <Plug>(go-rename)
 
 let g:go_fmt_command = "goimports"
 let g:go_fmt_fail_silently = 1
+let g:go_highlight_operators = 1
