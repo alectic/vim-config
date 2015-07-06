@@ -51,7 +51,7 @@ let s:signcolumn_color = {"bg": s:normal_color.bg}
 let s:pmenu_color = {"attr": "none", "fg": "lightgray", "bg": "#1f1f18"}
 let s:pmenusel_color = {"attr": "italic", "fg": "white", "bg": s:cursorline_color.bg}
 let s:pmenuselbar_color = {"attr": "none", "bg": "#26261e"}
-let s:pmenuthumb_color = {"attr": "none", "bg": "#333333"}
+let s:pmenuthumb_color = {"attr": "none", "bg": s:pmenusel_color.bg}
 let s:tablinefill_color = {"attr": "none", "bg": s:tabline_color.bg}
 let s:tablinesel_color = {"attr": "none", "fg": "white", "bg": s:pmenusel_color.bg}
 let s:todo_color = {"attr": "none", "fg": "white", "bg": "#721d1d"}
@@ -256,7 +256,8 @@ hi link jsKeyword               Keyword
 hi link jsShebang               Comment
 
 " TypeScript
-hi link typescriptIdentifier    javaScriptIdentifier
+hi link typescriptFuncKeyword   Keyword
+hi link typescriptIdentifier    jsStorageClass
 hi link typescriptParens        none
 hi link typescriptbraces        none
 hi link typescriptEndColons     none

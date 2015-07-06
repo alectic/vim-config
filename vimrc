@@ -54,7 +54,9 @@ set undofile
 set viminfo='50,n$HOME/.vim/tmp/viminfo
 set updatetime=2000 " this in combination with 'set noswapfile'
 set fileencodings=utf-8
-set noshowmode
+"set noshowmode
+set showmode
+set statusline=%r\ %F\ %m\ %=\ %Y\ [%P]
 set title
 set modeline
 set ttyfast
@@ -350,7 +352,6 @@ let g:clang_complete_patterns = 0
 let g:formatprg_c = 'uncrustify'
 let g:formatprg_args_c = '-q -c $HOME./.config/uncrustify.cfg --no-backup'
 let g:formatprg_javascript = 'js-beautify'
-"let g:formatprg_javascript = '' " deactivated temporary until ES6 support is sorted out or possibility to ignore portion of code is added
 let g:formatprg_args_javascript = '-f - -q -s 2 -t false -p true -m 2 -P false -E false -a false -b collapse'
 let g:formatprg_html = 'html-beautify'
 let g:formatprg_args_html = '-f - -q -s 2 -p true -m 1'
