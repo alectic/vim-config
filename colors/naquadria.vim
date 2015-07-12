@@ -245,6 +245,7 @@ hi link jsStatic                Class
 hi link jsPrototype             Keyword
 hi link jsHtmlEvents            Keyword
 hi link jsNan                   Constant
+hi link jsBuiltins              Module
 hi link jsFuncParens            none
 hi link jsFuncBraces            none
 hi link jsParensError           none " ???

@@ -291,34 +291,36 @@ let g:syntastic_c_include_dirs = [
 "au BufWritePost *.go silent! !ctags -R &
 
 " TagBar related
-let g:tagbar_type_go = {
-            \ 'ctagstype' : 'go',
-            \ 'kinds'     : [
-            \ 'p:package',
-            \ 'i:imports:1',
-            \ 'c:constants',
-            \ 'v:variables',
-            \ 't:types',
-            \ 'n:interfaces',
-            \ 'w:fields',
-            \ 'e:embedded',
-            \ 'm:methods',
-            \ 'r:constructor',
-            \ 'f:functions'
-            \ ],
-            \ 'sro' : '.',
-            \ 'kind2scope' : {
-            \ 't' : 'ctype',
-            \ 'n' : 'ntype'
-            \ },
-            \ 'scope2kind' : {
-            \ 'ctype' : 't',
-            \ 'ntype' : 'n'
-            \ },
-            \ 'ctagsbin'  : 'gotags',
-            \ 'ctagsargs' : '-sort -silent'
-            \ }
-nnoremap <silent> <F3> :TagbarOpenAutoClose<CR>
+if executable('ctags')
+    let g:tagbar_type_go = {
+                \ 'ctagstype' : 'go',
+                \ 'kinds'     : [
+                \ 'p:package',
+                \ 'i:imports:1',
+                \ 'c:constants',
+                \ 'v:variables',
+                \ 't:types',
+                \ 'n:interfaces',
+                \ 'w:fields',
+                \ 'e:embedded',
+                \ 'm:methods',
+                \ 'r:constructor',
+                \ 'f:functions'
+                \ ],
+                \ 'sro' : '.',
+                \ 'kind2scope' : {
+                \ 't' : 'ctype',
+                \ 'n' : 'ntype'
+                \ },
+                \ 'scope2kind' : {
+                \ 'ctype' : 't',
+                \ 'ntype' : 'n'
+                \ },
+                \ 'ctagsbin'  : 'gotags',
+                \ 'ctagsargs' : '-sort -silent'
+                \ }
+    nnoremap <silent> <F3> :TagbarOpenAutoClose<CR>
+endif
 
 " CtrlP related
 let g:ctrlp_by_filename = 1
@@ -330,7 +332,7 @@ let g:ctrlp_open_new_file = 'r'
 let g:ctrlp_tabpage_position = "ac"
 let g:ctrlp_extensions = ['tag', 'buffertag', 'line']
 nnoremap <silent> <C-n> :CtrlPBuffer<CR>
-nnoremap <silent> <C-l> :CtrlPLine<CR>
+nnoremap <silent> <C-l> :CtrlPLine %<CR>
 nnoremap <silent> <C-t>a :CtrlPTag<CR>
 nnoremap <silent> <C-t>c :CtrlPBufTag<CR>
 
@@ -349,14 +351,14 @@ let g:clang_complete_macros = 1
 let g:clang_complete_patterns = 0
 
 " Autoformat related
-let g:formatprg_c = 'uncrustify'
-let g:formatprg_args_c = '-q -c $HOME./.config/uncrustify.cfg --no-backup'
-let g:formatprg_javascript = 'js-beautify'
-let g:formatprg_args_javascript = '-f - -q -s 2 -t false -p true -m 2 -P false -E false -a false -b collapse'
-let g:formatprg_html = 'html-beautify'
-let g:formatprg_args_html = '-f - -q -s 2 -p true -m 1'
-let g:formatprg_css = 'css-beautify'
-let g:formatprg_args_css = '-f - -q -s 2 -p true -m 1'
+let g:formatdef_uncrustify = '"uncrustify -q -c $HOME./.config/uncrustify.cfg --no-backup"'
+let g:formattters_c = ['uncrustify']
+let g:formatdef_jsbeautify = '"js-beautify -f - -q -s 2 -t false -p true -m 2 -P false -E false -a false -b collapse"'
+let g:formatters_javascript = ['jsbeautify']
+let g:formatdef_htmlbeautify = '"html-beautify -f - -q -s 2 -p true -m 1"'
+let g:formatters_html = ['htmlbeautify']
+let g:formatdef_cssbeautify = '"css-beautify -f - -q -s 2 -p true -m 1"'
+let g:formatters_css = ['cssbeautify']
 
 " TSuquyomi related
 let g:tsuquyomi_disable_quickfix = 1
