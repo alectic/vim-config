@@ -3,12 +3,12 @@ snippet base "Insert the base" !b
 
 <html lang="en">
 <head>
-	<title>$1</title>
+	<title>${1:?}</title>
 	<meta charset="utf-8">
 </head>
 
 <body>
-	${0:body?}
+	${0:?}
 </body>
 </html>
 endsnippet
@@ -35,7 +35,7 @@ snippet tit "Insert title" !
 endsnippet
 
 snippet desc "Insert description"
-<meta name="description" content="$1">$0
+<meta name="description" content="$1"/>$0
 endsnippet
 
 snippet char "Insert meta charset utf-8"
@@ -64,12 +64,12 @@ endsnippet
 
 snippet scr
 <script>
-	${0:code?}
+	${0:?}
 </script>
 endsnippet
 
 snippet Scr
-<script src="${0:source?}"></script>
+<script src="${0:?}"></script>
 endsnippet
 
 snippet nos
@@ -77,61 +77,65 @@ snippet nos
 endsnippet
 
 snippet img
-<img src="${1:source?}" alt="${0:alt?}">
+<img src="${1:?}" alt="${0:alt?}"/>
 endsnippet
 
 snippet div
-<div class="${1:name?}">
-	${0:code?}
+<div class="${1:?}">
+	${0:?}
 </div>
 endsnippet
 
 snippet cl
-class="${0:name?}"
+class="${0:?}"
 endsnippet
 
 snippet ul
 <ul>
-	${0:list?}
+	${0:?}
 </ul>
 endsnippet
 
 snippet ol
 <ol>
-	${0:list?}
+	${0:?}
 </ol>
 
 endsnippet
 snippet li
-<li>${0:item?}</li>
+<li>${0:?}</li>
 endsnippet
 
 snippet p
-<p>${0:paragraph?}</p>
+<p>${0:?}</p>
 endsnippet
 
 snippet str
-<strong>${1:text?}</strong> $0
+<strong>${1:?}</strong> $0
 endsnippet
 
 snippet cod
 <code>
-	${0:code?}
+	${0:?}
 </code>
 endsnippet
 
 snippet precod
 <pre><code>
-	${0:code?}
+	${0:?}
 </code></pre>
 endsnippet
 
 snippet lab
-<label>${0:label?}</label>
+<label ${1:?}>${0:?}</label>
 endsnippet
 
 snippet imp
-<link rel="import" href="${0:path?}">
+<link rel="import" href="${0:?}"/>
+endsnippet
+
+snippet inp
+<input ${0:?}/>
 endsnippet
 
 # CSS

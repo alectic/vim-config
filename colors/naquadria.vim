@@ -66,6 +66,8 @@ let s:dir_color = {"attr": "none", "fg": "lightblue"}
 let s:matchparen_color = {"attr": "underline", "fg": "white", "bg": s:cursorline_color.bg}
 let s:statusline_color = {"attr": "none", "fg": "#cccccc", "bg": s:tabline_color.bg}
 let s:statuslinenc_color = {"attr": "none", "fg": s:comment_color.fg, "bg": s:pmenu_color.bg}
+let s:folded_color = {"attr": "none", "fg": s:statusline_color.fg, "bg": s:statusline_color.bg}
+let s:foldcolumn_color = {"attr": "none", "fg": s:folded_color.fg, "bg": s:folded_color.bg}
 let s:error_color = {"attr": "none", "fg": "white", "bg": s:todo_color.bg}
 let s:diffremoved_color = {"attr": "none", "fg": "darkred"}
 
@@ -98,6 +100,8 @@ exe "hi Directory" "gui=".s:dir_color.attr "guifg=".s:dir_color.fg
 exe "hi MatchParen" "gui=".s:matchparen_color.attr "guifg=".s:matchparen_color.fg "guibg=".s:matchparen_color.bg
 exe "hi StatusLine" "gui=".s:statusline_color.attr "guifg=".s:statusline_color.fg "guibg=".s:statusline_color.bg
 exe "hi StatusLineNC" "gui=".s:statuslinenc_color.attr "guifg=".s:statuslinenc_color.fg "guibg=".s:statuslinenc_color.bg
+exe "hi Folded" "gui=".s:folded_color.attr "guifg=".s:folded_color.fg "guibg=".s:folded_color.bg
+exe "hi FoldColumn" "gui=".s:foldcolumn_color.attr "guifg=".s:foldcolumn_color.fg "guibg=".s:foldcolumn_color.bg
 
 hi link vimHighlight	    Statement
 hi link vimCommand		    Statement
@@ -279,6 +283,7 @@ hi link htmlTitle			none
 hi link htmlHead            none
 hi link htmlScriptTag       none
 hi link htmlTag             none
+hi link htmlBold            none
 
 " customs - defined in $HOME/.vim/after/syntax/html/highlight.vim
 "hi link HTMLjsOps           jsOps
@@ -306,6 +311,8 @@ hi link cssColorProp            none
 hi link cssBoxProp              none
 hi link cssDimensionProp        none
 hi link cssTableProp            none
+hi link cssPositioningProp      none
+hi link cssUIProp               none
 
 " LESS
 hi link lessVariable            Statement

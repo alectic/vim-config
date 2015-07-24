@@ -79,11 +79,11 @@ set hidden
 set colorcolumn=80
 set completeopt-=preview
 set completeopt=longest,menuone
-set ballooneval
 set cryptmethod=blowfish2
 set guiheadroom=0
 set autoread
 set report=99999 " temporarily till I know what to do about it
+"set foldmethod=syntax " really slow especially for omnicompletion
 
 set omnifunc=javascriptcomplete#CompleteJS
 
@@ -331,7 +331,7 @@ let g:ctrlp_open_multiple_files = '0i'
 let g:ctrlp_open_new_file = 'r'
 let g:ctrlp_tabpage_position = "ac"
 let g:ctrlp_extensions = ['tag', 'buffertag', 'line']
-nnoremap <silent> <C-n> :CtrlPBuffer<CR>
+nnoremap <silent> <C-b> :CtrlPBuffer<CR>
 nnoremap <silent> <C-l> :CtrlPLine %<CR>
 nnoremap <silent> <C-t>a :CtrlPTag<CR>
 nnoremap <silent> <C-t>c :CtrlPBufTag<CR>
@@ -353,12 +353,12 @@ let g:clang_complete_patterns = 0
 " Autoformat related
 let g:formatdef_uncrustify = '"uncrustify -q -c $HOME./.config/uncrustify.cfg --no-backup"'
 let g:formattters_c = ['uncrustify']
-let g:formatdef_jsbeautify = '"js-beautify -f - -q -s 2 -t false -p true -m 2 -P false -E false -a false -b collapse"'
-let g:formatters_javascript = ['jsbeautify']
-let g:formatdef_htmlbeautify = '"html-beautify -f - -q -s 2 -p true -m 1"'
-let g:formatters_html = ['htmlbeautify']
-let g:formatdef_cssbeautify = '"css-beautify -f - -q -s 2 -p true -m 1"'
-let g:formatters_css = ['cssbeautify']
+let g:formatdef_js_beautify = '"js-beautify -f - -q -s 2 -t false -p true -m 2 -P false -E false -a false -b collapse"'
+let g:formatters_javascript = ['js_beautify']
+let g:formatdef_html_beautify = '"html-beautify -f - -q -s 2 -p true -m 1"'
+let g:formatters_html = ['html_beautify']
+let g:formatdef_css_beautify = '"css-beautify -f - -q -s 2 -p true -m 1"'
+let g:formatters_css = ['css_beautify']
 
 " TSuquyomi related
 let g:tsuquyomi_disable_quickfix = 1
@@ -373,6 +373,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/syntastic'
 Plugin 'kien/ctrlp.vim'
+Plugin 'terryma/vim-multiple-cursors'
 Plugin 'myusuf3/numbers.vim'
 Plugin 'tpope/vim-surround'
 Plugin 'SirVer/ultisnips'
