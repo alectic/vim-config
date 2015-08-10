@@ -351,8 +351,8 @@ let g:clang_complete_macros = 1
 let g:clang_complete_patterns = 0
 
 " Autoformat related
-let g:formatdef_uncrustify = '"uncrustify -q -c $HOME./.config/uncrustify.cfg --no-backup"'
-let g:formattters_c = ['uncrustify']
+let g:formatdef_uncrustify = '"uncrustify -q -c $HOME/.config/uncrustify.cfg --no-backup"'
+let g:formatters_c = ['uncrustify']
 let g:formatdef_js_beautify = '"js-beautify -f - -q -s 2 -t false -p true -m 2 -P false -E false -a false -b collapse"'
 let g:formatters_javascript = ['js_beautify']
 let g:formatdef_html_beautify = '"html-beautify -f - -q -s 2 -p true -m 1"'

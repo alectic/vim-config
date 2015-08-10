@@ -1,5 +1,5 @@
 set guifont=Fira\ Mono\ Medium\ 10
-"set guifont=Source\ Code\ Pro\ Medium\ 11
+"set guifont=Source\ Code\ Pro\ Medium\ 10
 set linespace=1
 set antialias
 set guioptions=
