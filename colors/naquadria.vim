@@ -166,6 +166,7 @@ hi link cStructure      Class
 hi link cOperator       Constant
 hi link cUserLabel      Statement
 " customs - defined in $HOME/.vim/after/syntax/c/highlight.vim
+hi link cOperator       Operator
 hi link cStatement      Statement
 hi link cStatement2     Type
 
