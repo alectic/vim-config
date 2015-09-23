@@ -1,6 +1,7 @@
-"set guifont=Fira\ Mono\ Medium\ 10
+set guifont=Fira\ Mono\ Medium\ 10
 "set guifont=Source\ Code\ Pro\ Medium\ 10
-set guifont=Ubuntu\ Mono\ Regular\ 11
+"set guifont=Ubuntu\ Mono\ Regular\ 11
+"set guifont=Liberation\ Mono\ Regular\ 10
 set linespace=4
 set antialias
 set guioptions=
