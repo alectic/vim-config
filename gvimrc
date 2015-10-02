@@ -1,8 +1,9 @@
-set guifont=Fira\ Mono\ Medium\ 10
+" How great the font looks depends very much on the rendering settings,
+" patches etc and display being used
 "set guifont=Source\ Code\ Pro\ Medium\ 10
-"set guifont=Ubuntu\ Mono\ Regular\ 11
-"set guifont=Liberation\ Mono\ Regular\ 10
-set linespace=4
+"set guifont=Fira\ Mono\ Regular\ 10
+set guifont=Ubuntu\ Mono\ \-\ Bront\ Regular\ 11
+set linespace=6
 set antialias
 set guioptions=
 set guicursor=n:block-Cursor-blinkoff0
