@@ -264,12 +264,16 @@ hi link jsKeyword               Keyword
 hi link jsShebang               Comment
 
 " TypeScript
-hi link typescriptFuncKeyword   Keyword
-hi link typescriptIdentifier    jsStorageClass
-hi link typescriptParens        none
-hi link typescriptbraces        none
-hi link typescriptEndColons     none
-hi link typescriptOpSymbols     none
+hi link typescriptFuncKeyword           Keyword
+hi link typescriptIdentifier            jsStorageClass
+hi link typescriptEndColons             Operator
+hi link typescriptOpSymbols             typescriptEndColons
+hi link typescriptDecorators            cssClassName
+hi link typescriptGlobalObjects         jsGlobalObjects
+"hi link typescriptReserved              Class
+hi link typescriptParens                none
+hi link typescriptbraces                none
+hi link typescriptHtmlElemProperties    none
 
 " JSON
 hi link jsonKeyword         Keyword

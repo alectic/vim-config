@@ -1,4 +1,4 @@
-" Maintainer: Alex Alectic <alecticwp@gmail.com>
+" Maintainer: Alexandru Dreptu <alecticwp@gmail.com>
 
 if exists("colors_name")
 	finish
@@ -147,7 +147,7 @@ endif
 if !exists("autocommands_loaded")
     let autocommands_loaded = 1
     if has("autocmd")
-        filetype plugin indent on
+        "filetype plugin indent on " automatically handled by vim-plug
         augroup vimrcEx
             au!
             autocmd FileType text setl textwidth=79
@@ -268,7 +268,7 @@ let g:syntastic_enable_balloons = 0
 "let g:syntastic_always_populate_loc_list=1
 "let g:syntastic_auto_jump=1
 let g:syntastic_go_checkers = ['gofmt']
-"let g:syntastic_python_checkers=['pep8']
+let g:syntastic_python_checkers=['python']
 let g:syntastic_java_checkers = ['']
 let g:syntastic_javascript_checkers = ['jshint']
 let g:syntastic_html_checkers = ['']
@@ -356,6 +356,8 @@ let g:formatters_c = ['uncrustify']
 let g:formatdef_js_beautify = '"js-beautify -f - -q -s 2 -t false -p true -m 2 -P false -E false -a false -b collapse"'
 "let g:formatdef_js_jscs = '"jscs -x"'
 let g:formatters_javascript = ['js_beautify']
+let g:formatdef_ts_beautify = '"tsfmt -r --stdin"'
+let g:formatters_typescript = ['ts_beautify']
 let g:formatdef_html_beautify = '"html-beautify -f - -q -s 2 -p true -m 1"'
 let g:formatters_html = ['html_beautify']
 let g:formatdef_css_beautify = '"css-beautify -f - -q -s 2 -p true -m 1"'
@@ -364,38 +366,47 @@ let g:formatters_css = ['css_beautify']
 " TSuquyomi related
 let g:tsuquyomi_disable_quickfix = 1
 
-" Vundle related
-filetype off
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+" Jedi related
+let g:jedi#use_splits_not_buffers = "left"
+let g:jedi#popup_on_dot = 0
+let g:jedi#show_call_signatures = "2"
 
-Plugin 'gmarik/vundle'
-Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'scrooloose/syntastic'
-Plugin 'kien/ctrlp.vim'
-Plugin 'terryma/vim-multiple-cursors'
-Plugin 'myusuf3/numbers.vim'
-Plugin 'tpope/vim-surround'
-Plugin 'SirVer/ultisnips'
-if executable('ctags')
-    Plugin 'majutsushi/tagbar'
-    Plugin 'vim-scripts/AutoTag'
+" Automatic vim-plug installation
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall | source $MYVIMRC
 endif
-Plugin 'fatih/vim-go'
-Plugin 'Rip-Rip/clang_complete'
-Plugin 'Chiel92/vim-autoformat'
-Plugin 'mkitt/tabline.vim'
-Plugin 'Shougo/vimproc.vim' " needs 'make' executed in its directory after install
-Plugin 'pangloss/vim-javascript'
-Plugin 'marijnh/tern_for_vim' " needs 'npm install' executed in its directory after install
+
+" Plugins and Scripts
+call plug#begin('~/.vim/bundle')
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'scrooloose/nerdcommenter', { 'on': 'NERDComment' }
+Plug 'scrooloose/syntastic'
+Plug 'kien/ctrlp.vim'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'myusuf3/numbers.vim'
+Plug 'tpope/vim-surround'
+Plug 'SirVer/ultisnips'
+if executable('ctags')
+    Plug 'majutsushi/tagbar'
+    Plug 'vim-scripts/AutoTag'
+endif
+Plug 'fatih/vim-go'
+Plug 'Rip-Rip/clang_complete'
+Plug 'Chiel92/vim-autoformat'
+Plug 'mkitt/tabline.vim'
+Plug 'pangloss/vim-javascript'
+Plug 'marijnh/tern_for_vim', { 'do': 'npm install' }
 if executable('tsc')
-    Plugin 'leafgarland/typescript-vim'
+    Plug 'leafgarland/typescript-vim'
 endif
 if executable('tsserver')
-    Plugin 'Quramy/tsuquyomi'
+    Plug 'clausreinke/typescript-tools.vim'
+    Plug 'Shougo/vimproc.vim', { 'do': 'make' } | Plug 'Quramy/tsuquyomi'
 endif
-Plugin 'othree/html5.vim'
-Plugin 'hail2u/vim-css3-syntax'
-Plugin 'cohama/lexima.vim'
-filetype plugin indent on
+Plug 'othree/html5.vim'
+Plug 'hail2u/vim-css3-syntax'
+Plug 'cohama/lexima.vim'
+Plug 'davidhalter/jedi-vim'
+call plug#end()

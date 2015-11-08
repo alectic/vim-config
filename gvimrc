@@ -1,9 +1,10 @@
-" How great the font looks depends very much on the rendering settings,
+" How good the font looks depends very much on the rendering settings,
 " patches etc and display being used
-"set guifont=Source\ Code\ Pro\ Medium\ 10
-"set guifont=Fira\ Mono\ Regular\ 10
-set guifont=Ubuntu\ Mono\ \-\ Bront\ Regular\ 11
-set linespace=6
+"set guifont=Source\ Code\ Pro\ Medium\ 10 | set linespace=1
+"set guifont=Fira\ Mono\ Medium\ 10 | set linespace=1
+set guifont=Ubuntu\ Mono\ \-\ Bront\ Regular\ 11 | set linespace=3
+"set guifont=Meslo\ LG\ L\ DZ\ Regular\ 10 | set linespace=-3
+"set linespace=3
 set antialias
 set guioptions=
 set guicursor=n:block-Cursor-blinkoff0

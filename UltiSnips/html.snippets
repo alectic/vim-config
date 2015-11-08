@@ -3,8 +3,8 @@ snippet base "Insert the base" !b
 
 <html>
 <head lang="en">
-	<title>${1:?}</title>
 	<meta charset="utf-8">
+	<title>${1:?}</title>
 </head>
 
 <body>
@@ -19,8 +19,8 @@ $0
 endsnippet
 
 snippet tags "Insert html, head and body tags" b
-<html lang="en">
-<head>
+<html>
+<head lang="en">
 	$1
 </head>
 
@@ -59,12 +59,12 @@ snippet st "Insert style tags"
 endsnippet
 
 snippet St "Source css file" b
-<link rel="stylesheet" href="${0:path?}">
+<link rel="stylesheet" href="${0:path?}"/>
 endsnippet
 
 snippet scr
 <script>
-	${0:?}
+	$0
 </script>
 endsnippet
 
@@ -81,9 +81,7 @@ snippet img
 endsnippet
 
 snippet div
-<div class="${1:?}">
-	${0:?}
-</div>
+<div class="$1">$0</div>
 endsnippet
 
 snippet cl
@@ -150,6 +148,10 @@ endsnippet
 
 snippet opt
 <option>${0:?}</option>
+endsnippet
+
+snippet viewport
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
 endsnippet
 
 # CSS
