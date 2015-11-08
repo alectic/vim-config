@@ -13,7 +13,7 @@ ln -s ~/.vim/gvimrc ~/.gvimrc
 vim +PlugUpdate +qall
 ```
 
-# Update vim-plug
+### Update vim-plug
 ```
 vim +PlugUpgrade +qall
 ```

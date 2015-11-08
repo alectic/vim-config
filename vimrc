@@ -351,17 +351,27 @@ let g:clang_complete_macros = 1
 let g:clang_complete_patterns = 0
 
 " Autoformat related
-let g:formatdef_uncrustify = '"uncrustify -q -c $HOME/.config/uncrustify.cfg --no-backup"'
-let g:formatters_c = ['uncrustify']
-let g:formatdef_js_beautify = '"js-beautify -f - -q -s 2 -t false -p true -m 2 -P false -E false -a false -b collapse"'
-"let g:formatdef_js_jscs = '"jscs -x"'
-let g:formatters_javascript = ['js_beautify']
-let g:formatdef_ts_beautify = '"tsfmt -r --stdin"'
-let g:formatters_typescript = ['ts_beautify']
-let g:formatdef_html_beautify = '"html-beautify -f - -q -s 2 -p true -m 1"'
-let g:formatters_html = ['html_beautify']
-let g:formatdef_css_beautify = '"css-beautify -f - -q -s 2 -p true -m 1"'
-let g:formatters_css = ['css_beautify']
+if executable('uncrustify')
+    let g:formatdef_uncrustify = '"uncrustify -q -c $HOME/.config/uncrustify.cfg --no-backup"'
+    let g:formatters_c = ['uncrustify']
+endif
+if executable('autopep8')
+    let g:formatdef_py_beautify = '"autopep8 -"'
+    let g:formatters_python = ['py_beautify']
+endif
+if executable('js-beautify')
+    let g:formatdef_js_beautify = '"js-beautify -f - -q -s 2 -t false -p true -m 2 -P false -E false -a false -b collapse"'
+    "let g:formatdef_js_jscs = '"jscs -x"'
+    let g:formatters_javascript = ['js_beautify']
+    let g:formatdef_html_beautify = '"html-beautify -f - -q -s 2 -p true -m 1"'
+    let g:formatters_html = ['html_beautify']
+    let g:formatdef_css_beautify = '"css-beautify -f - -q -s 2 -p true -m 1"'
+    let g:formatters_css = ['css_beautify']
+endif
+if executable('tsc')
+    let g:formatdef_ts_beautify = '"tsfmt -r --stdin"'
+    let g:formatters_typescript = ['ts_beautify']
+endif
 
 " TSuquyomi related
 let g:tsuquyomi_disable_quickfix = 1
@@ -373,9 +383,9 @@ let g:jedi#show_call_signatures = "2"
 
 " Automatic vim-plug installation
 if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall | source $MYVIMRC
+    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+                \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall | source $MYVIMRC
 endif
 
 " Plugins and Scripts
