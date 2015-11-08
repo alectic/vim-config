@@ -381,7 +381,7 @@ endif
 " Plugins and Scripts
 call plug#begin('~/.vim/bundle')
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-Plug 'scrooloose/nerdcommenter', { 'on': 'NERDComment' }
+Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/syntastic'
 Plug 'kien/ctrlp.vim'
 Plug 'terryma/vim-multiple-cursors'
