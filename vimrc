@@ -164,12 +164,6 @@ if !exists(":DiffOrig")
                 \ | wincmd p | diffthis
 endif
 
-" auto-add shebang
-augroup Shebang
-    au BufNewFile *.py 0put =\"#!/usr/bin/env python\<nl># -*- coding: utf-8 -*-\<nl>\"|$
-    au BufNewFile *.\(cc\|hh\) 0put =\"//\<nl>// \".expand(\"<afile>:t\").\" -- \<nl>//\<nl>\"|2|start!
-augroup END
-
 "autocmd CursorMoved * exe printf('match IncSearch /\<%s\>/', expand('<cword>'))
 
 " set colorscheme by filetype
