@@ -12,7 +12,7 @@ endif
 let colors_name = "naquadria"
 
 " Code
-let s:normal_color = {"attr": "none", "fg": "#ffffff", "bg": "#171712"}
+let s:normal_color = {"attr": "none", "fg": "#ffffff", "bg": "#1A1A10"}
 let s:comment_color = {"attr": "italic", "fg": "#858585"}
 let s:commentdoc_color = {"attr": s:comment_color.attr, "fg": "#857e6b"}
 let s:string_color = {"attr": "italic", "fg": "#bf7c7c"}
@@ -48,7 +48,7 @@ let s:cursorline_color = {"attr": "none", "fg": "white", "bg": "#4d4d3a"}
 let s:cursorcolumn_color = {"attr": "none", "fg": "white", "bg": s:tabline_color.bg}
 let s:cursorlinenr_color = {"attr": "none", "fg": "#BFBF8F", "bg": s:normal_color.bg}
 let s:signcolumn_color = {"bg": s:normal_color.bg}
-let s:pmenu_color = {"attr": "none", "fg": "lightgray", "bg": "#1f1f18"}
+let s:pmenu_color = {"attr": "none", "fg": "lightgray", "bg": "#212113"}
 let s:pmenusel_color = {"attr": "none", "fg": "white", "bg": s:cursorline_color.bg}
 let s:pmenuselbar_color = {"attr": "none", "bg": "#26261e"}
 let s:pmenuthumb_color = {"attr": "none", "bg": s:pmenusel_color.bg}
@@ -58,7 +58,7 @@ let s:todo_color = {"attr": "none", "fg": "white", "bg": "#721d1d"}
 let s:search_color = {"attr": "none", "fg": "white", "bg": s:todo_color.bg}
 let s:visual_color = {"attr": "none", "fg": "white", "bg": s:cursorline_color.bg}
 let s:errormsg_color = {"attr": "none", "fg": "white", "bg": s:todo_color.bg}
-let s:vertsplit_color = {"attr": "none", "fg": s:func_color.fg, "bg": "#161710"}
+let s:vertsplit_color = {"attr": "none", "fg": s:func_color.fg, "bg": s:normal_color.bg}
 let s:column_color = {"attr": "none", "bg": s:tabline_color.bg}
 let s:cursor_color = {"attr": "none", "fg": "white", "bg": "#999954"}
 let s:icursor_color = {"attr": "none", "bg": s:cursor_color.bg}
