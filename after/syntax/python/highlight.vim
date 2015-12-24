@@ -5,7 +5,7 @@ syn keyword     pythonClass         class
 syn keyword     pythonDef           def
 syn keyword     pythonVar           global nonlocal
 
-syn match       pythonOperator      display "[-+=!.,:%&^*/]"
+syn match       pythonOperator      display "[-+=!.,:%&^*/<>]"
 
 syn region      pythonDocStringS    start=/\([r,u]\)\='''/ end=/'''/
 syn region      pythonDocStringD    start=/\([r,u]\)\="""/ end=/"""/

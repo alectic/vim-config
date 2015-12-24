@@ -15,7 +15,7 @@ let colors_name = "naquadria"
 let s:normal_color = {"attr": "none", "fg": "#ffffff", "bg": "#1A1A10"}
 let s:comment_color = {"attr": "italic", "fg": "#858585"}
 let s:commentdoc_color = {"attr": s:comment_color.attr, "fg": "#857e6b"}
-let s:string_color = {"attr": "italic", "fg": "#bf7c7c"}
+let s:string_color = {"attr": "none", "fg": "#bf7c7c"}
 let s:number_color = {"attr": "none", "fg": "#ffba5a"}
 let s:char_color = {"attr": "none", "fg": "#ba73e6"}
 let s:const_color = {"attr": "none", "fg": "#7390e6"}
@@ -229,6 +229,14 @@ hi link pythonClass         Class
 hi link pythonDef           Keyword
 hi link pythonConstant      Constant
 hi link pythonVar           Statement
+
+" Ruby
+hi link rubyStringDelimiter         String
+hi link rubyClass                   Class
+hi link rubyInterpolationDelimiter  Format
+hi link rubyDefine                  Keyword
+hi link rubyInclude                 Conditional
+hi link rubySharpBang               Comment
 
 " JavaScript
 hi javaScript                   guifg=white

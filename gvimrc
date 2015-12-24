@@ -1,8 +1,8 @@
 " How good the font looks depends very much on the rendering settings,
 " patches and display being used
-"set guifont=Source\ Code\ Pro\ Medium\ 10 | set linespace=0
+set guifont=Source\ Code\ Pro\ Medium\ 10 | set linespace=0
 "set guifont=Fira\ Mono\ Medium\ 10 | set linespace=1
-set guifont=Ubuntu\ Mono\ \-\ Bront\ Regular\ 11 | set linespace=3
+"set guifont=Ubuntu\ Mono\ \-\ Bront\ Regular\ 11 | set linespace=3
 set antialias
 set guioptions=
 set guicursor=n:block-Cursor-blinkoff0
