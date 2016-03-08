@@ -1,0 +1,86 @@
+snippet pom
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>${1:4.0.0}</modelVersion>
+	<groupId>$2</groupId>
+	<artifactId>$3</artifactId>
+	<packaging>${4:jar}</packaging>
+	<version>$5</version>
+	<name>$6</name>
+	<url>${7:http://maven.apache.org}</url>
+	<repositories>
+		<repository>
+			<id>$8</id>
+			<name>$9</name>
+			<url>$10/url>
+		</repository>
+	</repositories>
+	<dependencies>
+		<dependency>
+			<groupId>$11</groupId>
+			<artifactId>$12</artifactId>
+			<version>$13</version>
+			<scope>$14</scope>
+		</dependency>
+	</dependencies>
+</project>
+endsnippet
+
+snippet model
+<modelVersion>$0</modelVersion>
+endsnippet
+
+snippet pac
+<packaging>$0</packaging>
+endsnippet
+
+snippet name
+<name>$0</name>
+endsnippet
+
+snippet url
+<url>$0</url>
+endsnippet
+
+snippet reps
+<repositories>
+	$0
+</repositories>
+endsnippet
+
+snippet repy
+<repository>
+	$0
+</repository>
+endsnippet
+
+snippet dep
+<dependency>
+	$0
+</dependency>
+endsnippet
+
+snippet depends
+<dependency>
+	<groupId>$1</groupId>
+	<artifactId>$2</artifactId>
+	<version>$3</version>
+	<scope>$4</scope>
+</dependency>$0
+endsnippet
+
+snippet gid
+<groupId>$0</groupId>
+endsnippet
+
+snippet aid
+<artifactId>$0</artifactId>
+endsnippet
+
+snippet ver
+<version>$0</version>
+endsnippet
+
+snippet sco
+<scope>$0</scope>
+endsnippet

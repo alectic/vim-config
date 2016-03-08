@@ -28,7 +28,7 @@ let s:func_color = {"attr": "none", "fg": "#bbbbe6"}
 let s:include_color = {"attr": "none", "fg": "#98b3a1"}
 let s:keyword_color = {"attr": "none", "fg": "#B399FF"}
 let s:loop_color = copy(s:cond_color)
-let s:format_color = {"attr": "italic", "fg": "#b17dcc"}
+let s:format_color = {"attr": "none", "fg": "#b17dcc"}
 "let s:module_color = {"attr": "none", "fg": "#999999"} " TODO: to be removed
 let s:module_color = {"attr": "none", "fg": "#B6CC99"}
 "let s:attr_color = {"attr": "none", "fg": "#99907a"}
@@ -38,6 +38,7 @@ let s:special_color = {"attr": "none", "fg": "#80bbff"}
 let s:cssclass_color = {"attr": "none", "fg": "#9FCC66"}
 let s:operator_color = {"attr": "none", "fg": "#D9D96D"}
 "let s:object_color = {"attr": "none", "fg": "#B6CC99"} " experimental
+let s:paren_color = {"attr": "none", "fg": "#C0F0FF"}
 
 " Editor
 let s:tabline_color = {"attr": "none", "fg": "lightgray", "bg": "#2b2b21"}
@@ -149,6 +150,7 @@ exe "hi Private" "gui=".s:private_color.attr "guifg=".s:private_color.fg
 exe "hi Special" "gui=".s:special_color.attr "guifg=".s:special_color.fg
 "exe "hi Object" "gui=".s:object_color.attr "guifg=".s:object_color.fg
 exe "hi Operator" "gui=".s:operator_color.attr "guifg=".s:operator_color.fg
+exe "hi Paren" "gui=".s:paren_color.attr "guifg=".s:paren_color.fg
 
 hi link Float	    Number
 hi link Macro       PreProc
@@ -180,8 +182,18 @@ hi link cppKeyword2     Conditional
 "hi link cppKeyword3     Class
 
 " Java
-hi link javaExternal    Conditional
-hi link javaSpecialChar Special
+hi link javaFormat          Format
+hi link javaExternal        Conditional
+hi link javaSpecialChar     Special
+hi link javaClassDecl       Class
+hi link javaScopeDecl       javaClassDecl
+hi link javaStorageClass    javaClassDecl
+hi link javaUserLabel       Statement
+" customs - defined in $HOME/.vim/after/syntax/java.vim
+hi link javaFunc            Function
+hi link javaVisibility      Private
+hi link javaActionDecl      javaVisibility
+hi link javaThis            javaVisibility
 
 " Bash
 hi link shVariable      Statement
@@ -299,10 +311,13 @@ hi link htmlHead            none
 hi link htmlScriptTag       none
 hi link htmlTag             none
 hi link htmlBold            none
-
 " customs - defined in $HOME/.vim/after/syntax/html/highlight.vim
 "hi link HTMLjsOps           jsOps
 "hi link HTMLjsCustomFunc    jsCustomFunc
+
+" XML
+hi link xmlTagName      htmlTagName
+hi link xmlEndTag       xmlTagName
 
 " CSS
 exe "hi cssClassName" "gui=".s:cssclass_color.attr "guifg=".s:cssclass_color.fg

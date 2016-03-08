@@ -1,0 +1,18 @@
+snippet auth "Insert author name"
+Alexandru Dreptu
+endsnippet
+
+snippet date "Insert date and time"
+`!v strftime("%Y-%m-%d")`$0
+endsnippet
+
+snippet pelican "Insert pelican metadata"
+Title: ${0:title?}
+Date: `!v strftime("%Y-%m-%d")`
+Author: Alexandru Dreptu
+Status: draft
+endsnippet
+
+snippet com
+<!-- $0 -->
+endsnippet

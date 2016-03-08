@@ -85,7 +85,8 @@ set autoread
 set report=99999 " temporarily till I know what to do about it
 "set foldmethod=syntax " really slow especially for omnicompletion
 
-set omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType java setlocal omnifunc=javacomplete#Complete
 
 " I got used to rangerfm
 inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
@@ -348,6 +349,7 @@ let g:clang_complete_patterns = 0
 if executable('uncrustify')
     let g:formatdef_uncrustify = '"uncrustify -q -c $HOME/.config/uncrustify.cfg --no-backup"'
     let g:formatters_c = ['uncrustify']
+    let g:formatters_java = ['uncrustify']
 endif
 if executable('autopep8')
     let g:formatdef_py_beautify = '"autopep8 -"'
@@ -413,4 +415,6 @@ Plug 'othree/html5.vim'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'cohama/lexima.vim'
 Plug 'davidhalter/jedi-vim'
+Plug 'artur-shaik/vim-javacomplete2'
+Plug 'vim-scripts/cSyntaxAfter'
 call plug#end()
