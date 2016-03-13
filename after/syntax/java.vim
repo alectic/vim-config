@@ -3,7 +3,7 @@ if exists("*CSyntaxAfter")
 endif
 
 syn keyword javaVisibility  public private protected
-syn keyword javaActionDecl  implements extends throws synchronized
+syn keyword javaActionDecl  implements extends throws synchronized native
 syn keyword javaThis        this super
 syn keyword javaOperator    new
 syn keyword javaStatement   break

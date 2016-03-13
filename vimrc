@@ -245,6 +245,19 @@ let g:NERDTreeDirArrows = 1
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 nnoremap <silent> <F2> :NERDTreeToggle <CR>
 
+" Undotree related
+function UndoTree()
+    :UndotreeToggle
+    :UndotreeFocus
+endfunction
+
+nnoremap <silent> <F4> :call UndoTree()<cr>
+
+if has("persistent_undo")
+    set undodir=~/.vim/undodir/
+    set undofile
+endif
+
 " NERDCommenter related
 nnoremap <silent> <C-Space> :call NERDComment(0, "toggle") <CR>
 
@@ -286,6 +299,10 @@ let g:syntastic_c_include_dirs = [
 "au BufWritePost *.go silent! !ctags -R &
 
 " TagBar related
+let g:tagbar_compact = 1
+let g:tagbar_show_visibility = 1
+"let g:tagbar_show_linenumbers = -1
+
 if executable('ctags')
     let g:tagbar_type_go = {
                 \ 'ctagstype' : 'go',
@@ -314,7 +331,8 @@ if executable('ctags')
                 \ 'ctagsbin'  : 'gotags',
                 \ 'ctagsargs' : '-sort -silent'
                 \ }
-    nnoremap <silent> <F3> :TagbarOpenAutoClose<CR>
+    "nnoremap <silent> <F3> :TagbarOpenAutoClose<CR>
+    nnoremap <silent> <F3> :TagbarToggle<CR>
 endif
 
 " CtrlP related
@@ -387,6 +405,7 @@ endif
 " Plugins and Scripts
 call plug#begin('~/.vim/bundle')
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/syntastic'
 Plug 'kien/ctrlp.vim'

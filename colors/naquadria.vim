@@ -369,12 +369,19 @@ hi SyntasticError guisp=red
 
 " NERDTree
 " this will be moved to a more appropriate location
-hi NERDTreeExecFile	    guifg=lightgreen
-hi NERDTreeRO		    guifg=lightred
-hi NERDTreeOpenable     guifg=green
-hi NERDTreeClosable     guifg=brown
+hi NERDTreeExecFile	        guifg=lightgreen
+hi NERDTreeRO		        guifg=lightred
+hi link NERDTreeOpenable    TagbarFoldIcon
+hi link NERDTreeClosable    NERDTreeOpenable
 
 " TagBar
-"hi TagbarScope  guifg=lightgreen
-hi link TagbarScope         Class
-hi link TagbarSignature     Function
+exe "hi TagbarFoldIcon" "gui=".s:cursor_color.attr "guifg=".s:cursor_color.bg
+hi link TagbarScope                 Class
+hi link TagbarSignature             Function
+hi link TagbarNestedKind            Keyword
+hi link TagbarPseudoID              Operator
+hi link TagbarFoldIcon              Cursor
+hi link TagbarHighlight             Search
+hi link TagbarVisibilityPrivate     Private
+hi link TagbarVisibilityProtected   TagbarVisibilityPrivate
+hi link TagbarVisibilityPublic      TagbarVisibilityPrivate
