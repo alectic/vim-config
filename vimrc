@@ -294,9 +294,8 @@ let g:syntastic_c_include_dirs = [
             \ '/usr/lib/arduino/hardware/tools/avr/lib/gcc/avr/4.3.2/include/',
             \ '/usr/lib/arduino/hardware/tools/avr/lib/gcc/avr/4.3.2/include-fixed/',
             \ $HOME.'/usr/include/']
-
 "cTags related
-"au BufWritePost *.go silent! !ctags -R &
+autocmd BufWritePost *.java, *.py, *.go, *.js silent! call system("ctags -R")
 
 " TagBar related
 let g:tagbar_compact = 1
@@ -331,7 +330,6 @@ if executable('ctags')
                 \ 'ctagsbin'  : 'gotags',
                 \ 'ctagsargs' : '-sort -silent'
                 \ }
-    "nnoremap <silent> <F3> :TagbarOpenAutoClose<CR>
     nnoremap <silent> <F3> :TagbarToggle<CR>
 endif
 
@@ -414,7 +412,7 @@ Plug 'myusuf3/numbers.vim'
 Plug 'tpope/vim-surround'
 Plug 'SirVer/ultisnips'
 if executable('ctags')
-    Plug 'majutsushi/tagbar'
+    Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
     Plug 'vim-scripts/AutoTag'
 endif
 Plug 'fatih/vim-go'

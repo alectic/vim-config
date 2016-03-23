@@ -152,6 +152,7 @@ exe "hi Special" "gui=".s:special_color.attr "guifg=".s:special_color.fg
 exe "hi Operator" "gui=".s:operator_color.attr "guifg=".s:operator_color.fg
 exe "hi Paren" "gui=".s:paren_color.attr "guifg=".s:paren_color.fg
 
+hi NonText          guifg=bg
 hi link Float	    Number
 hi link Macro       PreProc
 hi link Label       Conditional
@@ -382,6 +383,6 @@ hi link TagbarNestedKind            Keyword
 hi link TagbarPseudoID              Operator
 hi link TagbarFoldIcon              Cursor
 hi link TagbarHighlight             Search
-hi link TagbarVisibilityPrivate     Private
+hi link TagbarVisibilityPrivate     TagbarFoldIcon
 hi link TagbarVisibilityProtected   TagbarVisibilityPrivate
 hi link TagbarVisibilityPublic      TagbarVisibilityPrivate
