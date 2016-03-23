@@ -56,7 +56,8 @@ set updatetime=2000 " this in combination with 'set noswapfile'
 set fileencodings=utf-8
 "set noshowmode
 set showmode
-"set statusline=%r\ %F\ %m\ %=\ %Y\ [%P] "not needed when using airline
+set statusline=%r\ %F\ %m\ %=\ %Y\ [%P]
+set showtabline=2
 set title
 set modeline
 set ttyfast
@@ -84,6 +85,7 @@ set guiheadroom=0
 set autoread
 set report=99999 " temporarily till I know what to do about it
 "set foldmethod=syntax " really slow especially for omnicompletion
+"set timeoutlen=1000
 
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType java setlocal omnifunc=javacomplete#Complete
@@ -400,18 +402,8 @@ if empty(glob('~/.vim/autoload/plug.vim'))
     autocmd VimEnter * PlugInstall | source $MYVIMRC
 endif
 
-" Airline related
-let g:airline_theme = "wombat"
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
-"let g:airline#extensions#tabline#show_buffers = 0
-let g:airline#extensions#tagbar#enabled = 0 " confict with tagbar
-let g:airline#extensions#tabline#tab_nr_type = 1
-
 " Plugins and Scripts
 call plug#begin('~/.vim/bundle')
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 Plug 'scrooloose/nerdcommenter'

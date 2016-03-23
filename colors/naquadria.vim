@@ -151,6 +151,7 @@ exe "hi Special" "gui=".s:special_color.attr "guifg=".s:special_color.fg
 "exe "hi Object" "gui=".s:object_color.attr "guifg=".s:object_color.fg
 exe "hi Operator" "gui=".s:operator_color.attr "guifg=".s:operator_color.fg
 exe "hi Paren" "gui=".s:paren_color.attr "guifg=".s:paren_color.fg
+exe "hi Title" "guifg=".s:keyword_color.fg
 
 hi NonText          guifg=bg
 hi link Float	    Number
