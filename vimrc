@@ -56,7 +56,7 @@ set updatetime=2000 " this in combination with 'set noswapfile'
 set fileencodings=utf-8
 "set noshowmode
 set showmode
-set statusline=%r\ %F\ %m\ %=\ %Y\ [%P]
+"set statusline=%r\ %F\ %m\ %=\ %Y\ [%P] "not needed when using airline
 set title
 set modeline
 set ttyfast
@@ -295,7 +295,7 @@ let g:syntastic_c_include_dirs = [
             \ '/usr/lib/arduino/hardware/tools/avr/lib/gcc/avr/4.3.2/include-fixed/',
             \ $HOME.'/usr/include/']
 "cTags related
-autocmd BufWritePost *.java, *.py, *.go, *.js silent! call system("ctags -R")
+autocmd BufWritePost *.java,*.py,*.go,*.js silent! call system("ctags -R")
 
 " TagBar related
 let g:tagbar_compact = 1
@@ -400,8 +400,18 @@ if empty(glob('~/.vim/autoload/plug.vim'))
     autocmd VimEnter * PlugInstall | source $MYVIMRC
 endif
 
+" Airline related
+let g:airline_theme = "wombat"
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+"let g:airline#extensions#tabline#show_buffers = 0
+let g:airline#extensions#tagbar#enabled = 0 " confict with tagbar
+let g:airline#extensions#tabline#tab_nr_type = 1
+
 " Plugins and Scripts
 call plug#begin('~/.vim/bundle')
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 Plug 'scrooloose/nerdcommenter'
