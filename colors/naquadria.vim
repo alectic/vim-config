@@ -1,4 +1,4 @@
-" Author:       Alectic <alecticwp@gmail.com>
+" Author:       Alexandru Dreptu <alecticwp@gmail.com>
 " URL:          https://github.com/alectic/vim-config/blob/master/colors/naquadria.vim
 " NOTE:         Depends on https://github.com/alectic/vim-config/tree/master/after/syntax/
 
@@ -196,6 +196,10 @@ hi link javaFunc            Function
 hi link javaVisibility      Private
 hi link javaActionDecl      javaVisibility
 hi link javaThis            javaVisibility
+
+" Clojure
+hi link clojureParen        Paren
+hi link clojureSpecial      Conditional
 
 " Bash
 hi link shVariable      Statement

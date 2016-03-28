@@ -87,7 +87,7 @@ set report=99999 " temporarily till I know what to do about it
 "set foldmethod=syntax " really slow especially for omnicompletion
 "set timeoutlen=1000
 
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+set omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType java setlocal omnifunc=javacomplete#Complete
 
 " I got used to rangerfm
@@ -435,5 +435,4 @@ Plug 'hail2u/vim-css3-syntax'
 Plug 'cohama/lexima.vim'
 Plug 'davidhalter/jedi-vim'
 Plug 'artur-shaik/vim-javacomplete2'
-Plug 'vim-scripts/cSyntaxAfter'
 call plug#end()
