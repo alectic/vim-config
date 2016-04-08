@@ -56,23 +56,29 @@ let s:pmenuthumb_color = {"attr": "none", "bg": s:pmenusel_color.bg}
 let s:tablinefill_color = {"attr": "none", "bg": s:tabline_color.bg}
 let s:tablinesel_color = {"attr": "none", "fg": "white", "bg": s:pmenusel_color.bg}
 let s:todo_color = {"attr": "none", "fg": "white", "bg": "#721d1d"}
+let s:cursor_color = {"attr": "none", "fg": "white", "bg": "#999954"}
+let s:icursor_color = {"attr": "none", "bg": s:cursor_color.bg}
 let s:search_color = {"attr": "none", "fg": "white", "bg": s:todo_color.bg}
 let s:visual_color = {"attr": "none", "fg": "white", "bg": s:cursorline_color.bg}
 let s:errormsg_color = {"attr": "none", "fg": "white", "bg": s:todo_color.bg}
-let s:vertsplit_color = {"attr": "none", "fg": s:func_color.fg, "bg": s:normal_color.bg}
+let s:vertsplit_color = {"attr": "none", "fg": s:cursor_color.fg, "bg": s:normal_color.bg}
 let s:column_color = {"attr": "none", "bg": s:tabline_color.bg}
-let s:cursor_color = {"attr": "none", "fg": "white", "bg": "#999954"}
-let s:icursor_color = {"attr": "none", "bg": s:cursor_color.bg}
 let s:dir_color = {"attr": "none", "fg": "lightblue"}
 let s:matchparen_color = {"attr": "none", "fg": "white", "bg": s:cursorline_color.bg}
 let s:statusline_color = {"attr": "none", "fg": "#cccccc", "bg": s:tabline_color.bg}
 let s:statuslinenc_color = {"attr": "none", "fg": s:comment_color.fg, "bg": s:pmenu_color.bg}
+let s:statuslinechange_color = {"attr": "none", "fg": "lightgreen", "bg": s:statusline_color.bg}
+let s:statuslinenormal_color = {"attr": "none", "fg": "lightblue", "bg": s:statusline_color.bg}
+let s:statuslineinsert_color = {"attr": "none", "fg": "lightgreen", "bg": s:statusline_color.bg}
+let s:statuslinereplace_color = {"attr": "none", "fg": "lightred", "bg": s:statusline_color.bg}
+let s:statuslinevisual_color = {"attr": "none", "fg": "yellow", "bg": s:statusline_color.bg}
+let s:statuslineinfo_color = {"attr": "none", "fg": s:keyword_color.fg, "bg": s:statusline_color.bg}
+let s:statuslinereadonly_color = {"attr": "none", "fg": "lightred", "bg": s:statusline_color.bg}
+"let s:statuslinedelimiter_color = {"attr": "none", "fg": s:cursor_color.fg, "bg": s:statusline_color.bg}
 let s:folded_color = {"attr": "none", "fg": s:statusline_color.fg, "bg": s:statusline_color.bg}
 let s:foldcolumn_color = {"attr": "none", "fg": s:folded_color.fg, "bg": s:folded_color.bg}
 let s:error_color = {"attr": "none", "fg": "white", "bg": s:todo_color.bg}
 let s:diffremoved_color = {"attr": "none", "fg": "darkred"}
-
-hi clear MatchParen
 
 " Vim
 exe "hi SpecialKey" "gui=".s:specialkey_color.attr "guibg=".s:specialkey_color.bg
@@ -98,9 +104,16 @@ exe "hi ColorColumn" "gui=".s:column_color.attr "guibg=".s:column_color.bg
 exe "hi Cursor" "gui=".s:cursor_color.attr "guifg=".s:cursor_color.fg "guibg=".s:cursor_color.bg
 exe "hi iCursor" "gui=".s:icursor_color.attr "guibg=".s:icursor_color.bg
 exe "hi Directory" "gui=".s:dir_color.attr "guifg=".s:dir_color.fg
-exe "hi MatchParen" "gui=".s:matchparen_color.attr "guifg=".s:matchparen_color.fg "guibg=".s:matchparen_color.bg
+exe "hi! MatchParen" "gui=".s:matchparen_color.attr "guifg=".s:matchparen_color.fg "guibg=".s:matchparen_color.bg
 exe "hi StatusLine" "gui=".s:statusline_color.attr "guifg=".s:statusline_color.fg "guibg=".s:statusline_color.bg
 exe "hi StatusLineNC" "gui=".s:statuslinenc_color.attr "guifg=".s:statuslinenc_color.fg "guibg=".s:statuslinenc_color.bg
+exe "hi StatusLineChange" "gui=".s:statuslinechange_color.attr "guifg=".s:statuslinechange_color.fg "guibg=".s:statuslinechange_color.bg
+exe "hi StatusLineNormal" "gui=".s:statuslinenormal_color.attr "guifg=".s:statuslinenormal_color.fg "guibg=".s:statuslinenormal_color.bg
+exe "hi StatusLineInsert" "gui=".s:statuslineinsert_color.attr "guifg=".s:statuslineinsert_color.fg "guibg=".s:statuslineinsert_color.bg
+exe "hi StatusLineReplace" "gui=".s:statuslinereplace_color.attr "guifg=".s:statuslinereplace_color.fg "guibg=".s:statuslinereplace_color.bg
+exe "hi StatusLineVisual" "gui=".s:statuslinevisual_color.attr "guifg=".s:statuslinevisual_color.fg "guibg=".s:statuslinevisual_color.bg
+exe "hi StatusLineInfo" "gui=".s:statuslineinfo_color.attr "guifg=".s:statuslineinfo_color.fg "guibg=".s:statuslineinfo_color.bg
+exe "hi StatusLineReadOnly" "gui=".s:statuslinereadonly_color.attr "guifg=".s:statuslinereadonly_color.fg "guibg=".s:statuslinereadonly_color.bg
 exe "hi Folded" "gui=".s:folded_color.attr "guifg=".s:folded_color.fg "guibg=".s:folded_color.bg
 exe "hi FoldColumn" "gui=".s:foldcolumn_color.attr "guifg=".s:foldcolumn_color.fg "guibg=".s:foldcolumn_color.bg
 
@@ -151,13 +164,14 @@ exe "hi Special" "gui=".s:special_color.attr "guifg=".s:special_color.fg
 "exe "hi Object" "gui=".s:object_color.attr "guifg=".s:object_color.fg
 exe "hi Operator" "gui=".s:operator_color.attr "guifg=".s:operator_color.fg
 exe "hi Paren" "gui=".s:paren_color.attr "guifg=".s:paren_color.fg
-exe "hi Title" "guifg=".s:keyword_color.fg
+exe "hi Title" "gui=".s:keyword_color.attr "guifg=".s:keyword_color.fg
 
 hi NonText          guifg=bg
 hi link Float	    Number
 hi link Macro       PreProc
 hi link Label       Conditional
 hi link Operator    Keyword
+hi link Delimiter   Paren
 
 " C
 hi link cInclude		PreProc
@@ -191,6 +205,10 @@ hi link javaClassDecl       Class
 hi link javaScopeDecl       javaClassDecl
 hi link javaStorageClass    javaClassDecl
 hi link javaUserLabel       Statement
+hi link javaDocComment      CommentDoc
+hi link javaCommentTitle    javaDocComment
+hi link javaDocTags         javaDocComment
+hi link javaDocParam        javaDocComment
 " customs - defined in $HOME/.vim/after/syntax/java.vim
 hi link javaFunc            Function
 hi link javaVisibility      Private
@@ -391,3 +409,8 @@ hi link TagbarHighlight             Search
 hi link TagbarVisibilityPrivate     TagbarFoldIcon
 hi link TagbarVisibilityProtected   TagbarVisibilityPrivate
 hi link TagbarVisibilityPublic      TagbarVisibilityPrivate
+
+" GitGitter
+hi GitGutterAdd     guifg=lightgreen
+hi GitGutterDelete  guifg=lightred
+hi GitGutterChange  guifg=yellow

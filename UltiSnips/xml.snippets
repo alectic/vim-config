@@ -1,28 +1,11 @@
 snippet pom
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project>
 	<modelVersion>${1:4.0.0}</modelVersion>
+	<name>$6</name>
 	<groupId>$2</groupId>
 	<artifactId>$3</artifactId>
-	<packaging>${4:jar}</packaging>
+	<packaging>jar</packaging>
 	<version>$5</version>
-	<name>$6</name>
-	<url>${7:http://maven.apache.org}</url>
-	<repositories>
-		<repository>
-			<id>$8</id>
-			<name>$9</name>
-			<url>$10/url>
-		</repository>
-	</repositories>
-	<dependencies>
-		<dependency>
-			<groupId>$11</groupId>
-			<artifactId>$12</artifactId>
-			<version>$13</version>
-			<scope>$14</scope>
-		</dependency>
-	</dependencies>
 </project>
 endsnippet
 
@@ -54,6 +37,12 @@ snippet repy
 </repository>
 endsnippet
 
+snippet deps
+<dependencies>
+	$0
+</dependencies>
+endsnippet
+
 snippet dep
 <dependency>
 	$0
@@ -83,4 +72,110 @@ endsnippet
 
 snippet sco
 <scope>$0</scope>
+endsnippet
+
+snippet build
+<build>
+	$0
+</build>
+endsnippet
+
+snippet plugs
+<plugins>
+	$0
+</plugins>
+endsnippet
+
+snippet plug
+<plugin>
+	$0
+</plugin>
+endsnippet
+
+snippet conf
+<configuration>
+	$0
+</configuration>
+endsnippet
+
+snippet src
+<source>$0</source>
+endsnippet
+
+snippet tar
+<target>$0</target>
+endsnippet
+
+snippet enc
+<encoding>$0</encoding>
+endsnippet
+
+snippet fils
+<filters>
+	$0
+</filters>
+endsnippet
+
+snippet fil
+<filter>
+	$0
+<filter>
+endsnippet
+
+snippet execs
+<executions>
+	$0
+</executions>
+endsnippet
+
+snippet exec
+<execution>
+	$0
+</execution>
+endsnippet
+
+snippet trans
+<transformers>
+	$0
+</transformers>
+endsnippet
+
+snippet tran
+<transformer>
+	$0
+</transformer>
+endsnippet
+
+snippet art
+<artifact>$0</artifact>
+endsnippet
+
+snippet exs
+<excludes>
+	$0
+</excludes>
+endsnippet
+
+snippet ex
+<exclude>$0</exclude>
+endsnippet
+
+snippet ph
+<phase>$0</phase>
+endsnippet
+
+snippet goals
+<goals>
+	$0
+</goals>
+endsnippet
+
+snippet goal
+<goal>$0</goal>
+endsnippet
+
+snippet prop
+<properties>
+	$0
+</properties>
 endsnippet

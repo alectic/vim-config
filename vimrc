@@ -52,20 +52,19 @@ set viewdir=$HOME/.vim/tmp/view/
 set undodir=$HOME/.vim/tmp/undo/
 set undofile
 set viminfo='50,n$HOME/.vim/tmp/viminfo
-set updatetime=2000 " this in combination with 'set noswapfile'
+set updatetime=250 " this value only in combination with 'set noswapfile'
 set fileencodings=utf-8
-"set noshowmode
-set showmode
-set statusline=%r\ %F\ %m\ %=\ %Y\ [%P]
-set showtabline=2
+set noshowmode
+"set showmode
+"set showtabline=2
 set title
 set modeline
 set ttyfast
 set wildmenu
 set wildmode=list:longest,full
 "set list
-set listchars=trail:\ ,tab:→\ ,extends:>,precedes:<
-set fillchars+=stl:\ ,stlnc:\ ,vert:\|
+set listchars=trail:\ ,tab:→\ ,extends:⟶,precedes:⟵
+set fillchars+=stl:\ ,stlnc:\ ,vert:\│
 "set linebreak
 set showbreak=↳
 "set lazyredraw
@@ -87,6 +86,81 @@ set report=99999 " temporarily till I know what to do about it
 "set foldmethod=syntax " really slow especially for omnicompletion
 "set timeoutlen=1000
 
+" statusline related
+let g:currentmode={
+            \ 'n'  : 'Normal',
+            \ 'no' : 'N·Operator Pending',
+            \ 'v'  : 'Visual',
+            \ 'V'  : 'V·Line',
+            \ '' : 'V·Block',
+            \ 's'  : 'Select',
+            \ 'S'  : 'S·Line',
+            \ '' : 'S·Block',
+            \ 'i'  : 'Insert',
+            \ 'R'  : 'Replace',
+            \ 'Rv' : 'V·Replace',
+            \ 'c'  : 'Command',
+            \ 'cv' : 'Vim Ex',
+            \ 'ce' : 'Ex',
+            \ 'r'  : 'Prompt',
+            \ 'rm' : 'More',
+            \ 'r?' : 'Confirm',
+            \ '!'  : 'Shell',
+            \}
+
+function! FileSize()
+    let bytes = getfsize(expand('%:p'))
+    if (bytes >= 1024)
+        let kbytes = bytes / 1024
+    endif
+    if (exists('kbytes') && kbytes >= 1000)
+        let mbytes = kbytes / 1000
+    endif
+
+    if bytes <= 0
+        return 'null'
+    endif
+
+    if (exists('mbytes'))
+        return mbytes . 'MB'
+    elseif (exists('kbytes'))
+        return kbytes . 'KB'
+    else
+        return bytes . 'B'
+    endif
+endfunction
+
+function! ChangeStatusLineColor()
+    let l:mode = toupper(g:currentmode[mode()])
+    if (mode == "NORMAL")
+        hi! link StatusLineMode StatusLineNormal
+    elseif (mode == "INSERT")
+        hi! link StatusLineMode StatusLineInsert
+    elseif (mode == "VISUAL")
+        hi! link StatusLineMode StatusLineVisual
+    elseif (mode == "V-LINE")
+        hi! link StatusLineMode StatusLineVisual
+    elseif (mode == "V-BLOCK")
+        hi! link StatusLineMode StatusLineVisual
+    elseif (mode == "REPLACE")
+        hi! link StatusLineMode StatusLineReplace
+    else
+        hi! link StatusLineMode StatusLine
+    endif
+    return ""
+endfunction
+
+set statusline=%#StatusLineMode#[%{toupper(g:currentmode[mode()])}]
+set statusline+=\ %#StatusLine#%F
+set statusline+=\ %#StatusLineInfo#[%{FileSize()}] " output buffer's file size
+set statusline+=\ %#StatusLineReadOnly#%r
+set statusline+=\ %#StatusLineChange#%m
+set statusline+=%=
+set statusline+=\ %#StatusLineInfo#%Y
+set statusline+=\ %#StatusLineInfo#[L=%l:C=%c]
+set statusline+=\ [%p]
+set statusline+=%{ChangeStatusLineColor()} " just a little bit temporary because I have no better idea at the moment
+
 set omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType java setlocal omnifunc=javacomplete#Complete
 
@@ -97,17 +171,17 @@ inoremap <expr> <C-l> pumvisible() ? "\<C-y>" : "\<C-l>"
 
 " when you select a function in omni menu and press enter,
 " doesn't insert new line, instead it just selects the function
-"inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>" // seems to
+"inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<cr>" // seems to
 "create issues with clang_completion
 
 inoremap <expr> <C-n> pumvisible() ? '<C-n>' :
-            \ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+            \ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<cr>'
 inoremap <expr> <M-,> pumvisible() ? '<C-n>' :
-            \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+            \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<cr>'
 
 " open omni completion menu closing previous if open and opening new menu without changing the text
 inoremap <silent> <expr> <C-Space> (pumvisible() ? (col('.') > 1 ? '<Esc>i<Right>' : '<Esc>i') : '') .
-            \ '<C-x><C-o><C-r>=pumvisible() ? "\<lt>C-n>\<lt>C-p>\<lt>Down>" : ""<CR>'
+            \ '<C-x><C-o><C-r>=pumvisible() ? "\<lt>C-n>\<lt>C-p>\<lt>Down>" : ""<cr>'
 
 inoremap <C-u> <C-g>u<C-u>
 
@@ -191,7 +265,7 @@ au CursorHold * silent checktime " this in combination with 'set autoread' and '
 
 " ===== Vim Shortcuts ===== "
 " Show syntax highlighting groups for word under cursor
-nmap <C-S-I> :call <SID>SynStack() <CR>
+nmap <C-S-I> :call <SID>SynStack() <cr>
 function! <SID>SynStack()
     if !exists("*synstack")
         return
@@ -208,7 +282,7 @@ if has("gui_running")
                         \|    endif
                         \|endif
 endif
-nnoremap <silent> <C-S> :<C-u>Update <CR>
+nnoremap <silent> <C-S> :<C-u>Update <cr>
 
 if !exists("*ReloadConfigs")
     function ReloadConfigs()
@@ -220,16 +294,16 @@ if !exists("*ReloadConfigs")
     endfunction
     command! Recfg call ReloadConfigs()
 endif
-nnoremap <silent> <F11> :Recfg<CR>
+nnoremap <silent> <F11> :Recfg<cr>
 
 if has("gui_running")
-    nnoremap <silent> <F10> :set guifont=* <CR>
+    nnoremap <silent> <F10> :set guifont=* <cr>
 endif
 
-nnoremap <silent> <C-w>d :bdel <CR>
+nnoremap <silent> <C-w>d :bdel <cr>
 
-nnoremap <silent> g<S-l> :tabm +1 <CR>
-nnoremap <silent> g<S-h> :tabm -1 <CR>
+nnoremap <silent> g<S-l> :tabm +1 <cr>
+nnoremap <silent> g<S-h> :tabm -1 <cr>
 " ----- </shortcuts> ----- "
 
 " ----- <plugin> ----- "
@@ -245,7 +319,7 @@ let g:UltiSnipsJumpBackwardTrigger = "<C-p>"
 " NERDTree related
 let g:NERDTreeDirArrows = 1
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-nnoremap <silent> <F2> :NERDTreeToggle <CR>
+nnoremap <silent> <F2> :NERDTreeToggle <cr>
 
 " Undotree related
 function UndoTree()
@@ -261,7 +335,7 @@ if has("persistent_undo")
 endif
 
 " NERDCommenter related
-nnoremap <silent> <C-Space> :call NERDComment(0, "toggle") <CR>
+nnoremap <silent> <C-Space> :call NERDComment(0, "toggle") <cr>
 
 " Syntastic related
 let g:syntastic_check_on_open = 1
@@ -332,7 +406,7 @@ if executable('ctags')
                 \ 'ctagsbin'  : 'gotags',
                 \ 'ctagsargs' : '-sort -silent'
                 \ }
-    nnoremap <silent> <F3> :TagbarToggle<CR>
+    nnoremap <silent> <F3> :TagbarToggle<cr>
 endif
 
 " CtrlP related
@@ -344,10 +418,10 @@ let g:ctrlp_open_multiple_files = '0i'
 let g:ctrlp_open_new_file = 'r'
 let g:ctrlp_tabpage_position = "ac"
 let g:ctrlp_extensions = ['tag', 'buffertag', 'line']
-nnoremap <silent> <C-b> :CtrlPBuffer<CR>
-nnoremap <silent> <C-l> :CtrlPLine %<CR>
-nnoremap <silent> <C-t>a :CtrlPTag<CR>
-nnoremap <silent> <C-t>c :CtrlPBufTag<CR>
+nnoremap <silent> <C-b> :CtrlPBuffer<cr>
+nnoremap <silent> <C-l> :CtrlPLine %<cr>
+nnoremap <silent> <C-t>a :CtrlPTag<cr>
+nnoremap <silent> <C-t>c :CtrlPBufTag<cr>
 
 " Clang_Complete related
 let g:clang_snippets = 0
@@ -387,6 +461,9 @@ if executable('tsc')
     let g:formatters_typescript = ['ts_beautify']
 endif
 
+" javacomplete2 related
+let g:JavaComplete_ClosingBrace = 1
+
 " TSuquyomi related
 let g:tsuquyomi_disable_quickfix = 1
 
@@ -394,6 +471,14 @@ let g:tsuquyomi_disable_quickfix = 1
 let g:jedi#use_splits_not_buffers = "left"
 let g:jedi#popup_on_dot = 0
 let g:jedi#show_call_signatures = "2"
+
+" Goyo related
+noremap <silent> <C-g> :Goyo <cr>
+
+" GitGutter related
+"let g:gitgutter_sign_added = 'A'
+"let g:gitgutter_sign_modified = 'M'
+"let g:gitgutter_sign_removed = 'D'
 
 " Automatic vim-plug installation
 if empty(glob('~/.vim/autoload/plug.vim'))
@@ -435,4 +520,7 @@ Plug 'hail2u/vim-css3-syntax'
 Plug 'cohama/lexima.vim'
 Plug 'davidhalter/jedi-vim'
 Plug 'artur-shaik/vim-javacomplete2'
+Plug 'wlangstroth/vim-racket'
+Plug 'junegunn/goyo.vim'
+Plug 'airblade/vim-gitgutter'
 call plug#end()
