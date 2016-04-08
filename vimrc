@@ -85,6 +85,7 @@ set autoread
 set report=99999 " temporarily till I know what to do about it
 "set foldmethod=syntax " really slow especially for omnicompletion
 "set timeoutlen=1000
+set relativenumber
 
 " statusline related
 let g:currentmode={
@@ -130,26 +131,6 @@ function! FileSize()
     endif
 endfunction
 
-function! ChangeStatusLineColor()
-    let l:mode = toupper(g:currentmode[mode()])
-    if (mode == "NORMAL")
-        hi! link StatusLineMode StatusLineNormal
-    elseif (mode == "INSERT")
-        hi! link StatusLineMode StatusLineInsert
-    elseif (mode == "VISUAL")
-        hi! link StatusLineMode StatusLineVisual
-    elseif (mode == "V-LINE")
-        hi! link StatusLineMode StatusLineVisual
-    elseif (mode == "V-BLOCK")
-        hi! link StatusLineMode StatusLineVisual
-    elseif (mode == "REPLACE")
-        hi! link StatusLineMode StatusLineReplace
-    else
-        hi! link StatusLineMode StatusLine
-    endif
-    return ""
-endfunction
-
 set statusline=%#StatusLineMode#[%{toupper(g:currentmode[mode()])}]
 set statusline+=\ %#StatusLine#%F
 set statusline+=\ %#StatusLineInfo#[%{FileSize()}] " output buffer's file size
@@ -159,7 +140,10 @@ set statusline+=%=
 set statusline+=\ %#StatusLineInfo#%Y
 set statusline+=\ %#StatusLineInfo#[L=%l:C=%c]
 set statusline+=\ [%p]
-set statusline+=%{ChangeStatusLineColor()} " just a little bit temporary because I have no better idea at the moment
+
+hi! link StatusLineMode StatusLineNormal
+autocmd! InsertEnter * hi! link StatusLineMode StatusLineInsert
+autocmd! InsertLeave * hi! link StatusLineMode StatusLineNormal
 
 set omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType java setlocal omnifunc=javacomplete#Complete
@@ -495,7 +479,7 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/syntastic'
 Plug 'kien/ctrlp.vim'
 Plug 'terryma/vim-multiple-cursors'
-Plug 'myusuf3/numbers.vim'
+"Plug 'myusuf3/numbers.vim'
 Plug 'tpope/vim-surround'
 Plug 'SirVer/ultisnips'
 if executable('ctags')

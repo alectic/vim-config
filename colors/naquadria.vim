@@ -70,8 +70,6 @@ let s:statuslinenc_color = {"attr": "none", "fg": s:comment_color.fg, "bg": s:pm
 let s:statuslinechange_color = {"attr": "none", "fg": "lightgreen", "bg": s:statusline_color.bg}
 let s:statuslinenormal_color = {"attr": "none", "fg": "lightblue", "bg": s:statusline_color.bg}
 let s:statuslineinsert_color = {"attr": "none", "fg": "lightgreen", "bg": s:statusline_color.bg}
-let s:statuslinereplace_color = {"attr": "none", "fg": "lightred", "bg": s:statusline_color.bg}
-let s:statuslinevisual_color = {"attr": "none", "fg": "yellow", "bg": s:statusline_color.bg}
 let s:statuslineinfo_color = {"attr": "none", "fg": s:keyword_color.fg, "bg": s:statusline_color.bg}
 let s:statuslinereadonly_color = {"attr": "none", "fg": "lightred", "bg": s:statusline_color.bg}
 "let s:statuslinedelimiter_color = {"attr": "none", "fg": s:cursor_color.fg, "bg": s:statusline_color.bg}
@@ -110,8 +108,6 @@ exe "hi StatusLineNC" "gui=".s:statuslinenc_color.attr "guifg=".s:statuslinenc_c
 exe "hi StatusLineChange" "gui=".s:statuslinechange_color.attr "guifg=".s:statuslinechange_color.fg "guibg=".s:statuslinechange_color.bg
 exe "hi StatusLineNormal" "gui=".s:statuslinenormal_color.attr "guifg=".s:statuslinenormal_color.fg "guibg=".s:statuslinenormal_color.bg
 exe "hi StatusLineInsert" "gui=".s:statuslineinsert_color.attr "guifg=".s:statuslineinsert_color.fg "guibg=".s:statuslineinsert_color.bg
-exe "hi StatusLineReplace" "gui=".s:statuslinereplace_color.attr "guifg=".s:statuslinereplace_color.fg "guibg=".s:statuslinereplace_color.bg
-exe "hi StatusLineVisual" "gui=".s:statuslinevisual_color.attr "guifg=".s:statuslinevisual_color.fg "guibg=".s:statuslinevisual_color.bg
 exe "hi StatusLineInfo" "gui=".s:statuslineinfo_color.attr "guifg=".s:statuslineinfo_color.fg "guibg=".s:statuslineinfo_color.bg
 exe "hi StatusLineReadOnly" "gui=".s:statuslinereadonly_color.attr "guifg=".s:statuslinereadonly_color.fg "guibg=".s:statuslinereadonly_color.bg
 exe "hi Folded" "gui=".s:folded_color.attr "guifg=".s:folded_color.fg "guibg=".s:folded_color.bg
