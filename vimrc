@@ -52,7 +52,7 @@ set viewdir=$HOME/.vim/tmp/view/
 set undodir=$HOME/.vim/tmp/undo/
 set undofile
 set viminfo='50,n$HOME/.vim/tmp/viminfo
-set updatetime=250 " this value only in combination with 'set noswapfile'
+set updatetime=2000 " this value only in combination with 'set noswapfile'
 set fileencodings=utf-8
 set noshowmode
 "set showmode
