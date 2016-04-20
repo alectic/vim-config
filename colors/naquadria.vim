@@ -159,7 +159,7 @@ exe "hi Private" "gui=".s:private_color.attr "guifg=".s:private_color.fg
 exe "hi Special" "gui=".s:special_color.attr "guifg=".s:special_color.fg
 "exe "hi Object" "gui=".s:object_color.attr "guifg=".s:object_color.fg
 exe "hi Operator" "gui=".s:operator_color.attr "guifg=".s:operator_color.fg
-exe "hi Paren" "gui=".s:paren_color.attr "guifg=".s:paren_color.fg
+"exe "hi Paren" "gui=".s:paren_color.attr "guifg=".s:paren_color.fg
 exe "hi Title" "gui=".s:keyword_color.attr "guifg=".s:keyword_color.fg
 
 hi NonText          guifg=bg
@@ -377,6 +377,12 @@ hi link markdownH3  Function
 hi link markdownH4  Function
 hi link markdownH5  Function
 hi link markdownH6	Function
+
+" Racket
+hi link racketSyntax    Define
+" customs - defined in $HOME/.vim/after/syntax/racket.vim
+hi link racketFormat    Format
+hi link racketEscape    racketFormat
 
 " will be moved to a more appropriate place
 " Syntastic

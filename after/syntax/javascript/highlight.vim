@@ -1,7 +1,3 @@
-if exists("*CSyntaxAfter")
-	call CSyntaxAfter()
-endif
-
 syn keyword jsKeyword       self typeof new delete
 syn keyword jsStatement     yield
 syn keyword jsStatic        const
