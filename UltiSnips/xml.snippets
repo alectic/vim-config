@@ -1,12 +1,70 @@
 snippet pom
 <project>
 	<modelVersion>${1:4.0.0}</modelVersion>
-	<name>$6</name>
 	<groupId>$2</groupId>
 	<artifactId>$3</artifactId>
-	<packaging>jar</packaging>
+	<packaging>$4</packaging>
 	<version>$5</version>
+	<name>$6</name>
+	<url>$7</url>
 </project>
+endsnippet
+
+snippet licenses
+<licenses>
+	$0
+</licenses>
+endsnippet
+
+snippet license
+<license>
+	<name>$1</name>
+	<url>$2</url>
+	<distribution>$3</distribution>
+	<comments>$4</comments>
+</license>
+endsnippet
+
+snippet org
+<organization>
+	<name>$1</name>
+	<url>$2</url>
+</organization>
+endsnippet
+
+snippet devs
+<developers>
+	$0
+</developers>
+endsnippet
+
+snippet dev
+<developer>
+	<id>$1</id>
+	<name>$2</name>
+	<email>$3</email>
+	<url>$4</url>
+	<organization>$5</organization>
+	<organizationUrl>$6</organizationUrl>
+	<roles>
+		<role>$7</role>
+	</roles>
+	<timezone>$8</timezone>
+</developer>
+endsnippet
+
+snippet roles
+<roles>
+	$0
+</roles>
+endsnippet
+
+snippet role
+<role>$0</role>
+endsnippet
+
+snippet tz
+<timezone>$0</timezone>
 endsnippet
 
 snippet model
@@ -23,6 +81,10 @@ endsnippet
 
 snippet url
 <url>$0</url>
+endsnippet
+
+snippet dist
+<distribution>$0</distributions>
 endsnippet
 
 snippet reps

@@ -9,6 +9,6 @@ syn keyword javaOperator    new
 syn keyword javaStatement   break continue
 syn keyword javaTodo        contained NOTE BUG
 
-syn match   javaFormat  display "%\(\d\+\$\)\=[-+' #0*]*\(\d*\|\*\|\*\d\+\$\)\(\.\(\d*\|\*\|\*\d\+\$\)\)\=\([hlLjzt]\|ll\|hh\)\=\([aAbBcCdhHtTuoxXzZfeEgGsScpnl]\|\[\^\=.[^]]*\]\)" containedin=javaString
-syn match   _Paren      display "[\(\)]"
-syn match   javaFunc    "\w\+\s*(\@="
+syn match   javaOperator    display "[.,:;!$%^&*=+-]"
+syn match   javaFormat      display "%\(\d\+\$\)\=[-+' #0*]*\(\d*\|\*\|\*\d\+\$\)\(\.\(\d*\|\*\|\*\d\+\$\)\)\=\([hlLjzt]\|ll\|hh\)\=\([aAbBcCdhHtTuoxXzZfeEgGsScpnl]\|\[\^\=.[^]]*\]\)" containedin=javaString
+syn match   javaFunc        "\w\+\s*(\@="

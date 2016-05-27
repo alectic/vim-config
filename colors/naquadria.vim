@@ -61,7 +61,7 @@ let s:icursor_color = {"attr": "none", "bg": s:cursor_color.bg}
 let s:search_color = {"attr": "none", "fg": "white", "bg": s:todo_color.bg}
 let s:visual_color = {"attr": "none", "fg": "white", "bg": s:cursorline_color.bg}
 let s:errormsg_color = {"attr": "none", "fg": "white", "bg": s:todo_color.bg}
-let s:vertsplit_color = {"attr": "none", "fg": s:cursor_color.fg, "bg": s:normal_color.bg}
+let s:vertsplit_color = {"attr": "none", "fg": s:comment_color.fg, "bg": s:normal_color.bg}
 let s:column_color = {"attr": "none", "bg": s:tabline_color.bg}
 let s:dir_color = {"attr": "none", "fg": "lightblue"}
 let s:matchparen_color = {"attr": "none", "fg": "white", "bg": s:cursorline_color.bg}
@@ -210,6 +210,9 @@ hi link javaFunc            Function
 hi link javaVisibility      Private
 hi link javaActionDecl      javaVisibility
 hi link javaThis            javaVisibility
+
+" Groovy
+hi link groovyJDKBuiltin     Keyword
 
 " Clojure
 hi link clojureParen        Paren
@@ -382,7 +385,7 @@ hi link markdownH6	Function
 hi link racketSyntax    Define
 " customs - defined in $HOME/.vim/after/syntax/racket.vim
 hi link racketFormat    Format
-hi link racketEscape    racketFormat
+hi link racketEscape    Special
 
 " will be moved to a more appropriate place
 " Syntastic
