@@ -219,13 +219,20 @@ hi link clojureParen        Paren
 hi link clojureSpecial      Conditional
 
 " Bash
-hi link shVariable      Statement
+hi link shFunction      Function
 hi link shDerefSimple   Format
 hi link shCommandSub    Keyword
 hi link shLoop          Conditional
-hi link shTestOpr       none
+hi link shQuote         String
+hi link shSnglCase      Operator
+hi link shCaseBar       shSnglCase
+hi link shTestOpr       Operator
 hi link shRange         none
 hi link shCmdSubRegion  none
+hi link shArithRegion   none
+hi link shVariable      none
+hi link shCaseEsac      none
+" customs - defined in $HOME/.vim/after/syntax/bash.vim
 
 " Go
 hi link goDirective		goConditional

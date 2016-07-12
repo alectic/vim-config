@@ -305,14 +305,6 @@ let g:NERDTreeDirArrows = 1
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 nnoremap <silent> <F2> :NERDTreeToggle <cr>
 
-" Undotree related
-function UndoTree()
-    :UndotreeToggle
-    :UndotreeFocus
-endfunction
-
-nnoremap <silent> <F4> :call UndoTree()<cr>
-
 if has("persistent_undo")
     set undodir=~/.vim/undodir/
     set undofile
@@ -390,7 +382,7 @@ if executable('ctags')
                 \ 'ctagsbin'  : 'gotags',
                 \ 'ctagsargs' : '-sort -silent'
                 \ }
-    nnoremap <silent> <F3> :TagbarToggle<cr>
+    nnoremap <silent> <F3> :TagbarOpenAutoClose<cr>
 endif
 
 " CtrlP related
@@ -456,9 +448,6 @@ let g:jedi#use_splits_not_buffers = "left"
 let g:jedi#popup_on_dot = 0
 let g:jedi#show_call_signatures = "2"
 
-" Goyo related
-noremap <silent> <C-g> :Goyo <cr>
-
 " GitGutter related
 "let g:gitgutter_sign_added = 'A'
 "let g:gitgutter_sign_modified = 'M'
@@ -474,16 +463,14 @@ endif
 " Plugins and Scripts
 call plug#begin('~/.vim/bundle')
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/syntastic'
 Plug 'kien/ctrlp.vim'
 Plug 'terryma/vim-multiple-cursors'
-"Plug 'myusuf3/numbers.vim'
 Plug 'tpope/vim-surround'
 Plug 'SirVer/ultisnips'
 if executable('ctags')
-    Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
+    Plug 'majutsushi/tagbar'
     Plug 'vim-scripts/AutoTag'
 endif
 Plug 'fatih/vim-go'
@@ -505,6 +492,5 @@ Plug 'cohama/lexima.vim'
 Plug 'davidhalter/jedi-vim'
 Plug 'artur-shaik/vim-javacomplete2'
 Plug 'wlangstroth/vim-racket'
-Plug 'junegunn/goyo.vim'
 Plug 'airblade/vim-gitgutter'
 call plug#end()
