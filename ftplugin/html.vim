@@ -8,5 +8,4 @@ setl softtabstop=2
 setl shiftwidth=2
 
 " Autoformat when :w
-autocmd BufWritePre <buffer> Autoformat
-
+"autocmd BufWritePre <buffer> Autoformat

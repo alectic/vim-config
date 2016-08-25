@@ -146,7 +146,6 @@ autocmd! InsertEnter * hi! link StatusLineMode StatusLineInsert
 autocmd! InsertLeave * hi! link StatusLineMode StatusLineNormal
 
 set omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType java setlocal omnifunc=javacomplete#Complete
 
 " I got used to rangerfm
 inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
@@ -347,7 +346,7 @@ let g:syntastic_c_include_dirs = [
             \ '/usr/lib/arduino/hardware/tools/avr/lib/gcc/avr/4.3.2/include-fixed/',
             \ $HOME.'/usr/include/']
 "cTags related
-autocmd BufWritePost *.java,*.py,*.go,*.js silent! call system("ctags -R")
+"autocmd BufWritePost *.java,*.py,*.go,*.js silent! call system("ctags -R")
 
 " TagBar related
 let g:tagbar_compact = 1
@@ -425,7 +424,6 @@ if executable('autopep8')
 endif
 if executable('js-beautify')
     let g:formatdef_js_beautify = '"js-beautify -f - -q -s 2 -t false -p true -m 2 -P false -E false -a false -b collapse"'
-    "let g:formatdef_js_jscs = '"jscs -x"'
     let g:formatters_javascript = ['js_beautify']
     let g:formatdef_html_beautify = '"html-beautify -f - -q -s 2 -p true -m 1"'
     let g:formatters_html = ['html_beautify']
@@ -436,9 +434,6 @@ if executable('tsc')
     let g:formatdef_ts_beautify = '"tsfmt -r --stdin"'
     let g:formatters_typescript = ['ts_beautify']
 endif
-
-" javacomplete2 related
-let g:JavaComplete_ClosingBrace = 1
 
 " TSuquyomi related
 let g:tsuquyomi_disable_quickfix = 1
@@ -490,7 +485,6 @@ Plug 'othree/html5.vim'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'cohama/lexima.vim'
 Plug 'davidhalter/jedi-vim'
-Plug 'artur-shaik/vim-javacomplete2'
 Plug 'wlangstroth/vim-racket'
 Plug 'airblade/vim-gitgutter'
 call plug#end()

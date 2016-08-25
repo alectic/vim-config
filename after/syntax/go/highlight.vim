@@ -1,4 +1,4 @@
-syn keyword     goKeyword       var
+syn keyword     goKeyword       var func
 syn keyword     goInterface     interface
 syn keyword     goTodo          NOTE
 
