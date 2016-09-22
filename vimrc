@@ -172,6 +172,8 @@ if !has("gui_running")
     inoremap <C-@> <C-x><C-o>
 endif
 
+"noremap <Leader>y "*y
+"noremap <Leader>p "*p
 
 noremap <MiddleMouse> <NOP>
 noremap <MouseUp> <NOP>
@@ -328,7 +330,7 @@ let g:syntastic_enable_balloons = 0
 "let g:syntastic_auto_jump=1
 let g:syntastic_go_checkers = ['gofmt']
 let g:syntastic_python_checkers=['flake8']
-let g:syntastic_java_checkers = ['']
+let g:syntastic_java_checkers = ['javac']
 let g:syntastic_javascript_checkers = ['jshint']
 let g:syntastic_html_checkers = ['']
 let g:syntastic_css_checkers = ['prettycss --ignore suggest-relative-unit']
@@ -475,10 +477,11 @@ Plug 'mkitt/tabline.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'marijnh/tern_for_vim', { 'do': 'npm install' }
 if executable('tsc')
-    Plug 'leafgarland/typescript-vim'
+    "Plug 'leafgarland/typescript-vim'
+    Plug 'HerringtonDarkholme/yats.vim'
 endif
 if executable('tsserver')
-    Plug 'clausreinke/typescript-tools.vim'
+    Plug 'clausreinke/typescript-tools.vim', { 'do': 'npm install' }
     Plug 'Shougo/vimproc.vim', { 'do': 'make' } | Plug 'Quramy/tsuquyomi'
 endif
 Plug 'othree/html5.vim'

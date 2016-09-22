@@ -12,7 +12,7 @@ endif
 let colors_name = "naquadria"
 
 " Code
-let s:normal_color = {"attr": "none", "fg": "#ffffff", "bg": "#1A1A10"}
+let s:normal_color = {"attr": "none", "fg": "#ffffff", "bg": "#272822"}
 let s:comment_color = {"attr": "italic", "fg": "#858585"}
 let s:commentdoc_color = {"attr": s:comment_color.attr, "fg": "#857e6b"}
 let s:string_color = {"attr": "none", "fg": "#bf7c7c"}
@@ -28,7 +28,7 @@ let s:func_color = {"attr": "none", "fg": "#bbbbe6"}
 let s:include_color = {"attr": "none", "fg": "#98b3a1"}
 let s:keyword_color = {"attr": "none", "fg": "#B399FF"}
 let s:loop_color = copy(s:cond_color)
-let s:format_color = {"attr": "none", "fg": "#b17dcc"}
+let s:format_color = {"attr": "none", "fg": "#B3B3B3"}
 "let s:module_color = {"attr": "none", "fg": "#999999"} " TODO: to be removed
 let s:module_color = {"attr": "none", "fg": "#B6CC99"}
 "let s:attr_color = {"attr": "none", "fg": "#99907a"}
@@ -41,7 +41,7 @@ let s:operator_color = {"attr": "none", "fg": "#D9D96D"}
 let s:paren_color = {"attr": "none", "fg": "#C0F0FF"}
 
 " Editor
-let s:tabline_color = {"attr": "none", "fg": "lightgray", "bg": "#2b2b21"}
+let s:tabline_color = {"attr": "none", "fg": "lightgray", "bg": "#2F3029"}
 let s:specialkey_color = {"attr": "none", "bg": s:tabline_color.bg}
 let s:nontext_color = {"attr": "none", "fg": "lightgreen"}
 let s:linenr_color = {"attr": "none", "fg": s:comment_color.fg, "bg": s:normal_color.bg}
@@ -49,7 +49,7 @@ let s:cursorline_color = {"attr": "none", "fg": "white", "bg": "#4d4d3a"}
 let s:cursorcolumn_color = {"attr": "none", "fg": "white", "bg": s:tabline_color.bg}
 let s:cursorlinenr_color = {"attr": "none", "fg": "#BFBF8F", "bg": s:normal_color.bg}
 let s:signcolumn_color = {"bg": s:normal_color.bg}
-let s:pmenu_color = {"attr": "none", "fg": "lightgray", "bg": "#212113"}
+let s:pmenu_color = {"attr": "none", "fg": "lightgray", "bg": "#2F3029"}
 let s:pmenusel_color = {"attr": "none", "fg": "white", "bg": s:cursorline_color.bg}
 let s:pmenuselbar_color = {"attr": "none", "bg": "#26261e"}
 let s:pmenuthumb_color = {"attr": "none", "bg": s:pmenusel_color.bg}
@@ -288,7 +288,9 @@ hi link jsFunction              Keyword
 hi link jsArrowFunction         Operator
 hi link jsStorageClass          Keyword
 hi link jsGlobalObjects         Module
-hi link jsClass                 Class
+hi link jsClassKeywords         Class
+hi link jsModuleKeywords        Conditional
+hi link jsModuleOperators       jsModuleKeywords
 hi link jsOperator              Operator
 hi link jsNoise                 Operator
 hi link jsTernaryIfOperator     Operator
@@ -314,6 +316,9 @@ hi link jsKeyword               Keyword
 hi link jsShebang               Comment
 
 " TypeScript
+" yats
+hi link typescriptAccessibilityModifier     Private
+" typescript-vim
 hi link typescriptFuncKeyword           Keyword
 hi link typescriptIdentifier            jsStorageClass
 hi link typescriptEndColons             Operator

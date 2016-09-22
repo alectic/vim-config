@@ -14,20 +14,6 @@ func main() {
 }
 endsnippet
 
-snippet f "Create a function" b
-func praf(${1:s} string) error {
-	fmt.Println($1)
-}
-endsnippet
-
-snippet met "Create a method" b
-func (self ${1:Type?}) ${2:Name?}(${3:args?}) ${4:returns?} {
-	${5:body?}
-}
-
-$0
-endsnippet
-
 snippet map "Create a map" !
 map[${1:keytype}]${0:valtype}
 endsnippet
@@ -46,4 +32,20 @@ if err := ${1:pkg.Func()}; err != nil {
 }
 
 $0
+endsnippet
+
+snippet pr
+fmt.Print($0)
+endsnippet
+
+snippet prl
+fmt.Println($0)
+endsnippet
+
+snippet fpr
+fmt.Fprint($0)
+endsnippet
+
+snippet fprl
+fmt.Fprintln($0)
 endsnippet
