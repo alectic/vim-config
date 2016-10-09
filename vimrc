@@ -489,5 +489,4 @@ Plug 'hail2u/vim-css3-syntax'
 Plug 'cohama/lexima.vim'
 Plug 'davidhalter/jedi-vim'
 Plug 'wlangstroth/vim-racket'
-Plug 'airblade/vim-gitgutter'
 call plug#end()
