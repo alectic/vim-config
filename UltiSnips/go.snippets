@@ -1,3 +1,7 @@
+snippet pac
+package $0
+endsnippet
+
 snippet im "Import packages"
 import (
 	"${1:}"
@@ -10,6 +14,12 @@ endsnippet
 
 snippet main "Create the generic main function" b
 func main() {
+	$0
+}
+endsnippet
+
+snippet st
+type ${1:Type} struct {
 	$0
 }
 endsnippet
@@ -52,4 +62,22 @@ endsnippet
 
 snippet fprl
 fmt.Fprintln($0)
+endsnippet
+
+snippet desc
+Describe("$1", func() {
+	$0
+})
+endsnippet
+
+snippet cont
+Context("$1", func() {
+	$0
+})
+endsnippet
+
+snippet it
+It("$1", func() {
+	$0
+})
 endsnippet

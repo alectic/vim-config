@@ -347,8 +347,6 @@ let g:syntastic_c_include_dirs = [
             \ '/usr/lib/arduino/hardware/tools/avr/lib/gcc/avr/4.3.2/include/',
             \ '/usr/lib/arduino/hardware/tools/avr/lib/gcc/avr/4.3.2/include-fixed/',
             \ $HOME.'/usr/include/']
-"cTags related
-"autocmd BufWritePost *.java,*.py,*.go,*.js silent! call system("ctags -R")
 
 " TagBar related
 let g:tagbar_compact = 1
@@ -389,14 +387,13 @@ endif
 " CtrlP related
 let g:ctrlp_by_filename = 1
 let g:ctrlp_switch_buffer = 'Etvh'
-"let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_working_path_mode = 'c'
-let g:ctrlp_open_multiple_files = '0i'
-let g:ctrlp_open_new_file = 'r'
+let g:ctrlp_open_multiple_files = '2i'
+let g:ctrlp_open_new_file = 't'
 let g:ctrlp_tabpage_position = "ac"
 let g:ctrlp_extensions = ['tag', 'buffertag', 'line']
 nnoremap <silent> <C-b> :CtrlPBuffer<cr>
-nnoremap <silent> <C-l> :CtrlPLine %<cr>
+nnoremap <silent> <C-l> :CtrlPLine<cr>
 nnoremap <silent> <C-t>a :CtrlPTag<cr>
 nnoremap <silent> <C-t>c :CtrlPBufTag<cr>
 
@@ -462,7 +459,7 @@ call plug#begin('~/.vim/bundle')
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/syntastic'
-Plug 'kien/ctrlp.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-surround'
 Plug 'SirVer/ultisnips'
