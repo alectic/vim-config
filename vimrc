@@ -137,6 +137,7 @@ set statusline+=\ %#StatusLineInfo#[%{FileSize()}] " output buffer's file size
 set statusline+=\ %#StatusLineReadOnly#%r
 set statusline+=\ %#StatusLineChange#%m
 set statusline+=%=
+set statusline+=\ %{ALEGetStatusLine()}
 set statusline+=\ %#StatusLineInfo#%Y
 set statusline+=\ %#StatusLineInfo#[L=%l:C=%c]
 set statusline+=\ [%p]
@@ -314,39 +315,32 @@ endif
 " NERDCommenter related
 nnoremap <silent> <C-Space> :call NERDComment(0, "toggle") <cr>
 
-" Syntastic related
-let g:syntastic_check_on_open = 1
-let g:syntastic_enable_signs = 1
+" ALE related
+let g:ale_linters = {
+            \   'python': ['flake8'],
+            \}
+" Write this in your vimrc file
+" let g:ale_lint_on_save = 1
+" let g:ale_lint_on_text_changed = 0
+" " You can disable this option too
+" " if you don't want linters to run on opening a file
+" let g:ale_lint_on_enter = 0
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
+
 if has('gui_running')
-    let g:syntastic_error_symbol = '✗'
-    let g:syntastic_warning_symbol = '⚠'
+    let g:ale_sign_error = '✗'
+    let g:ale_sign_warning = '⚠'
 else
-    let g:syntastic_error_symbol = 'X'
-    let g:syntastic_warning_symbol = '!'
+    let g:ale_sign_error = 'X'
+    let g:ale_sign_warning = '!'
 endif
-let g:syntastic_enable_balloons = 0
-"let g:syntastic_enable_highlighting = 0
-"let g:syntastic_always_populate_loc_list=1
-"let g:syntastic_auto_jump=1
-let g:syntastic_go_checkers = ['gofmt']
-let g:syntastic_python_checkers=['flake8']
-let g:syntastic_java_checkers = ['javac']
-let g:syntastic_javascript_checkers = ['jshint']
-let g:syntastic_html_checkers = ['']
-let g:syntastic_css_checkers = ['prettycss --ignore suggest-relative-unit']
-let g:syntastic_c_checkers = ['clang_check']
-let g:syntastic_c_compiler = 'clang'
-let g:syntastic_c_compiler_options = '-W -Wall -std=gnu11'
-let g:syntastic_c_check_header = 0 " normally should be set to 1
-let g:syntastic_c_auto_refresh_includes = 0 " the same
-let g:syntastic_c_remove_include_errors = 1 " I don't know why THE FUCK it doesn't work
-let g:syntastic_c_include_dirs = [
-            \ '/usr/i686-w64-mingw32/include/',
-            \ '/usr/x86_64-w64-mingw32/include/',
-            \ '/usr/share/arduino/hardware/tools/avr/lib/avr/include/',
-            \ '/usr/lib/arduino/hardware/tools/avr/lib/gcc/avr/4.3.2/include/',
-            \ '/usr/lib/arduino/hardware/tools/avr/lib/gcc/avr/4.3.2/include-fixed/',
-            \ $HOME.'/usr/include/']
+
+if has('gui_running')
+    let g:ale_statusline_format = ['✗ %d', '⚠ %d', '⬥ ok']
+else
+    let g:ale_statusline_format = ['X %d', '! %d', '⬥ ok']
+endif
 
 " TagBar related
 let g:tagbar_compact = 1
@@ -438,14 +432,22 @@ endif
 let g:tsuquyomi_disable_quickfix = 1
 
 " Jedi related
+let g:jedi#use_tabs_not_buffers = 1
 let g:jedi#use_splits_not_buffers = "left"
 let g:jedi#popup_on_dot = 0
+let g:jedi#popup_select_first = 1
 let g:jedi#show_call_signatures = "2"
 
 " GitGutter related
 "let g:gitgutter_sign_added = 'A'
 "let g:gitgutter_sign_modified = 'M'
 "let g:gitgutter_sign_removed = 'D'
+
+" IdentLine related
+let g:indentLine_char = '┆'
+let g:indentLine_concealcursor = 'inc'
+"let g:indentLine_conceallevel = 0
+let g:indentLine_setConceal = 1
 
 " Automatic vim-plug installation
 if empty(glob('~/.vim/autoload/plug.vim'))
@@ -458,7 +460,7 @@ endif
 call plug#begin('~/.vim/bundle')
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'scrooloose/nerdcommenter'
-Plug 'scrooloose/syntastic'
+Plug 'w0rp/ale'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-surround'
@@ -469,7 +471,9 @@ if executable('ctags')
 endif
 Plug 'fatih/vim-go'
 Plug 'Rip-Rip/clang_complete'
+Plug 'davidhalter/jedi-vim'
 Plug 'Chiel92/vim-autoformat'
+Plug 'Yggdroot/indentLine'
 Plug 'mkitt/tabline.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'marijnh/tern_for_vim', { 'do': 'npm install' }
@@ -484,7 +488,5 @@ endif
 Plug 'othree/html5.vim'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'cohama/lexima.vim'
-Plug 'davidhalter/jedi-vim'
-Plug 'wlangstroth/vim-racket'
 Plug 'airblade/vim-gitgutter'
 call plug#end()

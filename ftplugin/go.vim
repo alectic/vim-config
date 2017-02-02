@@ -25,6 +25,8 @@ au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
 "au FileType go nmap <Leader>s <Plug>(go-implements)
 au FileType go nmap <Leader>i <Plug>(go-info)
 au FileType go nmap <Leader>e <Plug>(go-rename)
+au FileType go nmap <silent> <C-t>f :GoDecls <cr>
+au FileType go nmap <silent> <C-t>d :GoDeclsDir <cr>
 
 let g:go_fmt_command = "goimports"
 let g:go_fmt_fail_silently = 1

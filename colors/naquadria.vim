@@ -13,7 +13,7 @@ let colors_name = "naquadria"
 
 " Code
 let s:normal_color = {"attr": "none", "fg": "#ffffff", "bg": "#272822"}
-let s:comment_color = {"attr": "italic", "fg": "#858585"}
+let s:comment_color = {"attr": "none", "fg": "#858585"}
 let s:commentdoc_color = {"attr": s:comment_color.attr, "fg": "#857e6b"}
 let s:string_color = {"attr": "none", "fg": "#bf7c7c"}
 let s:number_color = {"attr": "none", "fg": "#ffba5a"}
@@ -399,14 +399,9 @@ hi link racketSyntax    Define
 hi link racketFormat    Format
 hi link racketEscape    Special
 
-" will be moved to a more appropriate place
-" Syntastic
-"hi SyntasticWarningLine guifg=white guibg=#330d0d
-hi SyntasticWarningSign guifg=yellow    ctermfg=yellow
-hi SyntasticErrorSign	guifg=red   ctermfg=red
-hi SyntasticWarning gui=undercurl guisp=#ff6666
-hi SyntasticError guisp=red
-"hi link SyntasticErrorLine SyntasticWarningLine
+" ALE
+hi ALEErrorSign     guifg=red       ctermfg=red
+hi ALEWarningSign   guifg=yellow    ctermfg=yellow
 
 " NERDTree
 " this will be moved to a more appropriate location

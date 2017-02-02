@@ -2,7 +2,7 @@ syn keyword     pythonSelf          self
 syn keyword     pythonDatatype      bool int float str bytes tuple list dict set frozenset file object
 syn keyword     pythonConstant      True False None
 syn keyword     pythonClass         class
-syn keyword     pythonDef           def
+syn keyword     pythonDef           def async await
 syn keyword     pythonVar           global nonlocal
 
 syn match       pythonOperator      display "[-+=!.,:%&^*/<>]"
