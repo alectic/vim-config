@@ -325,6 +325,8 @@ let g:ale_linters = {
 " " You can disable this option too
 " " if you don't want linters to run on opening a file
 " let g:ale_lint_on_enter = 0
+let g:ale_sign_column_always = 1
+
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
@@ -487,6 +489,6 @@ if executable('tsserver')
 endif
 Plug 'othree/html5.vim'
 Plug 'hail2u/vim-css3-syntax'
-Plug 'cohama/lexima.vim'
+Plug 'jiangmiao/auto-pairs'
 Plug 'airblade/vim-gitgutter'
 call plug#end()
