@@ -1,6 +1,6 @@
-" Author:       Alexandru Dreptu <alecticwp@gmail.com>
-" URL:          https://github.com/alectic/vim-config/blob/master/colors/naquadria.vim
-" NOTE:         Depends on https://github.com/alectic/vim-config/tree/master/after/syntax/
+" Author:       Alexandru Dreptu <alexdreptu@gmail.com>
+" URL:          https://github.com/alexdreptu/vim-config/blob/master/colors/naquadria.vim
+" NOTE:         Depends on https://github.com/alexdreptu/vim-config/tree/master/after/syntax/
 
 set bg=dark
 hi clear
@@ -61,7 +61,7 @@ let s:icursor_color = {"attr": "none", "bg": s:cursor_color.bg}
 let s:search_color = {"attr": "none", "fg": "white", "bg": s:todo_color.bg}
 let s:visual_color = {"attr": "none", "fg": "white", "bg": s:cursorline_color.bg}
 let s:errormsg_color = {"attr": "none", "fg": "white", "bg": s:todo_color.bg}
-let s:vertsplit_color = {"attr": "none", "fg": s:comment_color.fg, "bg": s:normal_color.bg}
+let s:vertsplit_color = {"attr": "none", "fg": "#808060", "bg": s:normal_color.bg}
 let s:column_color = {"attr": "none", "bg": s:tabline_color.bg}
 let s:dir_color = {"attr": "none", "fg": "lightblue"}
 let s:matchparen_color = {"attr": "none", "fg": "white", "bg": s:cursorline_color.bg}
