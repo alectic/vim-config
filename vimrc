@@ -46,13 +46,17 @@ else
     set backup      " keep a backup file
 endif
 set wildignore+=*.so,*.zip,*.rar,*.tgz,*.tar,*.pyc,*~
-set noswapfile " disabled due to hight disk activity when updatetime is set to a low value
+"set noswapfile " disabled due to high disk activity when updatetime is set to a low value
 set directory=$HOME/.vim/tmp/swap/
 set viewdir=$HOME/.vim/tmp/view/
-set undodir=$HOME/.vim/tmp/undo/
-set undofile
+if has("persistent_undo")
+    set undodir=$HOME/.vim/tmp/undo/
+    set undofile
+    set undolevels=1000 " How many undos
+    set undoreload=10000 " number of lines to save for undo
+endif
 set viminfo='50,n$HOME/.vim/tmp/viminfo
-set updatetime=2000 " this value only in combination with 'set noswapfile'
+"set updatetime=2000 " this value only in combination with 'set noswapfile'
 set fileencodings=utf-8
 set noshowmode
 "set showmode
@@ -74,6 +78,7 @@ set formatoptions=qrn1
 set splitright splitbelow
 set shortmess+=afiIlmnrxoOtT
 set viewoptions=folds,options,cursor,unix,slash
+set nofoldenable
 set clipboard=unnamed
 set hidden
 set colorcolumn=80
@@ -307,25 +312,17 @@ let g:NERDTreeDirArrows = 1
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 nnoremap <silent> <F2> :NERDTreeToggle <cr>
 
-if has("persistent_undo")
-    set undodir=~/.vim/undodir/
-    set undofile
-endif
-
 " NERDCommenter related
 nnoremap <silent> <C-Space> :call NERDComment(0, "toggle") <cr>
 
 " ALE related
 let g:ale_linters = {
-            \   'python': ['flake8'],
+            \   'python': ['pylint'],
             \}
-" Write this in your vimrc file
-" let g:ale_lint_on_save = 1
-" let g:ale_lint_on_text_changed = 0
-" " You can disable this option too
-" " if you don't want linters to run on opening a file
-" let g:ale_lint_on_enter = 0
+"let g:ale_lint_on_save = 1
 let g:ale_sign_column_always = 1
+"let g:ale_lint_on_text_changed = 'never'
+"let g:ale_lint_on_enter = 0
 
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
@@ -445,11 +442,22 @@ let g:jedi#show_call_signatures = "2"
 "let g:gitgutter_sign_modified = 'M'
 "let g:gitgutter_sign_removed = 'D'
 
-" IdentLine related
-let g:indentLine_char = '┆'
-let g:indentLine_concealcursor = 'inc'
-"let g:indentLine_conceallevel = 0
-let g:indentLine_setConceal = 1
+" EasyMotion related
+let g:EasyMotion_smartcase = 1
+map <Leader>l <Plug>(easymotion-lineforward)
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+map <Leader>h <Plug>(easymotion-linebackward)
+map <Leader>r <Plug>(easymotion-repeat)
+nmap f <Plug>(easymotion-s2)
+nmap t <Plug>(easymotion-t2)
+
+" Slimv related
+let g:slimv_unmap_cr = 1
+let g:slimv_unmap_tab = 1
+let g:slimv_unmap_space = 1
+let g:paredit_electric_return = 0
+"let g:paredit_shortmaps = 0
 
 " Automatic vim-plug installation
 if empty(glob('~/.vim/autoload/plug.vim'))
@@ -490,4 +498,10 @@ Plug 'othree/html5.vim'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'jiangmiao/auto-pairs'
 Plug 'airblade/vim-gitgutter'
+Plug 'posva/vim-vue'
+Plug 'easymotion/vim-easymotion'
+Plug 'wlangstroth/vim-racket'
+Plug 'kovisoft/slimv'
+Plug 'zah/nim.vim'
+"Plug 'baabelfish/nvim-nim'
 call plug#end()
