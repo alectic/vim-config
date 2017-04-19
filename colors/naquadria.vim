@@ -13,11 +13,11 @@ let colors_name = "naquadria"
 
 " Code
 let s:normal_color = {"attr": "none", "fg": "#ffffff", "bg": "#272822"}
-let s:comment_color = {"attr": "none", "fg": "#858585"}
+let s:comment_color = {"attr": "italic", "fg": "#858585"}
 let s:commentdoc_color = {"attr": s:comment_color.attr, "fg": "#857e6b"}
-let s:string_color = {"attr": "none", "fg": "#bf7c7c"}
+let s:string_color = {"attr": "italic", "fg": "#bf7c7c"}
 let s:number_color = {"attr": "none", "fg": "#ffba5a"}
-let s:char_color = {"attr": "none", "fg": "#ba73e6"}
+let s:char_color = {"attr": "italic", "fg": "#ba73e6"}
 let s:const_color = {"attr": "none", "fg": "#7390e6"}
 let s:type_color = {"attr": "none", "fg": "#9090d9"}
 let s:statement_color = {"attr": "none", "fg": "#bfac78"}
@@ -28,13 +28,13 @@ let s:func_color = {"attr": "none", "fg": "#bbbbe6"}
 let s:include_color = {"attr": "none", "fg": "#98b3a1"}
 let s:keyword_color = {"attr": "none", "fg": "#B399FF"}
 let s:loop_color = copy(s:cond_color)
-let s:format_color = {"attr": "none", "fg": "#B3B3B3"}
+let s:format_color = {"attr": "italic", "fg": "#B3B3B3"}
 "let s:module_color = {"attr": "none", "fg": "#999999"} " TODO: to be removed
 let s:module_color = {"attr": "none", "fg": "#B6CC99"}
 "let s:attr_color = {"attr": "none", "fg": "#99907a"}
 let s:class_color = {"attr": "none", "fg": "#71cc79"}
 let s:private_color = {"attr": "none", "fg": "#62b38d"}
-let s:special_color = {"attr": "none", "fg": "#80bbff"}
+let s:special_color = {"attr": "italic", "fg": "#80bbff"}
 let s:cssclass_color = {"attr": "none", "fg": "#9FCC66"}
 let s:operator_color = {"attr": "none", "fg": "#D9D96D"}
 "let s:object_color = {"attr": "none", "fg": "#B6CC99"} " experimental
@@ -42,7 +42,7 @@ let s:paren_color = {"attr": "none", "fg": "#C0F0FF"}
 
 " Editor
 let s:tabline_color = {"attr": "none", "fg": "lightgray", "bg": "#2F3029"}
-let s:specialkey_color = {"attr": "none", "bg": s:tabline_color.bg}
+let s:specialkey_color = {"attr": "none", "fg": "#494948", "bg": s:normal_color.bg}
 let s:nontext_color = {"attr": "none", "fg": "lightgreen"}
 let s:linenr_color = {"attr": "none", "fg": s:comment_color.fg, "bg": s:normal_color.bg}
 let s:cursorline_color = {"attr": "none", "fg": "white", "bg": "#4d4d3a"}
@@ -61,7 +61,7 @@ let s:icursor_color = {"attr": "none", "bg": s:cursor_color.bg}
 let s:search_color = {"attr": "none", "fg": "white", "bg": s:todo_color.bg}
 let s:visual_color = {"attr": "none", "fg": "white", "bg": s:cursorline_color.bg}
 let s:errormsg_color = {"attr": "none", "fg": "white", "bg": s:todo_color.bg}
-let s:vertsplit_color = {"attr": "none", "fg": "#808060", "bg": s:normal_color.bg}
+let s:vertsplit_color = {"attr": "none", "fg": s:comment_color.fg, "bg": s:normal_color.bg}
 let s:column_color = {"attr": "none", "bg": s:tabline_color.bg}
 let s:dir_color = {"attr": "none", "fg": "lightblue"}
 let s:matchparen_color = {"attr": "none", "fg": "white", "bg": s:cursorline_color.bg}
@@ -79,7 +79,7 @@ let s:error_color = {"attr": "none", "fg": "white", "bg": s:todo_color.bg}
 let s:diffremoved_color = {"attr": "none", "fg": "darkred"}
 
 " Vim
-exe "hi SpecialKey" "gui=".s:specialkey_color.attr "guibg=".s:specialkey_color.bg
+exe "hi SpecialKey" "gui=".s:specialkey_color.attr "guifg=".s:specialkey_color.fg "guibg=".s:specialkey_color.bg
 exe "hi NonText" "gui=".s:nontext_color.attr "guifg=".s:nontext_color.fg
 exe "hi LineNr" "gui=".s:linenr_color.attr "guifg=".s:linenr_color.fg "guibg=".s:linenr_color.bg
 exe "hi CursorLine" "gui=".s:cursorline_color.attr "guifg=".s:cursorline_color.fg "guibg=".s:cursorline_color.bg
@@ -399,9 +399,21 @@ hi link racketSyntax    Define
 hi link racketFormat    Format
 hi link racketEscape    Special
 
+" Lisp
+hi link lispDecl        Define
+hi link lispFunc        Function
+
+" Scheme
+hi link schemeSyntax    Define
+
+" Nim
+hi link nimBuiltin      Keyword
+
 " ALE
-hi ALEErrorSign     guifg=red       ctermfg=red
-hi ALEWarningSign   guifg=yellow    ctermfg=yellow
+hi ALEErrorSign     guifg=lightred      ctermfg=red
+hi ALEError         guifg=lightred      ctermfg=red
+hi ALEWarningSign   guifg=yellow        ctermfg=yellow
+hi ALEWarning       gui=undercurl       guisp=yellow
 
 " NERDTree
 " this will be moved to a more appropriate location
@@ -426,3 +438,8 @@ hi link TagbarVisibilityPublic      TagbarVisibilityPrivate
 hi GitGutterAdd     guifg=lightgreen
 hi GitGutterDelete  guifg=lightred
 hi GitGutterChange  guifg=yellow
+
+" EasyMotion
+hi EasyMotionTarget         guifg=yellow
+hi EasyMotionTarget2First   guifg=yellow
+hi EasyMotionTarget2Second  guifg=yellow
