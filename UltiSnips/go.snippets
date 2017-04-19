@@ -19,9 +19,7 @@ func main() {
 endsnippet
 
 snippet st
-type ${1:Type} struct {
-	$0
-}
+struct $0
 endsnippet
 
 snippet map "Create a map" !
@@ -84,4 +82,45 @@ endsnippet
 
 snippet ret
 return $0
+endsnippet
+
+snippet cobracmd
+var $1 = &cobra.Command{
+	Use: "$2",
+	Short: "$3",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		$0
+		return nil
+	},
+}
+endsnippet
+
+snippet def
+defer $0
+endsnippet
+
+snippet deff
+defer func() {
+	$0
+}()
+endsnippet
+
+snippet fn
+func $1($2) $3 {
+	$0
+}
+endsnippet
+
+snippet exit
+os.Exit($0)
+endsnippet
+
+snippet sleep
+time.Sleep($0)
+endsnippet
+
+snippet init
+func init() {
+	$0
+}
 endsnippet
