@@ -1,0 +1,218 @@
+snippet fr
+from $0
+endsnippet
+
+snippet im
+import $0
+endsnippet
+
+snippet fn "" !w
+func $0
+endsnippet
+
+snippet pr "" !w
+proc $0
+endsnippet
+
+snippet prn "" !b
+proc ${1:name?}(${2:args?}): ${3:ReturnType} =
+	${0:code?}
+endsnippet
+
+snippet met "" !w
+method $0
+endsnippet
+
+snippet disc "" !w
+discard $0
+endsnippet
+
+snippet dist "" !w
+distinct $0
+endsnippet
+
+snippet ec "" !i
+echo $0
+endsnippet
+
+snippet con "" !w
+continue
+endsnippet
+
+snippet br "" !w
+break
+endsnippet
+
+snippet ret "" !w
+return $0
+endsnippet
+
+snippet tem
+template $0
+endsnippet
+
+snippet ob "" !w
+object
+endsnippet
+
+snippet rob "" !w
+RootObj
+endsnippet
+
+snippet ty
+type $0
+endsnippet
+
+snippet tu "" !w
+tuple
+endsnippet
+
+snippet hset "" !w
+HashSet
+endsnippet
+
+snippet oset "" !w
+OrderedSet
+endsnippet
+
+snippet cset "" !w
+CharSet
+endsnippet
+
+snippet tr "" !w
+true
+endsnippet
+
+snippet fa "" !w
+false
+endsnippet
+
+snippet ma "" !w
+macro $0
+endsnippet
+
+snippet ass "" !w
+assert $0
+endsnippet
+
+snippet wr "" !i
+write
+endsnippet
+
+snippet wrl "" !i
+writeLine
+endsnippet
+
+snippet def "" !w
+defined
+endsnippet
+
+snippet exp "" !w
+export $0
+endsnippet
+
+snippet pra "" !w
+{.$0.}
+endsnippet
+
+snippet en "" !w
+enum
+endsnippet
+
+snippet fl "" !w
+File $0
+endsnippet
+
+snippet nos "" !w
+noSideEffect
+endsnippet
+
+snippet arr "" !w
+array
+endsnippet
+
+snippet as "" !w
+async
+endsnippet
+
+snippet aw "" !w
+await $0
+endsnippet
+
+snippet exc "" !w
+except $0
+endsnippet
+
+snippet Exc "" !w
+Exception
+endsnippet
+
+snippet nexc "" !w
+newException(${1:exception?}, "${2:message?}")$0
+endsnippet
+
+snippet rexc "" !w
+raise newException(${1:exception?}, "${2:message}")$0
+endsnippet
+
+snippet fin "" !w
+finally:
+	$0
+endsnippet
+
+snippet trf "" !w
+try:
+	$1
+finally:
+	$0
+endsnippet
+
+snippet tref "" !w
+try:
+	$1
+except $2:
+	$3
+finally:
+	$0
+endsnippet
+
+snippet clo "" !w
+clojure
+endsnippet
+
+snippet st "" !w
+static
+endsnippet
+
+snippet conc "" !w
+Concept
+endsnippet
+
+snippet nat "" !w
+Natural
+endsnippet
+
+snippet unt "" !w
+untyped
+endsnippet
+
+snippet it "" !w
+iterator $0
+endsnippet
+
+snippet res "" !w
+result = $0
+endsnippet
+
+snippet ctd "" !w
+countdown($1, $2)$0
+endsnippet
+
+snippet ctu "" !w
+countup($1, $2)$0
+endsnippet
+
+snippet nob "" !w
+type ${1:name?} = object
+	${0:member?}
+endsnippet
