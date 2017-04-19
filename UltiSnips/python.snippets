@@ -24,12 +24,12 @@ __license__ = '$3'
 __copyright__ = 'Copyright (c) ${4:<year>} Alexandru Dreptu'
 endsnippet
 
-snippet main
+snippet main "" !b
 if __name__ == '__main__':
 	$0
 endsnippet
 
-snippet pr
+snippet pr "" !w
 print($0)
 endsnippet
 
@@ -49,72 +49,51 @@ snippet ver
 version
 endsnippet
 
-snippet ex
+snippet ex "" !b
 except $0
 endsnippet
 
-snippet fin
+snippet fin "" !b
 finally:
 	$0
 endsnippet
 
-snippet tr
-try:
-	$1
-except $2:
-	$0
+snippet tr "" !w
+True
 endsnippet
 
-snippet tre
-try:
-	$1
-except $2:
-	$3
-else:
-	$0
+snippet fa "" !w
+False
 endsnippet
 
-snippet trf
-try:
-	$1
-except $2:
-	$3
-finally:
-	$0
-endsnippet
-
-snippet tref
-try:
-	$1
-except $2:
-	$3
-else:
-	$4
-finally:
-	$0
-endsnippet
-
-snippet ret
+snippet ret "" !b
 return $0
 endsnippet
 
-snippet br
+snippet br "" !b
 break
 endsnippet
 
-snippet cont
+snippet con "" !b
 continue
 endsnippet
 
-snippet glo
+snippet gl "" !b
 global $0
 endsnippet
 
-snippet non
+snippet non "" !b
 nonlocal $0
 endsnippet
 
-snippet init
-def __init__(self, $1):
-	$0
+snippet in "" !w
+__init__$0
+endsnippet
+
+snippet cl "" !b
+class $0
+endsnippet
+
+snippet str "" !w
+__str__$0
 endsnippet
