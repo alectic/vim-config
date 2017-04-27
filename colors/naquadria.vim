@@ -179,7 +179,7 @@ hi link cSpecial		Special
 hi link cStructure      Class
 hi link cOperator       Constant
 hi link cUserLabel      Statement
-" customs - defined in $HOME/.vim/after/syntax/c/highlight.vim
+" customs - defined in $HOME/.vim/after/syntax/c.vim
 hi link cOperator       Operator
 hi link cStatement      Statement
 hi link cStatement2     Type
@@ -188,7 +188,7 @@ hi link cStatement2     Type
 
 " C++
 hi link cppStructure    Class
-" customs - defined in $HOME/.vim/after/syntax/cpp/highlight.vim
+" customs - defined in $HOME/.vim/after/syntax/cpp.vim
 hi link cppKeyword1     Private
 hi link cppKeyword2     Conditional
 "hi link cppKeyword3     Class
@@ -253,7 +253,7 @@ hi link goEscapeOctal   Special
 hi link goSpaceError	SpecialKey
 hi link goEscapeError	Visual
 hi link goEscapeX		Special
-" customs - defined in $HOME/.vim/after/syntax/go/highlight.vim
+" customs - defined in $HOME/.vim/after/syntax/go.vim
 hi link goKeyword       Keyword
 hi link goInterface     Type
 hi link goFunction      Function
@@ -268,7 +268,7 @@ hi link pythonEscape        Special
 hi link pythonException     Statement
 hi link pythonExceptions    Private
 
-" customs - defined in $HOME/.vim/after/syntax/python/highlight.vim
+" customs - defined in $HOME/.vim/after/syntax/python.vim
 hi link pythonDocStringS    CommentDoc
 hi link pythonDocStringD    CommentDoc
 hi link pythonFormat        Format
@@ -317,7 +317,7 @@ hi link jsFuncParens            none
 hi link jsFuncBraces            none
 hi link jsParensError           none " ???
 hi link jsFuncArgRest           none
-" customs - defined in $HOME/.vim/after/syntax/javascript/highlight.vim
+" customs - defined in $HOME/.vim/after/syntax/javascript.vim
 "hi link jsCustomFunc			Function
 hi link jsFormat                Format
 hi link jsKeyword               Keyword

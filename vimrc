@@ -533,7 +533,7 @@ if executable('ctags')
     Plug 'vim-scripts/AutoTag'
 endif
 if executable('go')
-    Plug 'fatih/vim-go'
+    Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 endif
 if executable('clang')
     Plug 'Rip-Rip/clang_complete'
@@ -542,7 +542,9 @@ Plug 'davidhalter/jedi-vim'
 Plug 'Chiel92/vim-autoformat'
 Plug 'mkitt/tabline.vim'
 Plug 'pangloss/vim-javascript'
-Plug 'marijnh/tern_for_vim', { 'do': 'npm install' }
+if executable('nim')
+    Plug 'marijnh/tern_for_vim', { 'do': 'npm install' }
+endif
 if executable('tsc')
     "Plug 'leafgarland/typescript-vim'
     Plug 'HerringtonDarkholme/yats.vim'
