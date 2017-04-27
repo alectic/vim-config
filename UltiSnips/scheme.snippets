@@ -1,0 +1,170 @@
+snippet sh
+#!/usr/bin/csi -s
+endsnippet
+
+snippet fn "" !w
+(define ($0))
+endsnippet
+
+snippet def "" !w
+(define $0)
+endsnippet
+
+snippet lam "" !w
+(lambda $0)
+endsnippet
+
+snippet th "" !w
+(thread $0)
+endsnippet
+
+snippet dis "" !w
+(display $0)
+endsnippet
+
+snippet pr "" !w
+(print $0)
+endsnippet
+
+snippet cond "" !w
+(cond ((${1:condition?}) (${2:true?}))
+			(else $0))
+endsnippet
+
+snippet if "" !w
+(if (${1:?}) ${2:true?} ${0:false?})
+endsnippet
+
+snippet ifa "" !w
+(if (and (${1:cond1?}) (${2:cond2?})) ${3:true} ${4:false})
+endsnippet
+
+snippet ifo "" !w
+(if (or (${1:cond1?}) (${2:cond2?})) ${3:true} ${4:false})
+endsnippet
+
+snippet cons "" !w
+(cons $0)
+endsnippet
+
+snippet map "" !w
+(map $0)
+endsnippet
+
+snippet defs
+(define-syntax $0)
+endsnippet
+
+snippet synr
+(syntax-rules $0)
+endsnippet
+
+snippet use
+(use $0)
+endsnippet
+
+snippet set
+(set! $0)
+endsnippet
+
+snippet com
+#|
+| $0
+|#
+endsnippet
+
+snippet wr
+(write $0)
+endsnippet
+
+snippet wrl
+(write-line $0)
+endsnippet
+
+snippet vec "" !w
+(vector $0)
+endsnippet
+
+snippet vecs "" !w
+(vector-set! $0)
+endsnippet
+
+snippet fore "" !w
+(for-each $0)
+endsnippet
+
+snippet dec "" !w
+(declare $0)
+endsnippet
+
+snippet un "" !w
+(unless $0)
+endsnippet
+
+snippet for "" !w
+(format $0)
+endsnippet
+
+snippet newl "" !w
+(newline)
+endsnippet
+
+snippet fopenr "" !w
+(open-input-file $0)
+endsnippet
+
+snippet fopenw "" !w
+(open-output-file $0)
+endsnippet
+
+snippet eof "" !w
+(eof-object? $0)
+endsnippet
+
+snippet lst "" !w
+(list $0)
+endsnippet
+
+snippet lstq "" !w
+'($0)
+endsnippet
+
+snippet car "" !w
+(car $0)
+endsnippet
+
+snippet cdr "" !w
+(cdr $0)
+endsnippet
+
+snippet strs "" !w
+(string-split $0)
+endsnippet
+
+snippet stra
+(string-append $0)
+endsnippet
+
+snippet stri "" !w
+(string-intersperse $0)
+endsnippet
+
+snippet eq "" !w
+(eq? $0)
+endsnippet
+
+snippet app "" !w
+(append $0)
+endsnippet
+
+snippet err "" !w
+(error $0)
+endsnippet
+
+snippet inc "" !w
+(include $0)
+endsnippet
+
+snippet sym "" !w
+(symbol? $0)
+endsnippet

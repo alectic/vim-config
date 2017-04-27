@@ -1,4 +1,4 @@
-" Maintainer: Alexandru Dreptu <alecticwp@gmail.com>
+" Maintainer: Alexandru Dreptu <alexdreptu@gmail.com>
 
 if exists("colors_name")
 	finish
@@ -317,7 +317,8 @@ nnoremap <silent> <C-Space> :call NERDComment(0, "toggle") <cr>
 
 " ALE related
 let g:ale_linters = {
-            \   'python': ['pylint'],
+            \ 'python': ['pylint'],
+            \ 'rust': ['rustc'],
             \}
 "let g:ale_lint_on_save = 1
 let g:ale_sign_column_always = 1
@@ -405,14 +406,17 @@ let g:clang_complete_macros = 1
 let g:clang_complete_patterns = 0
 
 " Autoformat related
-if executable('uncrustify')
-    let g:formatdef_uncrustify = '"uncrustify -q -c $HOME/.config/uncrustify.cfg --no-backup"'
-    let g:formatters_c = ['uncrustify']
-    let g:formatters_java = ['uncrustify']
+if executable('clang-format')
+    let g:formatdef_clang = '"clang-format"'
+    let g:formatters_c = ['clang']
 endif
 if executable('autopep8')
     let g:formatdef_py_beautify = '"autopep8 -"'
     let g:formatters_python = ['py_beautify']
+endif
+if executable('ocp-indent')
+    let g:formatdef_ocaml = '"ocp-indent"'
+    let g:formatters_ocaml = ['ocaml']
 endif
 if executable('js-beautify')
     let g:formatdef_js_beautify = '"js-beautify -f - -q -s 2 -t false -p true -m 2 -P false -E false -a false -b collapse"'
@@ -452,12 +456,59 @@ map <Leader>r <Plug>(easymotion-repeat)
 nmap f <Plug>(easymotion-s2)
 nmap t <Plug>(easymotion-t2)
 
+" vim-go related
+let g:go_template_autocreate = 0
+let g:go_fmt_command = "goimports"
+let g:go_fmt_fail_silently = 1
+let g:go_highlight_operators = 1
+
 " Slimv related
 let g:slimv_unmap_cr = 1
 let g:slimv_unmap_tab = 1
 let g:slimv_unmap_space = 1
 let g:paredit_electric_return = 0
 "let g:paredit_shortmaps = 0
+
+" rust.vim related
+let g:rustfmt_autosave = 1
+let g:rust_fold = 0
+let g:rustfmt_fail_silently = 1
+
+" vim-racer related
+let g:racer_cmd = "~/.cargo/bin/racer"
+let g:racer_experimental_completer = 1
+
+" OCaml related
+let s:opam_share_dir = system("opam config var share")
+let s:opam_share_dir = substitute(s:opam_share_dir, '[\r\n]*$', '', '')
+
+let s:opam_configuration = {}
+
+function! OpamConfOcpIndent()
+    execute "set rtp^=" . s:opam_share_dir . "/ocp-indent/vim"
+endfunction
+let s:opam_configuration['ocp-indent'] = function('OpamConfOcpIndent')
+
+function! OpamConfOcpIndex()
+    execute "set rtp+=" . s:opam_share_dir . "/ocp-index/vim"
+endfunction
+let s:opam_configuration['ocp-index'] = function('OpamConfOcpIndex')
+
+function! OpamConfMerlin()
+    let l:dir = s:opam_share_dir . "/merlin/vim"
+    execute "set rtp+=" . l:dir
+endfunction
+let s:opam_configuration['merlin'] = function('OpamConfMerlin')
+
+let s:opam_packages = ["ocp-indent", "ocp-index", "merlin"]
+let s:opam_check_cmdline = ["opam list --installed --short --safe --color=never"] + s:opam_packages
+let s:opam_available_tools = split(system(join(s:opam_check_cmdline)))
+for tool in s:opam_packages
+    " Respect package order (merlin should be after ocp-index)
+    if count(s:opam_available_tools, tool) > 0
+        call s:opam_configuration[tool]()
+    endif
+endfor
 
 " Automatic vim-plug installation
 if empty(glob('~/.vim/autoload/plug.vim'))
@@ -479,8 +530,12 @@ if executable('ctags')
     Plug 'majutsushi/tagbar'
     Plug 'vim-scripts/AutoTag'
 endif
-Plug 'fatih/vim-go'
-Plug 'Rip-Rip/clang_complete'
+if executable('go')
+    Plug 'fatih/vim-go'
+endif
+if executable('clang')
+    Plug 'Rip-Rip/clang_complete'
+endif
 Plug 'davidhalter/jedi-vim'
 Plug 'Chiel92/vim-autoformat'
 Plug 'mkitt/tabline.vim'
@@ -500,8 +555,21 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'airblade/vim-gitgutter'
 Plug 'posva/vim-vue'
 Plug 'easymotion/vim-easymotion'
-Plug 'wlangstroth/vim-racket'
+if executable('racket')
+    Plug 'wlangstroth/vim-racket'
+endif
 Plug 'kovisoft/slimv'
-Plug 'zah/nim.vim'
-"Plug 'baabelfish/nvim-nim'
+if executable('nim')
+    Plug 'zah/nim.vim'
+    "Plug 'baabelfish/nvim-nim'
+endif
+if executable('rustc')
+    Plug 'rust-lang/rust.vim'
+endif
+if executable('racer')
+    Plug 'racer-rust/vim-racer'
+endif
+if executable('ocaml')
+    Plug 'let-def/ocp-indent-vim'
+endif
 call plug#end()

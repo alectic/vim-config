@@ -10,11 +10,7 @@ snippet fn "" !w
 func $0
 endsnippet
 
-snippet pr "" !w
-proc $0
-endsnippet
-
-snippet prn "" !b
+snippet proc "" !b
 proc ${1:name?}(${2:args?}): ${3:ReturnType} =
 	${0:code?}
 endsnippet

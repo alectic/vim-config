@@ -159,7 +159,7 @@ exe "hi Private" "gui=".s:private_color.attr "guifg=".s:private_color.fg
 exe "hi Special" "gui=".s:special_color.attr "guifg=".s:special_color.fg
 "exe "hi Object" "gui=".s:object_color.attr "guifg=".s:object_color.fg
 exe "hi Operator" "gui=".s:operator_color.attr "guifg=".s:operator_color.fg
-"exe "hi Paren" "gui=".s:paren_color.attr "guifg=".s:paren_color.fg
+exe "hi Paren" "gui=".s:paren_color.attr "guifg=".s:paren_color.fg
 exe "hi Title" "gui=".s:keyword_color.attr "guifg=".s:keyword_color.fg
 
 hi NonText          guifg=bg
@@ -192,6 +192,14 @@ hi link cppStructure    Class
 hi link cppKeyword1     Private
 hi link cppKeyword2     Conditional
 "hi link cppKeyword3     Class
+
+" Rust
+hi link rustStorage             Class
+hi link rustSelf                Private
+hi link rustModPathSep          Operator
+hi link rustSigil               Operator
+hi link rustCommentlineDoc      CommentDoc
+hi link rustModPath             xxx
 
 " Java
 hi link javaFormat          Format
@@ -409,6 +417,12 @@ hi link schemeSyntax    Define
 " Nim
 hi link nimBuiltin      Keyword
 
+" OCAML
+hi link ocamlKeyChar        Operator
+hi link ocamlOperator       Operator
+hi link ocamlConstructor    Private
+hi link ocamlFunDef         Operator
+
 " ALE
 hi ALEErrorSign     guifg=lightred      ctermfg=red
 hi ALEError         guifg=lightred      ctermfg=red
@@ -440,6 +454,6 @@ hi GitGutterDelete  guifg=lightred
 hi GitGutterChange  guifg=yellow
 
 " EasyMotion
-hi EasyMotionTarget         guifg=yellow
-hi EasyMotionTarget2First   guifg=yellow
-hi EasyMotionTarget2Second  guifg=yellow
+hi EasyMotionTarget         gui=none    guifg=yellow
+hi EasyMotionTarget2First   gui=none    guifg=yellow
+hi EasyMotionTarget2Second  gui=none    guifg=yellow

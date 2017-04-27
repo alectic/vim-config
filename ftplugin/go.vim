@@ -27,7 +27,3 @@ au FileType go nmap <Leader>i <Plug>(go-info)
 au FileType go nmap <Leader>e <Plug>(go-rename)
 au FileType go nmap <silent> <C-t>f :GoDecls <cr>
 au FileType go nmap <silent> <C-t>d :GoDeclsDir <cr>
-
-let g:go_fmt_command = "goimports"
-let g:go_fmt_fail_silently = 1
-let g:go_highlight_operators = 1

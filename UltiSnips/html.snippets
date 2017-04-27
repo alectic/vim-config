@@ -1,4 +1,4 @@
-snippet base "Insert the base" !b
+snippet base "" !b
 <!doctype html>
 
 <html>
@@ -13,12 +13,12 @@ snippet base "Insert the base" !b
 </html>
 endsnippet
 
-snippet doc "Insert the html doctype" b
+snippet doc "" !b
 <!doctype html>
 $0
 endsnippet
 
-snippet tags "Insert html, head and body tags" b
+snippet tags "" !b
 <html>
 <head lang="en">
 	$1
@@ -30,147 +30,147 @@ snippet tags "Insert html, head and body tags" b
 </html
 endsnippet
 
-snippet tit "Insert title" !
+snippet tit "" !w
 <title>$1</title>$0
 endsnippet
 
-snippet desc "Insert description"
+snippet desc "" !b
 <meta name="description" content="$1"/>$0
 endsnippet
 
-snippet char "Insert meta charset utf-8"
+snippet char "" !b
 <meta charset="utf-8">$0
 endsnippet
 
-snippet com "Insert a comment"
+snippet com "" !w
 <!-- $1 -->
 endsnippet
 
-snippet html "Insert the html tags" b
+snippet html "" !b
 <html>
 	$0
 </html>
 endsnippet
 
-snippet st "Insert style tags"
+snippet st "" !b
 <style>
 	$0
 </style>
 endsnippet
 
-snippet St "Source css file" b
+snippet St "" !b
 <link rel="stylesheet" href="${0:path?}"/>
 endsnippet
 
-snippet scr
+snippet scr "" !b
 <script>
 	$0
 </script>
 endsnippet
 
-snippet Scr
+snippet Scr "" !b
 <script src="${0:?}"></script>
 endsnippet
 
-snippet nos
+snippet nos "" !b
 <noscript>$0</noscript>
 endsnippet
 
-snippet img
+snippet img "" !b
 <img src="${1:?}" alt="${0:alt?}"/>
 endsnippet
 
-snippet div
+snippet div "" !b
 <div id="$1">$0</div>
 endsnippet
 
-snippet divc
+snippet divc "" !b
 <div class="$1">$0</div>
 endsnippet
 
-snippet cl
+snippet cl "" !w
 class="${0:?}"
 endsnippet
 
-snippet but
+snippet but "" !w
 <button $1>$0</button>
 endsnippet
 
-snippet ul
+snippet ul "" !w
 <ul>
 	${0:?}
 </ul>
 endsnippet
 
-snippet ol
+snippet ol "" !w
 <ol>
 	${0:?}
 </ol>
-
 endsnippet
-snippet li
+
+snippet li "" !w
 <li>${0:?}</li>
 endsnippet
 
-snippet p
+snippet p "" !w
 <p>${0:?}</p>
 endsnippet
 
-snippet str
+snippet str "" !w
 <strong>${1:?}</strong> $0
 endsnippet
 
-snippet cod
+snippet cod "" !w
 <code>
 	${0:?}
 </code>
 endsnippet
 
-snippet precod
+snippet precod "" !b
 <pre><code>
 	${0:?}
 </code></pre>
 endsnippet
 
-snippet lab
+snippet lab "" !b
 <label ${1:?}>${0:?}</label>
 endsnippet
 
-snippet imp
+snippet imp "" !b
 <link rel="import" href="${0:?}"/>
 endsnippet
 
-snippet inp
+snippet inp "" !b
 <input ${0:?}/>
 endsnippet
 
-snippet br
+snippet br "" !w
 <br>$0
 endsnippet
 
-snippet sel
+snippet sel "" !b
 <select>
 	${0:?}
 </select>
 endsnippet
 
-snippet opt
+snippet opt "" !b
 <option>${0:?}</option>
 endsnippet
 
-snippet viewport
+snippet viewport "" !b
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 endsnippet
 
-snippet href
+snippet href "" !b
 <a href="$1">$0</a>
 endsnippet
 
 # CSS
-snippet col
+snippet col "" !w
 color: $0;
 endsnippet
 
-snippet bgc
+snippet bgc "" !b
 background-color: $0;
 endsnippet

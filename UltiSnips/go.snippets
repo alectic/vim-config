@@ -1,39 +1,39 @@
-snippet pac
+snippet pac "" !b
 package $0
 endsnippet
 
-snippet im "Import packages"
+snippet im "" !b
 import (
 	"${1:}"
 )
 endsnippet
 
-snippet com "Start a multi line comment"
+snippet com "" !w
 /* $1 */
 endsnippet
 
-snippet main "Create the generic main function" b
+snippet main "" !b
 func main() {
 	$0
 }
 endsnippet
 
-snippet st
+snippet st "" !w
 struct $0
 endsnippet
 
-snippet map "Create a map" !
+snippet map "" !w
 map[${1:keytype}]${0:valtype}
 endsnippet
 
-snippet err "Insert standard error checking condition" b
+snippet err "" !b
 if err != nil {
 	fmt.Fprintln(os.Stderr, err)
 	os.Exit(1)
 }
 endsnippet
 
-snippet ierr "Insert if err := func style error checking" b
+snippet ierr "" !b
 if err := ${1:pkg.Func()}; err != nil {
 	fmt.Fprintf(os.Stderr, "error: %s\n", err)
 	os.Exit(1)
@@ -42,49 +42,49 @@ if err := ${1:pkg.Func()}; err != nil {
 $0
 endsnippet
 
-snippet pr
+snippet pr "" !b
 fmt.Print($0)
 endsnippet
 
-snippet prl
+snippet prl "" !b
 fmt.Println($0)
 endsnippet
 
-snippet prf
+snippet prf "" !b
 fmt.Printf($0)
 endsnippet
 
-snippet fpr
+snippet fpr "" !b
 fmt.Fprint($0)
 endsnippet
 
-snippet fprl
+snippet fprl "" !b
 fmt.Fprintln($0)
 endsnippet
 
-snippet desc
+snippet desc "" !b
 Describe("$1", func() {
 	$0
 })
 endsnippet
 
-snippet cont
+snippet cont "" !b
 Context("$1", func() {
 	$0
 })
 endsnippet
 
-snippet it
+snippet it "" !b
 It("$1", func() {
 	$0
 })
 endsnippet
 
-snippet ret
+snippet ret "" !b
 return $0
 endsnippet
 
-snippet cobracmd
+snippet cobracmd "" !b
 var $1 = &cobra.Command{
 	Use: "$2",
 	Short: "$3",
@@ -95,31 +95,31 @@ var $1 = &cobra.Command{
 }
 endsnippet
 
-snippet def
+snippet def "" !b
 defer $0
 endsnippet
 
-snippet deff
+snippet deff "" !b
 defer func() {
 	$0
 }()
 endsnippet
 
-snippet fn
+snippet fn "" !b
 func $1($2) $3 {
 	$0
 }
 endsnippet
 
-snippet exit
+snippet exit "" !b
 os.Exit($0)
 endsnippet
 
-snippet sleep
+snippet sleep "" !b
 time.Sleep($0)
 endsnippet
 
-snippet init
+snippet init "" !b
 func init() {
 	$0
 }

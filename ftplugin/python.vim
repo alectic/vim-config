@@ -6,4 +6,4 @@ let b:did_ftplugin = 1
 let python_highlight_all = 1
 
 " Autoformat when :w
-autocmd BufWritePre <buffer> Autoformat
+autocmd BufWritePre <buffer> silent Autoformat

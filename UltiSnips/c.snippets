@@ -1,37 +1,95 @@
-snippet inc "Include a header file"
-#include <$0
+snippet inc "" !b
+#include <$0>
 endsnippet
 
-snippet Inc "Include a local header file"
-#include "$0
+snippet Inc "" !b
+#include "$0"
 endsnippet
 
-snippet def "create a define"
+snippet def "" !b
 #define $0
 endsnippet
 
-snippet main "generic main()"
+snippet ifn "" !b
+#ifndef ${1:NAME}
+	${0:code}
+#endif
+endsnippet
+
+snippet ifd "" !b
+#ifdef ${1:NAME}
+	${0:code}
+#endif
+endsnippet
+
+snippet main "" !b
 int main(int argc, char *argv[]) {
 	$0
 }
 endsnippet
 
-snippet com "insert a /* */ comment"
+snippet com "" !w
 /* $0 */
 endsnippet
 
-snippet unsi
+snippet uns "" !w
+unsigned $0
+endsnippet
+
+snippet unsi "" !w
 unsigned int $0
 endsnippet
 
-snippet st
+snippet st "" !w
 static $0
 endsnippet
 
-snippet inl
+snippet inl "" !w
 inline $0
 endsnippet
 
-snippet con
+snippet con "" !w
 const $0
+endsnippet
+
+snippet ret "" !b
+return$0;
+endsnippet
+
+snippet pr "" !b
+print($0);
+endsnippet
+
+snippet prf "" !b
+printf($0);
+endsnippet
+
+snippet prl "" !b
+printf("$0\n");
+endsnippet
+
+snippet spr "" !b
+sprintf($0);
+endsnippet
+
+snippet fpr "" !b
+fprintf($0);
+endsnippet
+
+snippet fprl "" !b
+fprintf(${1:file}, "${0:string}\n");
+endsnippet
+
+snippet br "" !w
+break;
+endsnippet
+
+snippet cont "" !w
+continue;
+endsnippet
+
+snippet do "" !w
+do {
+	${1:code}
+} while (${0:condition});
 endsnippet
