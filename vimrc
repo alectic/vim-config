@@ -142,7 +142,9 @@ set statusline+=\ %#StatusLineInfo#[%{FileSize()}] " output buffer's file size
 set statusline+=\ %#StatusLineReadOnly#%r
 set statusline+=\ %#StatusLineChange#%m
 set statusline+=%=
-set statusline+=\ %{ALEGetStatusLine()}
+if isdirectory($HOME."/.vim/bundle/ale")
+    set statusline+=\ %{ALEGetStatusLine()}
+endif
 set statusline+=\ %#StatusLineInfo#%Y
 set statusline+=\ %#StatusLineInfo#[L=%l:C=%c]
 set statusline+=\ [%p]

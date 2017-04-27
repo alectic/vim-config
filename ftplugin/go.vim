@@ -6,7 +6,7 @@ let b:did_ftplugin = 1
 setl noexpandtab " use tabs instead of spaces
 setl omnifunc=go#complete#Complete
 
-ca im GoImport
+cnorea im GoImport
 
 " setting gocode activation (omnifunc) to ctrl+space
 inoremap <C-Space> <C-x><C-o>
