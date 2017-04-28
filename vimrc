@@ -23,7 +23,7 @@ set smartindent
 set cindent
 set expandtab " spaces
 "set noexpandtab " tabs
-set tabstop=4
+set tabstop=8
 set shiftwidth=4
 set softtabstop=4
 set scrolloff=5 "minimal number of screen lines to keep above and below the cursor when using j, k
@@ -487,7 +487,7 @@ let s:opam_share_dir = substitute(s:opam_share_dir, '[\r\n]*$', '', '')
 let s:opam_configuration = {}
 
 function! OpamConfOcpIndent()
-    execute "set rtp^=" . s:opam_share_dir . "/ocp-indent/vim"
+    execute "set rtp+=" . s:opam_share_dir . "/ocp-indent/vim"
 endfunction
 let s:opam_configuration['ocp-indent'] = function('OpamConfOcpIndent')
 
